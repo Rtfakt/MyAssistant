@@ -160,3 +160,6 @@ sendMouseUDP(MousePackagesUdp.INITIAL_MOUSE_POSITION)
 sendKeyboardUDP(KeyboardPackagesUdp.RightArrow)
 sendKeyboardUDP(KeyboardPackagesUdp.ENTER)
 # Считать случай диспансерным?
+sendKeyboardUDP(KeyboardPackagesUdp.RightArrow)
+sendKeyboardUDP(KeyboardPackagesUdp.ENTER)
+time.sleep(3)
