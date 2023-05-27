@@ -52,7 +52,10 @@ def sendToUDP(MESSAGE) :
 
 
 #РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
-sendToUDP(INITIAL_MOUSE_POSITION)
+#sendToUDP(INITIAL_MOUSE_POSITION)
 #Начало
 
+x = int(input())
+y = int(input())
+print(calc(x,y))
 
