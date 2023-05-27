@@ -11,10 +11,10 @@ All_KEYS_KEYBOARD_UP = "345680000000000000"
 
 def calc(a,b):
     s = '34564000'
-    for i in range(5, len(str(a)), -1): s+='0'
-    s+=str(a)
-    for i in range(5, len(str(b)), -1): s+='0'
-    s+=str(b)
+    for i in range(5, len(str(a)), -1): s += '0'
+    s += str(a)
+    for i in range(5, len(str(b)), -1): s += '0'
+    s += str(b)
     return s
 
 "3456 4 000 00000 00000"  #распиши как будут выглядеть реальные примеры
