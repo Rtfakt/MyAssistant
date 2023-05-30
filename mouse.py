@@ -24,15 +24,6 @@ def mouseTap(MESSAGE):  # метод нажимает и отпускает кн
 
 
 def calc(a, b):
-    s = '34564000'
-    w = 65536
-    if a >= 0:
-        for i in range(5, len(str(a)), -1): s += '0'
-    else: a+=w
-    s += str(a)
+    sock.sendto('34564000{:05d}{:05d}'.format(a if a>=0 else 65536-a, b if b>=0 else 65536-b).encode(), (UDP_IP, UDP_PORT))
 
-    if b >= 0:
-        for i in range(5, len(str(b)), -1): s += '0'
-    else: b+=w
-    s += str(b)
-    sock.sendto(s.encode(), (UDP_IP, UDP_PORT))
+
