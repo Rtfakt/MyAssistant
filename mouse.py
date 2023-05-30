@@ -28,13 +28,11 @@ def calc(a, b):
     w = 65536
     if a >= 0:
         for i in range(5, len(str(a)), -1): s += '0'
-    elif a < 0:
-        a = w - a
+    else: a+=w
     s += str(a)
 
     if b >= 0:
         for i in range(5, len(str(b)), -1): s += '0'
-    elif b < 0:
-        b = w - b
+    else: b+=w
     s += str(b)
     sock.sendto(s.encode(), (UDP_IP, UDP_PORT))
