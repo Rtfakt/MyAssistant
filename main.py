@@ -1,17 +1,17 @@
-
+import time
 from tkinter import *
 
 from keyboard import keyboardTap, KeyboardPackagesUdp
-from mouse import mouseTap, MousePackagesUdp
+from mouse import mouseTap, MousePackagesUdp, calc
 
-keyboardClick = KeyboardPackagesUdp
-mouseClick = MousePackagesUdp
+
 
 #РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
-mouseTap(MousePackagesUdp.INITIAL_MOUSE_POSITION)
+
 #Начало
 
+mouseTap(MousePackagesUdp.INITIAL_MOUSE_POSITION)
 
-keyboardTap(KeyboardPackagesUdp.RightArrow)
-keyboardTap(KeyboardPackagesUdp.ENTER)
-
+calc(1500, 500)
+time.sleep(1)
+calc(100, 100)

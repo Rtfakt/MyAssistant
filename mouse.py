@@ -16,18 +16,25 @@ class MousePackagesUdp():
     SCROLL_DOWN_MOUSE = "345670000025500000"
 
 
-def mouseTap(MESSAGE):#метод нажимает и отпускает кнопку мыши
+def mouseTap(MESSAGE):  # метод нажимает и отпускает кнопку мыши
     sock.sendto(MESSAGE.encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.2)
     sock.sendto(MousePackagesUdp.ALL_KEYS_MOUSE_UP.encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.2)
 
 
-
-def calc(a,b):
+def calc(a, b):
     s = '34564000'
-    for i in range(5, len(str(a)), -1): s += '0'
+    w = 65536
+    if a >= 0:
+        for i in range(5, len(str(a)), -1): s += '0'
+    elif a < 0:
+        a = w - a
     s += str(a)
-    for i in range(5, len(str(b)), -1): s += '0'
+
+    if b >= 0:
+        for i in range(5, len(str(b)), -1): s += '0'
+    elif b < 0:
+        b = w - b
     s += str(b)
-    return s
+    sock.sendto(s.encode(), (UDP_IP, UDP_PORT))
