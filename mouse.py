@@ -14,6 +14,15 @@ class MousePackagesUdp():
     SKM_MOUSE = "345640040000000000"
     SCROLL_UP_MOUSE = "345670000000100000"
     SCROLL_DOWN_MOUSE = "345670000025500000"
+def mouseDoubleLKMTap():
+        sock.sendto(MousePackagesUdp.LKM_MOUSE.encode(), (UDP_IP, UDP_PORT))
+        time.sleep(0.2)
+        sock.sendto(MousePackagesUdp.ALL_KEYS_MOUSE_UP.encode(), (UDP_IP, UDP_PORT))
+        time.sleep(0.2)
+        sock.sendto(MousePackagesUdp.LKM_MOUSE.encode(), (UDP_IP, UDP_PORT))
+        time.sleep(0.2)
+        sock.sendto(MousePackagesUdp.ALL_KEYS_MOUSE_UP.encode(), (UDP_IP, UDP_PORT))
+        time.sleep(0.2)
 
 
 def mouseTap(MESSAGE):  # метод нажимает и отпускает кнопку мыши

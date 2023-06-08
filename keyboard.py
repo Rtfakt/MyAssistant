@@ -98,6 +98,6 @@ class KeyboardPackagesUdp:
 
 def keyboardTap(MESSAGE) :#метод нажимает и отпускает кнопку клавиатуры
     sock.sendto(MESSAGE.encode(), (UDP_IP, UDP_PORT))
-    time.sleep(0.2)
+    time.sleep(0.1)
     sock.sendto(KeyboardPackagesUdp.All_KEYS_KEYBOARD_UP.encode(), (UDP_IP, UDP_PORT))
-    time.sleep(0.2)
+    time.sleep(0.1)
