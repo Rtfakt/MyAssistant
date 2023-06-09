@@ -16,6 +16,7 @@ def restartIK():
     keyboardTap(KP.ENTER)
     time.sleep(5)
     # имя
+
     keyboardTap(KP.A)
     keyboardTap(KP.K)
     keyboardTap(KP.O)
