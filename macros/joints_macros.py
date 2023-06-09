@@ -1,68 +1,69 @@
 import time
 
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, mouseDoubleLKMTap
+from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, mouseDoubleLKMTap, initialMousePosition
+
+
+
+
+
 
 #тазобедренный сустав
-def hipJoint():
+def hipsJoints():
     # Начало
-    mouseTap(MP.INITIAL_MOUSE_POSITION)
+    initialMousePosition()
     #История болезни
-    mousePosition(250, 40)
+    mousePosition(315, 40)
     mouseTap(MP.LKM_MOUSE)
     #Рентгенография суставов
-    mousePosition(0, 240)
+    mousePosition(0, 330)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(5)
     #шаблоны
-    mousePosition(725, -240)
+    mousePosition(640, -330)
     mouseTap(MP.LKM_MOUSE)
     # Выбрать
     mousePosition(5, 34)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    #ДОА тазобедренного сустава
-    mousePosition(-605, 335)
+    # ДОА тазобедренного сустава
+    mousePosition(-605, 295)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
-    mousePosition(130, -340)
+    mousePosition(130, -310)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    #Область исследования
-    mousePosition(0, 100)
+    # Область исследования
+    mousePosition(0, 130)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
 
 
-
-    #правого и левого
-    mousePosition(1030,300)
+    # правого и левого
+    initialMousePosition()
+    mousePosition(1500, 200)
     mouseDoubleLKMTap()
     time.sleep(1)
-
-
-    #Заключение
-    mousePosition(-500, 250)
+    # Заключение
+    mousePosition(-500, 500)
     mouseTap(MP.LKM_MOUSE)
-    #выбор стороны в заключении
-    mousePosition(500, -220)
+    # выбор стороны в заключении
+    mousePosition(500, -420)
     mouseDoubleLKMTap()
-    #Заключение2
-    mousePosition(-500, 220)
+
+
+
+    # Заключение2
+    mousePosition(-500, 420)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-
-
-    #выставление степени
-    keyboardTap(KP.NUM2)
-    keyboardTap(KP.KEYBOARD_MINUS)
-    keyboardTap(KP.NUM3)
-
+    # выставление степени
+    keyboardTap(KP.NUM1)
     # подписать
-    mousePosition(-600, -670)
+    mousePosition(-570, -660)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     # печать
@@ -74,8 +75,8 @@ def hipJoint():
     keyboardTap(KP.ENTER)
     time.sleep(1)
     # выход
+    time.sleep(10)
     mousePosition(1460, 5)
-    time.sleep(8)
     mouseTap(MP.LKM_MOUSE)
     # cчитать прием диспансерным?
     keyboardTap(KP.RightArrow)
@@ -93,11 +94,34 @@ def hipJoint():
 
 
 
+
+
  # коленные суставы
-def kneesJoint():
+def kneesJoints():
     # Начало
-    mouseTap(MP.INITIAL_MOUSE_POSITION)
+    initialMousePosition()
     # История болезни
-    mousePosition(250, 40)
+    mousePosition(315, 40)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

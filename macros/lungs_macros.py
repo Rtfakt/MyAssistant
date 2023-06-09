@@ -1,15 +1,15 @@
 import time
 
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition
+from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition
 
 
 # (без печати)РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
 def rOGK():
     # Начало
-    mouseTap(MP.INITIAL_MOUSE_POSITION)
+    initialMousePosition()
     #История болезни
-    mousePosition(250, 40)
+    mousePosition(315, 40)
     mouseTap(MP.LKM_MOUSE)
     #Рентгенография органов грудной клетки
     mousePosition(0, 200)
@@ -17,7 +17,7 @@ def rOGK():
     mouseTap(MP.LKM_MOUSE)
     time.sleep(5)
     #шаблоны
-    mousePosition(725, -194)
+    mousePosition(640, -194)
     mouseTap(MP.LKM_MOUSE)
     #Выбрать
     mousePosition(5, 34)
@@ -59,9 +59,9 @@ def rOGK():
 
 def rOGKPrint():
     # Начало
-    mouseTap(MP.INITIAL_MOUSE_POSITION)
+    initialMousePosition()
     #История болезни
-    mousePosition(250, 40)
+    mousePosition(315, 40)
     mouseTap(MP.LKM_MOUSE)
     #Рентгенография органов грудной клетки
     mousePosition(0, 200)
@@ -69,7 +69,7 @@ def rOGKPrint():
     mouseTap(MP.LKM_MOUSE)
     time.sleep(5)
     #шаблоны
-    mousePosition(725, -194)
+    mousePosition(640, -194)
     mouseTap(MP.LKM_MOUSE)
     #Выбрать
     mousePosition(5, 34)
@@ -96,7 +96,7 @@ def rOGKPrint():
     keyboardTap(KP.ENTER)
     time.sleep(1)
     #выход
-    mousePosition(1440, 5)
+    mousePosition(1500, 5)
     time.sleep(8)
     mouseTap(MP.LKM_MOUSE)
     #cчитать прием диспансерным?
