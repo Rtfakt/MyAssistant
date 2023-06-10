@@ -10,35 +10,7 @@ from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, mouseDoubleLK
 
 #тазобедренный сустав
 def hipsJoints():
-    # Начало
-    initialMousePosition()
-    #История болезни
-    mousePosition(315, 40)
-    mouseTap(MP.LKM_MOUSE)
-    #Рентгенография суставов
-    mousePosition(0, 330)
-    time.sleep(1)
-    mouseTap(MP.LKM_MOUSE)
-    time.sleep(5)
-    #шаблоны
-    mousePosition(640, -330)
-    mouseTap(MP.LKM_MOUSE)
-    # Выбрать
-    mousePosition(5, 34)
-    time.sleep(1)
-    mouseTap(MP.LKM_MOUSE)
-    # ДОА тазобедренного сустава
-    mousePosition(-605, 295)
-    time.sleep(1)
-    mouseTap(MP.LKM_MOUSE)
-    # Выбор с добавлением
-    mousePosition(130, -310)
-    time.sleep(1)
-    mouseTap(MP.LKM_MOUSE)
-    # Область исследования
-    mousePosition(0, 130)
-    time.sleep(1)
-    mouseTap(MP.LKM_MOUSE)
+
 
 
     # правого и левого
@@ -102,6 +74,13 @@ def kneesJoints():
     initialMousePosition()
     # История болезни
     mousePosition(315, 40)
+
+
+
+
+
+
+
 
 
 

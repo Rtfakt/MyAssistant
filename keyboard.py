@@ -96,6 +96,10 @@ class KeyboardPackagesUdp:
     Right_GUI = "345612310000000000"
 
 
+
+def keyboardLongTap(MESSAGE):
+    sock.sendto(MESSAGE.encode(), (UDP_IP, UDP_PORT))
+    time.sleep(0.1)
 def keyboardTap(MESSAGE) :#метод нажимает и отпускает кнопку клавиатуры
     sock.sendto(MESSAGE.encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.1)
