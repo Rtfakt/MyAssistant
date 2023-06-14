@@ -249,7 +249,7 @@ def fluraEnd():
     keyboardTap(KP.F2)
     # выбрать
     keyboardTap(KP.F2)
-    # нет диагноза в приеме
+    #нет диагноза в приеме
     keyboardTap(KP.ENTER)
 
 
