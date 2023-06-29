@@ -132,10 +132,10 @@ def fluraStart():
     keyboardTap(KP.NUM8)
     #стрелка влево
     keyboardTap(KP.ENTER)
-    time.sleep(1)
+    #
     #Добавлять диагноз?
     keyboardTap(KP.ENTER)
-    time.sleep(1)
+    ##
     #диагноз уже добавлен
     keyboardTap(KP.ENTER)
     keyboardTap(KP.ENTER)
@@ -198,9 +198,29 @@ def fluraStart():
     #Подписать
     keyboardTap(KP.ENTER)
     #выход
-    time.sleep(12)
+    time.sleep(13)
     mousePosition(1570, 5)
     mouseTap(MP.LKM_MOUSE)
+    time.sleep(2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -215,33 +235,34 @@ def fluraStart():
 def fluraEnd():
     #кнопка z01.8
     initialMousePosition()
-    mousePosition(100, 490)
+    mousePosition(58, 490)
     mouseTap(MP.LKM_MOUSE)
-    #закрыть
+    # закрыть
     mousePosition(0, 85)
     mouseTap(MP.LKM_MOUSE)
-    #результат
-    mousePosition(1033, -100)
+    time.sleep(1)
+    # результат
+    mousePosition(1073, -100)
     mouseTap(MP.LKM_MOUSE)
-    #лечение завершено
+    # лечение завершено
     mousePosition(0, 40)
     mouseTap(MP.LKM_MOUSE)
-    #Исход заболевания
-    mousePosition(0,-10)
+    # Исход заболевания
+    mousePosition(0, -10)
     mouseTap(MP.LKM_MOUSE)
-    #осмотр
+    # осмотр
     mousePosition(-20, 130)
     mouseTap(MP.LKM_MOUSE)
-    #Закрыть с текущим диагнозом
-    mousePosition(0,-90)
+    # Закрыть с текущим диагнозом
+    mousePosition(0, -90)
     mouseTap(MP.LKM_MOUSE)
-    #Сформировать эпикриз автоматически?
+    # Сформировать эпикриз автоматически?
     keyboardTap(KP.ENTER)
-    time.sleep(5)
-    #Подписать
+    time.sleep(8)
+    # Подписать
     keyboardTap(KP.ENTER)
-    time.sleep(5)
-    #сохранить F2
+    time.sleep(10)
+    # сохранить F2
     keyboardTap(KP.F2)
     # сохранить изменения?
     keyboardTap(KP.ENTER)
@@ -249,9 +270,8 @@ def fluraEnd():
     keyboardTap(KP.F2)
     # выбрать
     keyboardTap(KP.F2)
-    #нет диагноза в приеме
+    # нет диагноза в приеме
     keyboardTap(KP.ENTER)
-
 
 
 

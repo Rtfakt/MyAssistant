@@ -21,7 +21,7 @@ def startIK():
     # подключить
     keyboardTap(KP.ENTER)
     # поле имени
-    time.sleep(7)
+    time.sleep(10)
     # имя
     keyboardTap(KP.A)
     keyboardTap(KP.K)
@@ -50,7 +50,7 @@ def startIK():
     initialMousePosition()
     mousePosition(20, 650)
     mouseDoubleLKMTap()
-    time.sleep(1)
+    time.sleep(2)
     #поликлиника
     keyboardTap(KP.ENTER)
     time.sleep(5)
@@ -128,6 +128,7 @@ def restartIK():
      initialMousePosition()
      # выход
      mousePosition(455, 35)
+     time.sleep(2)
      mouseTap(MP.LKM_MOUSE)
      # завершение работы
      mousePosition(0, 20)
@@ -138,6 +139,7 @@ def restartIK():
      mouseTap(MP.LKM_MOUSE)
      # Значек пользователя
      mousePosition(10, -130)
+     time.sleep(1)
      mouseTap(MP.LKM_MOUSE)
      # выход
      mousePosition(0, -50)
@@ -209,6 +211,8 @@ def restartIK():
      mousePosition(100, 200)
      mouseTap(MP.LKM_MOUSE)
      time.sleep(4)
+
+
 
 
 
