@@ -45,7 +45,7 @@ def startIK():
     keyboardTap(KP.NUM8)
     # Подтвердить
     keyboardTap(KP.ENTER)
-    time.sleep(10)
+    time.sleep(11)
     # значок инфоклиники
     initialMousePosition()
     mousePosition(20, 650)

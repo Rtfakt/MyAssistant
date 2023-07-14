@@ -5,29 +5,38 @@ import time
 from udp_client import sock, UDP_IP, UDP_PORT
 
 
-#def readScreen():
- #   capture = cv2.VideoCapture(0)
-  #  capture.set(4, 1080)  # Id высоты 4
-   # capture.set(3, 1900)  # Id ширины 3
-
-    #while True:
-     #   ret, img = capture.read()
-      #  cv2.imshow("Screen camera", img)
-       # k = cv2.waitKey(1) & 0xFF
-        #if k == 27:
-         #   break
-
-    #capture.release()
-    #cv2.destroyWindow()
+cap = cv.VideoCapture(0)
+cap.set(4, 1080)  # Id высоты 4
+cap.set(3, 1900)  # Id ширины 3
 
 
+def readScreen():
+    while True:
+
+        ret, frame = cap.read() #получение кадров с камеры
+
+        # img = cv2.cvtColor(np.array(frame), cv2.COLOR_BGR2GRAY)
+        # Save img data as matrix
+        # img_matrix.append(img)
+
+        cv.imshow("screenshot", cap.read()[1])  # показ скриншота экрана
+        cv.imwrite('screenshot.png', cap.read()[1])  # сохранаем скриншот в файл
+        # print(img_matrix)
+        # print(len(img_matrix))
+
+        if cv.waitKey(1) & 0xFF == ord('q'):   #выйти из камеры
+            cv.destroyAllWindows()
+            break
 
 
-def startReadScreen():
 
-        cap = cv.VideoCapture(0)
-        cap.set(4, 1080)  # Id высоты 4
-        cap.set(3, 1900)  # Id ширины 3
+
+
+
+'''
+cap = cv.VideoCapture(0)
+cap.set(4, 1080)  # Id высоты 4
+cap.set(3, 1900)  # Id ширины 3
 
 template = cv.imread('images/rentgenoButton.png', 0)
 
@@ -56,35 +65,42 @@ while (True):
                 rectangles.append(rect)
                 #print(rect)
 
+        rectangles, weights = cv.groupRectangles(rectangles, groupThreshold=1, eps=0.5)
+        # print(rectangles)
+
+        points = []
         if len(rectangles):
-                #print('кнопка найдена')
+                # print('Found needle.')
 
                 line_color = (0, 255, 0)
                 line_type = cv.LINE_4
-                marker_type = cv.MARKER_TILTED_CROSS
+                marker_color = (255, 0, 255)
+                marker_type = cv.MARKER_CROSS
 
+                # Loop over all the rectangles
                 for (x, y, w, h) in rectangles:
-                        # top_left = (x, y)
-                        # bottom_right = (x + w, y + h)
-                        # cv.rectangle(initialScreen, top_left, bottom_right, line_color, line_type)
-
+                        # Determine the center position
                         center_x = x + int(w / 2)
                         center_y = y + int(h / 2)
+                        # Save the points
+                        points.append((center_x, center_y))
                         cv.drawMarker(grey_screen, (center_x, center_y), marker_type)
                         print('точка х %s' % str(center_x))
                         print('точка y %s' % str(center_y))
-                        break
-                sock.sendto(
-                '34564000{:05d}{:05d}'.format(center_x if center_x >= 0 else 65536 + center_x, center_y if center_y >= 0 else 65536 + center_y).encode(),
+
+                        points.append((center_x, center_y))
+                        sock.sendto(
+                        '34564000{:05d}{:05d}'.format(center_x if center_x >= 0 else 65536 + center_x, center_y if center_y >= 0 else 65536 + center_y).encode(),
                         (UDP_IP, UDP_PORT))
-                time.sleep(0.1)
+                        time.sleep(0.1)
+                        pass
 
                 cv.imshow('result', grey_screen)
 
-
-
-
         if cv.waitKey(1) & 0xFF == ord('q'):
-            cv.destroyAllWindows()
-            break
+                cv.destroyAllWindows()
+                break
+'''
+
+
 
