@@ -2,6 +2,7 @@ import time
 
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from find_button import FindButton as FB
 
 
 # (без печати)РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
@@ -116,12 +117,22 @@ def rOGKPrint():
 
 
 def fluraStart():
+    #зеленая кнопка play
+    FB.find(FB.playButton)
+    mouseTap(MP.LKM_MOUSE)
+    #Дата
+    keyboardTap(KP.ENTER)
+    #Подтвердить случай?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # ?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
     #диагноз
-    initialMousePosition()
-    mousePosition(120, 420)
+    FB.find(FB.diagnozButton)
     mouseTap(MP.LKM_MOUSE)
     #новый
-    mousePosition(-50, 70)
+    FB.find(FB.noviyButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     #Поиск по коду
@@ -198,54 +209,69 @@ def fluraStart():
     #Подписать
     keyboardTap(KP.ENTER)
     #выход
-    time.sleep(13)
+    time.sleep(14)
     mousePosition(1570, 5)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def fluraEnd():
-    #кнопка z01.8
-    initialMousePosition()
-    mousePosition(58, 490)
+    # кнопка z01.8
+    FB.find(FB.z018)
+    mouseTap(MP.LKM_MOUSE)
+    # кнопка z01.8
+    FB.find(FB.z018)
     mouseTap(MP.LKM_MOUSE)
     # закрыть
     mousePosition(0, 85)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     # результат
-    mousePosition(1073, -100)
+    mousePosition(1053, -103)
     mouseTap(MP.LKM_MOUSE)
     # лечение завершено
-    mousePosition(0, 40)
+    mousePosition(0, 35)
+    mouseTap(MP.LKM_MOUSE)
+    # Исход заболевания
+    mousePosition(0, -10)
+    mouseTap(MP.LKM_MOUSE)
+    # осмотр
+    mousePosition(-20, 130)
+    mouseTap(MP.LKM_MOUSE)
+    # Закрыть с текущим диагнозом
+    mousePosition(0, -90)
+    mouseTap(MP.LKM_MOUSE)
+    # Сформировать эпикриз автоматически?
+    keyboardTap(KP.ENTER)
+    time.sleep(8)
+    # Подписать
+    keyboardTap(KP.ENTER)
+    time.sleep(10)
+    # сохранить F2
+    keyboardTap(KP.F2)
+    # сохранить изменения?
+    keyboardTap(KP.ENTER)
+    # выбрать
+    keyboardTap(KP.F2)
+    # выбрать
+    keyboardTap(KP.F2)
+    # нет диагноза в приеме
+    keyboardTap(KP.ENTER)
+
+
+
+
+
+def fluraEnd():
+    # кнопка z01.8
+    FB.find(FB.z018)
+    mouseTap(MP.LKM_MOUSE)
+    # закрыть
+    mousePosition(0, 85)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    # результат
+    mousePosition(1053, -103)
+    mouseTap(MP.LKM_MOUSE)
+    # лечение завершено
+    mousePosition(0, 35)
     mouseTap(MP.LKM_MOUSE)
     # Исход заболевания
     mousePosition(0, -10)

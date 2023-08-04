@@ -122,9 +122,9 @@ def kneesJoints():
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # выставление степени****************************************
-    keyboardTap(KP.NUM2)
-    keyboardTap(KP.KEYBOARD_MINUS)
     keyboardTap(KP.NUM3)
+    keyboardTap(KP.KEYBOARD_MINUS)
+    keyboardTap(KP.NUM4)
     # подписать
     mousePosition(-560, -660)
     mouseTap(MP.LKM_MOUSE)

@@ -23,16 +23,16 @@ def startIK():
     # поле имени
     time.sleep(10)
     # имя
-    keyboardTap(KP.A)
-    keyboardTap(KP.K)
-    keyboardTap(KP.O)
-    keyboardTap(KP.N)
-    keyboardTap(KP.O)
-    keyboardTap(KP.R)
-    keyboardTap(KP.E)
-    keyboardTap(KP.V)
+    #keyboardTap(KP.A)
+    #keyboardTap(KP.K)
+    #keyboardTap(KP.O)
+    #keyboardTap(KP.N)
+    #keyboardTap(KP.O)
+    #keyboardTap(KP.R)
+    #keyboardTap(KP.E)
+    #keyboardTap(KP.V)
     # место работы
-    keyboardTap(KP.TAB)
+    #keyboardTap(KP.TAB)
     keyboardLongTap(KP.LeftShift)
     keyboardTap(KP.C)
     keyboardTap(KP.R)
@@ -53,7 +53,7 @@ def startIK():
     time.sleep(2)
     #поликлиника
     keyboardTap(KP.ENTER)
-    time.sleep(5)
+    time.sleep(6)
     #смена поля ввода
     keyboardTap(KP.TAB)
     #ввод
