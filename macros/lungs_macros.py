@@ -8,42 +8,58 @@ from windows_control import WindowsControl as WC
 
 # (без печати)РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
 def rOGK():
-    # Начало
-    initialMousePosition()
-    #История болезни
-    mousePosition(315, 40)
+    # Поиск кнопки Рентгено
+    FB.findRentgenoButton()
+    keyboardTap(MP.LKM_MOUSE)
+    # зеленая кнопка play
+    FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
-    #Рентгенография органов грудной клетки
-    mousePosition(0, 200)
+    # Дата
+    keyboardTap(KP.ENTER)
+    time.sleep(3)
+    # Подтвердить случай?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # ?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # Продолжить без создания случая
+    FB.findWithTime(FB.prodBezSozSlu)
+    mouseTap(MP.LKM_MOUSE)
+    # История болезни
+    FB.findF8()
+    mouseTap(MP.LKM_MOUSE)
+    # Рентгенография органов грудной клетки
+    mousePosition(0, 190)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    time.sleep(5)
-    #шаблоны
-    mousePosition(640, -194)
+    # шаблоны
+    FB.find(FB.shablonButton)
     mouseTap(MP.LKM_MOUSE)
-    #Выбрать
-    mousePosition(5, 34)
+    # Выбрать
+    mousePosition(5, 30)
+    mouseTap(MP.LKM_MOUSE)
+    # ОГК норма
+    mousePosition(-605, 260)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    #ОГК норма
-    mousePosition(-605, 250)
-    time.sleep(1)
-    mouseTap(MP.LKM_MOUSE)
-    #Выбор с добавлением
+    # Выбор с добавлением
     mousePosition(130, -260)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    #подписать
-    mousePosition(-60, -35)
+    # подписать
+    FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     #подписать ENTER
     keyboardTap(KP.ENTER)
     time.sleep(1)
-    #выход
-    mousePosition(1470, 5)
-    time.sleep(8)
+    # выход
+    WC.find(WC.elPodProtocWindow)
+    WC.wait(WC.elPodProtocWindow)
+    FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
     #cчитать прием диспансерным?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
@@ -60,33 +76,47 @@ def rOGK():
 
 
 def rOGKPrint():
-    # Начало
-    initialMousePosition()
+    # Поиск кнопки Рентгено
+    FB.findRentgenoButton()
+    keyboardTap(MP.LKM_MOUSE)
+    # зеленая кнопка play
+    FB.find(FB.playButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Дата
+    keyboardTap(KP.ENTER)
+    time.sleep(3)
+    # Подтвердить случай?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # ?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # Продолжить без создания случая
+    FB.findWithTime(FB.prodBezSozSlu)
+    mouseTap(MP.LKM_MOUSE)
     #История болезни
-    mousePosition(315, 40)
+    FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     #Рентгенография органов грудной клетки
-    mousePosition(0, 200)
+    mousePosition(0, 190)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    time.sleep(5)
-    #шаблоны
-    mousePosition(640, -194)
+    # шаблоны
+    FB.find(FB.shablonButton)
     mouseTap(MP.LKM_MOUSE)
-    #Выбрать
-    mousePosition(5, 34)
-    time.sleep(1)
+    # Выбрать
+    mousePosition(5, 30)
     mouseTap(MP.LKM_MOUSE)
     #ОГК норма
-    mousePosition(-605, 250)
+    mousePosition(-605, 260)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     #Выбор с добавлением
     mousePosition(130, -260)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    #подписать
-    mousePosition(-60, -35)
+    # подписать
+    FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     #печать
@@ -96,10 +126,12 @@ def rOGKPrint():
     #подписать ENTER
     keyboardTap(KP.ENTER)
     time.sleep(1)
-    #выход
-    mousePosition(1470, 5)
-    time.sleep(8)
+    # выход
+    WC.find(WC.elPodProtocWindow)
+    WC.wait(WC.elPodProtocWindow)
+    FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
     #cчитать прием диспансерным?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
@@ -173,11 +205,10 @@ def fluraNorma():
     mousePosition(0, 310)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(4)
-    #шаблоны
-    mousePosition(520, -300)
-    time.sleep(1)
+    # шаблоны
+    FB.find(FB.shablonButton)
     mouseTap(MP.LKM_MOUSE)
-    #Выбрать
+    # Выбрать
     mousePosition(5, 30)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
@@ -217,11 +248,11 @@ def fluraNorma():
     #Подписать
     keyboardTap(KP.ENTER)
     #выход
-    #time.sleep(14)
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
     # кнопка z01.8
     FB.find(FB.z018Button)
     mouseTap(MP.LKM_MOUSE)

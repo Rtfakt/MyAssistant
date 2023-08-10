@@ -10,17 +10,22 @@ from udp_client import sock, UDP_IP, UDP_PORT
 
 class FindButton:
     # шаблоны кнопок
-    playButton = cv.imread('images/playButton.png', 0)
-    diagnozButton = cv.imread('images/diagnozButton.png', 0)
-    noviyButton = cv.imread('images/noviyButton.png', 0)
-    z018Button = cv.imread('images/z01.8Button.png', 0)
-    F8Button = cv.imread('images/F8Button.png', 0)
-    rentgenoButton = cv.imread('images/rentgenoButton.png', 0)
-    rentgenoButtonBlue = cv.imread('images/rentgenoButtonBlue.png', 0)
-    prodBezSozSlu = cv.imread('images/prodBezSozSluButton.png', 0)
-    resultButton = cv.imread('images/resultButton.png', 0)
-    prodSohrPriButton = cv.imread('images/prodSohrPriButton.png', 0)
-    exitButton = cv.imread('images/exit.png', 0)
+    playButton = cv.imread('images/buttons/playButton.png', 0)
+    diagnozButton = cv.imread('images/buttons/diagnozButton.png', 0)
+    noviyButton = cv.imread('images/buttons/noviyButton.png', 0)
+    z018Button = cv.imread('images/buttons/z01.8Button.png', 0)
+    F8Button = cv.imread('images/buttons/F8Button.png', 0)
+    rentgenoButton = cv.imread('images/buttons/rentgenoButton.png', 0)
+    rentgenoButtonBlue = cv.imread('images/buttons/rentgenoButtonBlue.png', 0)
+    prodBezSozSlu = cv.imread('images/buttons/prodBezSozSluButton.png', 0)
+    resultButton = cv.imread('images/buttons/resultButton.png', 0)
+    prodSohrPriButton = cv.imread('images/buttons/prodSohrPriButton.png', 0)
+    exitButton = cv.imread('images/buttons/exitButton.png', 0)
+    shablonButton = cv.imread('images/buttons/shablonButton.png', 0)
+    signatureButton = cv.imread('images/buttons/signatureButton.png', 0)
+    scoliozPOPButton = cv.imread('images/buttons/scoliozPOPButton.png', 0)
+    scoliozButton = cv.imread('images/buttons/scoliozButton.png', 0)
+
 
     def find(template, debug_mode=False):
         while True:

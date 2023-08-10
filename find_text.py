@@ -20,7 +20,7 @@ def scan_text(text):
 
 
 # Считываем текст из файла
-with open("example_texts/2.txt", encoding="UTF-8") as f:
+with open("example_texts/6.txt", encoding="UTF-8") as f:
     text = f.read()
 
 s = scan_text(text)
