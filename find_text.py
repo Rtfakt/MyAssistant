@@ -37,7 +37,7 @@ curren_date = s[0]
 last_name = s[1]
 first_name = s[2]
 middle_name = s[3]
-birt_date = s[4]
+birth_date = s[4]
 OMC = s[5]
 
 name = "%s %s %s" % (last_name, first_name, middle_name)

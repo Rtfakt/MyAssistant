@@ -2,10 +2,12 @@ import sys
 import time
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
+
+from find_errors import FindErrors as FE
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from find_button import FindButton as FB
 from find_title import FindTitles as FT
-from macros.backbone_macros import pop
+from macros.backbone_macros import pop, shop
 from macros.cranium_macros import craniumNorma
 from macros.lungs_macros import rOGK, rOGKPrint, fluraEnd, fluraNorma, fluraNormaShort
 from macros.joints_macros import hipsJoints, kneesJoints
@@ -20,16 +22,21 @@ from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMouseP
 # antiSleep()
 # writeOMC()
 #startIK()
-#writeText('квашенко андрей васильевич')
-#writeText('14.11.14')
+#writeText('рубцова Татьяна Владимировна')
+#writeText('1')
 #fluraNorma()
 #fluraNormaShort()
-# rOGKPrint()
+#rOGKPrint()
 #rOGK()
 # kneesJoints()
 # ppnNorma()
 #pop(scolioz=True)
-craniumNorma()
+#craniumNorma()
+
+shop()
+
+
+
 
 
 

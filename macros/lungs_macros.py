@@ -4,7 +4,7 @@ from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
-
+from find_errors import FindErrors as FE
 
 # (без печати)РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
 def rOGK():
@@ -97,9 +97,9 @@ def rOGKPrint():
     #История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
     #Рентгенография органов грудной клетки
     mousePosition(0, 190)
-    time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -242,11 +242,14 @@ def fluraNorma():
     keyboardTap(KP.NUM1)
     keyboardTap(KP.Ю)
     keyboardTap(KP.NUM8)
-    #Подписать
-    mousePosition(0, -120)
+    # подписать
+    FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
-    #Подписать
+    time.sleep(1)
+    # Подписать ENTER
     keyboardTap(KP.ENTER)
+    #Поиск ошибки ОМС ******************************************
+    FE.findOMCError()
     #выход
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
@@ -363,13 +366,13 @@ def fluraNormaShort():
     keyboardTap(KP.NUM1)
     keyboardTap(KP.Ю)
     keyboardTap(KP.NUM8)
-    #Подписать
-    mousePosition(0, -120)
+    # подписать
+    FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
-    #Подписать
+    time.sleep(1)
+    #Подписать ENTER
     keyboardTap(KP.ENTER)
     #выход
-    #time.sleep(14)
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     FB.find(FB.exitButton)

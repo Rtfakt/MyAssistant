@@ -25,6 +25,9 @@ class FindButton:
     signatureButton = cv.imread('images/buttons/signatureButton.png', 0)
     scoliozPOPButton = cv.imread('images/buttons/scoliozPOPButton.png', 0)
     scoliozButton = cv.imread('images/buttons/scoliozButton.png', 0)
+    cardRegistrButton = cv.imread('images/buttons/cardRegistrButton.png', 0)
+    OMCButton = cv.imread('images/buttons/OMC.png', 0)
+    dataPrikrep = cv.imread('images/buttons/dataPrikrepButton.png', 0)
 
 
     def find(template, debug_mode=False):

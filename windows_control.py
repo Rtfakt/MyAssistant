@@ -113,8 +113,8 @@ class WindowsControl:
                     # Save the points
                     points.append((center_x, center_y))
                     cv.drawMarker(screenshot, (center_x, center_y), marker_type)
-                    print('точка х %s' % str(center_x))
-                    print('точка y %s' % str(center_y))
+                    print('Окно отслеживается')
+
                 pass
             else:
                 break

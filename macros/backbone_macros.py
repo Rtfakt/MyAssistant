@@ -8,6 +8,59 @@ from find_title import FindTitles as FT
 
 
 
+def shop():
+    # История болезни
+    FB.findF8()
+    mouseTap(MP.LKM_MOUSE)
+    # Рентгенография позвоночника
+    mousePosition(0, 210)
+    mouseTap(MP.LKM_MOUSE)
+    # шаблоны
+    FB.find(FB.shablonButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Выбрать
+    mousePosition(5, 30)
+    mouseTap(MP.LKM_MOUSE)
+    # ПОП остеохондроз
+    mousePosition(-605, 260)
+    time.sleep(1)
+    mouseTap(MP.LKM_MOUSE)
+    # Выбор с добавлением
+    mousePosition(130, -260)
+    time.sleep(1)
+    mouseTap(MP.LKM_MOUSE)
+    # подписать
+    FB.find(FB.signatureButton)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    # печать
+    keyboardTap(KP.F5)
+    # OK
+    keyboardTap(KP.ENTER)
+    # подписать ENTER
+    keyboardTap(KP.ENTER)
+    time.sleep(1)
+    # выход
+    WC.find(WC.elPodProtocWindow)
+    WC.wait(WC.elPodProtocWindow)
+    FB.find(FB.exitButton)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    # cчитать прием диспансерным?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # сохранить F2
+    keyboardTap(KP.F2)
+    # сохранить изменения?
+    keyboardTap(KP.ENTER)
+    # выбрать
+    keyboardTap(KP.F2)
+    # выбрать
+    keyboardTap(KP.F2)
+    # нет диагноза в приеме
+    keyboardTap(KP.ENTER)
+
+
 def pop(scolioz=False):
     # История болезни
     FB.findF8()

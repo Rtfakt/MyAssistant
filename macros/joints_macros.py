@@ -57,17 +57,6 @@ def hipsJoints():
     keyboardTap(KP.F2)
     # нет диагноза в приеме
     keyboardTap(KP.ENTER)
-
-
-
-
-
-
-
-
-
-
-
     # подписать
     mousePosition(-60, -35)
 
