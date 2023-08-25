@@ -33,14 +33,14 @@ print(s[3])
 print(s[4])
 print(s[5])
 
-curren_date = s[0]
-last_name = s[1]
-first_name = s[2]
-middle_name = s[3]
-birth_date = s[4]
-OMC = s[5]
+current_date = s[0]
+last_name_data = s[1]
+first_name_data = s[2]
+middle_name_data = s[3]
+birth_date_data = s[4]
+OMCdata = s[5]
 
-name = "%s %s %s" % (last_name, first_name, middle_name)
+name = "%s %s %s" % (last_name_data, first_name_data, middle_name_data)
 
 
 def writeTextAuto():
@@ -64,7 +64,7 @@ def writeText(name):
 
 
 def writeOMC():
-              for letter in OMC:
+              for letter in OMCdata:
                   if letter in dictRusLetters:
                       res = dictRusLetters[letter]
                       time.sleep(0.1)

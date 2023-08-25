@@ -1,9 +1,21 @@
 import time
 
+from find_title import FindTitles as FT
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP, keyboardLongTap
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, mouseDoubleLKMTap, initialMousePosition
 
 
+from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from find_button import FindButton as FB
+from windows_control import WindowsControl as WC
+
+
+
+
+
+
+def test():
+    if result == 1:
+        print('правого и левого')
 
 
 def startIK():
@@ -20,17 +32,11 @@ def startIK():
     time.sleep(1)
     # подключить
     keyboardTap(KP.ENTER)
+    #находим иконку авторизации
+    FT.findUserNameWithTime()
+    #time.sleep(10)
     # поле имени
-    time.sleep(10)
-    # имя
-    #keyboardTap(KP.A)
-    #keyboardTap(KP.K)
-    #keyboardTap(KP.O)
-    #keyboardTap(KP.N)
-    #keyboardTap(KP.O)
-    #keyboardTap(KP.R)
-    #keyboardTap(KP.E)
-    #keyboardTap(KP.V)
+
     # место работы
     #keyboardTap(KP.TAB)
     keyboardLongTap(KP.LeftShift)
@@ -45,15 +51,14 @@ def startIK():
     keyboardTap(KP.NUM8)
     # Подтвердить
     keyboardTap(KP.ENTER)
-    time.sleep(11)
+
     # значок инфоклиники
-    initialMousePosition()
-    mousePosition(20, 650)
+    FB.find(FB.infoclinicaButton)
     mouseDoubleLKMTap()
     time.sleep(2)
     #поликлиника
     keyboardTap(KP.ENTER)
-    time.sleep(6)
+    WC.find(WC.authWindows)
     #смена поля ввода
     keyboardTap(KP.TAB)
     #ввод
@@ -67,29 +72,9 @@ def startIK():
     time.sleep(1)
     #продолжить F2
     keyboardTap(KP.F2)
-    time.sleep(25)
     #картотека
-    initialMousePosition()
-    mousePosition(100, 200)
+    FB.find(FB.cartotekaButton)
     mouseTap(MP.LKM_MOUSE)
-    time.sleep(4)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -107,9 +92,10 @@ def antiSleep():
 def restartIK():
      initialMousePosition()
      # выход
-
      mousePosition(1900, 50)
      mouseTap(MP.LKM_MOUSE)
+     # выход
+     FB.find(FB.exitButton)
      # подписать
      keyboardTap(KP.ENTER)
      # cчитать прием диспансерным?
@@ -125,14 +111,13 @@ def restartIK():
      keyboardTap(KP.F2)
      # нет диагноза в приеме
      keyboardTap(KP.ENTER)
-     initialMousePosition()
-     # выход
-     mousePosition(455, 35)
-     time.sleep(2)
+     # выход из инфоклиники
+     FB.find(FB.exitFromInfoclinikaButton)
      mouseTap(MP.LKM_MOUSE)
      # завершение работы
      mousePosition(0, 20)
      mouseTap(MP.LKM_MOUSE)
+     time.sleep(2)
      # Пуск
      initialMousePosition()
      mousePosition(10, 1050)

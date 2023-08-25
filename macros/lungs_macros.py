@@ -37,7 +37,7 @@ def rOGK():
     FB.find(FB.shablonButton)
     mouseTap(MP.LKM_MOUSE)
     # Выбрать
-    mousePosition(5, 30)
+    FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     # ОГК норма
     mousePosition(-605, 260)
@@ -105,7 +105,7 @@ def rOGKPrint():
     FB.find(FB.shablonButton)
     mouseTap(MP.LKM_MOUSE)
     # Выбрать
-    mousePosition(5, 30)
+    FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     #ОГК норма
     mousePosition(-605, 260)
@@ -202,17 +202,18 @@ def fluraNorma():
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     # Флюорографическое исследование органов грудной клетки
-    mousePosition(0, 310)
+    FB.find(FB.mainShablonFlura)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(4)
     # шаблоны
     FB.find(FB.shablonButton)
+    time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # Выбрать
-    mousePosition(5, 30)
+    FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
-    mousePosition(-330, -20)
+    FB.find(FB.vyborSDobavleniem)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # В протоколе уже есть основной диагноз
@@ -250,17 +251,18 @@ def fluraNorma():
     keyboardTap(KP.ENTER)
     #Поиск ошибки ОМС ******************************************
     FE.findOMCError()
+    #FE.findUIPError()
     #выход
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
-    time.sleep(1)
+    time.sleep(2)#важно
     # кнопка z01.8
     FB.find(FB.z018Button)
     mouseTap(MP.LKM_MOUSE)
     # закрыть
-    mousePosition(0, 85)
+    FB.find(FB.closeZ018Button)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     # результат
@@ -283,7 +285,7 @@ def fluraNorma():
     time.sleep(8)
     # Подписать
     keyboardTap(KP.ENTER)
-    time.sleep(3)
+    WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     # сохранить F2
     keyboardTap(KP.F2)
@@ -325,18 +327,18 @@ def fluraNormaShort():
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     # Флюорографическое исследование органов грудной клетки
-    mousePosition(0, 310)
+    FB.find(FB.mainShablonFlura)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(4)
     #шаблоны
-    mousePosition(520, -300)
+    FB.find(FB.shablonButton)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
-    #Выбрать
-    mousePosition(5, 20)
+    # Выбрать
+    FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
-    mousePosition(-330, -20)
+    FB.find(FB.vyborSDobavleniem)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # В протоколе уже есть основной диагноз
@@ -372,6 +374,9 @@ def fluraNormaShort():
     time.sleep(1)
     #Подписать ENTER
     keyboardTap(KP.ENTER)
+    # Поиск ошибки ОМС ******************************************
+    FE.findOMCError()
+    FE.findUIPError()
     #выход
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
@@ -381,10 +386,10 @@ def fluraNormaShort():
     FB.find(FB.diagnozButton)
     mouseTap(MP.LKM_MOUSE)
     # кнопка z01.8
-    FB.find(FB.z018Button)
-    mouseTap(MP.LKM_MOUSE)
+    #FB.find(FB.z018Button)
+    #mouseTap(MP.LKM_MOUSE)
     # закрыть
-    mousePosition(0, 85)
+    FB.find(FB.closeZ018Button)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     # результат
@@ -408,6 +413,7 @@ def fluraNormaShort():
     # Подписать
     keyboardTap(KP.ENTER)
     time.sleep(3)
+    WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     # сохранить F2
     keyboardTap(KP.F2)
@@ -427,46 +433,6 @@ def fluraNormaShort():
 
 
 
-
-def fluraEnd():
-    # кнопка z01.8
-    FB.find(FB.z018)
-    mouseTap(MP.LKM_MOUSE)
-    # закрыть
-    mousePosition(0, 85)
-    mouseTap(MP.LKM_MOUSE)
-    time.sleep(1)
-    # результат
-    FB.findResult()
-    mouseTap(MP.LKM_MOUSE)
-    # лечение завершено
-    mousePosition(0, 35)
-    mouseTap(MP.LKM_MOUSE)
-    # Исход заболевания
-    mousePosition(0, -10)
-    mouseTap(MP.LKM_MOUSE)
-    # осмотр
-    mousePosition(-20, 130)
-    mouseTap(MP.LKM_MOUSE)
-    # Закрыть с текущим диагнозом
-    mousePosition(0, -90)
-    mouseTap(MP.LKM_MOUSE)
-    # Сформировать эпикриз автоматически?
-    keyboardTap(KP.ENTER)
-    time.sleep(8)
-    # Подписать
-    keyboardTap(KP.ENTER)
-    time.sleep(10)
-    # сохранить F2
-    keyboardTap(KP.F2)
-    # сохранить изменения?
-    keyboardTap(KP.ENTER)
-    # выбрать
-    keyboardTap(KP.F2)
-    # выбрать
-    keyboardTap(KP.F2)
-    # нет диагноза в приеме
-    keyboardTap(KP.ENTER)
 
 
 

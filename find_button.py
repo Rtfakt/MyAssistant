@@ -26,8 +26,15 @@ class FindButton:
     scoliozPOPButton = cv.imread('images/buttons/scoliozPOPButton.png', 0)
     scoliozButton = cv.imread('images/buttons/scoliozButton.png', 0)
     cardRegistrButton = cv.imread('images/buttons/cardRegistrButton.png', 0)
-    OMCButton = cv.imread('images/buttons/OMC.png', 0)
+    OMCButton = cv.imread('images/windows/OMC.png', 0)
     dataPrikrep = cv.imread('images/buttons/dataPrikrepButton.png', 0)
+    vyborSDobavleniem = cv.imread('images/buttons/vyborSdobavleniem.png', 0)
+    mainShablonFlura = cv.imread('images/buttons/mainShablonFlura.png', 0)
+    vybratButton = cv.imread('images/buttons/vybratButton.png', 0)
+    infoclinicaButton = cv.imread('images/buttons/infoclinicaButton.png', 0)
+    cartotekaButton = cv.imread('images/buttons/cartotekaButton.png', 0)
+    closeZ018Button = cv.imread('images/buttons/closeZ01.8Button.png', 0)
+    exitFromInfoclinikaButton = cv.imread('images/buttons/exitFromInfoclinikaButton.png', 0)
 
 
     def find(template, debug_mode=False):

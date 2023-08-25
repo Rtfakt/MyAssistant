@@ -43,7 +43,7 @@ def ppnNorma():
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
-    mousePosition(130, -160)
+    FB.find(FB.vyborSDobavleniem)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # подписать

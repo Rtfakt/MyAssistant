@@ -10,7 +10,10 @@ from udp_client import sock, UDP_IP, UDP_PORT
 
 class WindowsControl:
     elPodProtocWindow = cv.imread('images/windows/elPodProtocWindow.png', 0)
-    OMCWindow = cv.imread('images/buttons/OMC.png', 0)
+    OMCWindow = cv.imread('images/windows/OMC.png', 0)
+    authWindows = cv.imread('images/windows/authWindow.png', 0)
+
+
 
     def find(template, debug_mode=False):
         while True:
