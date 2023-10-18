@@ -40,12 +40,10 @@ def rOGK():
     FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     # ОГК норма
-    mousePosition(-605, 260)
-    time.sleep(1)
+    FB.find(FB.OGKNormaButton)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
-    mousePosition(130, -260)
-    time.sleep(1)
+    FB.find(FB.vyborSDobavleniem)
     mouseTap(MP.LKM_MOUSE)
     # подписать
     FB.find(FB.signatureButton)
@@ -107,13 +105,11 @@ def rOGKPrint():
     # Выбрать
     FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
-    #ОГК норма
-    mousePosition(-605, 260)
-    time.sleep(1)
+    # ОГК норма
+    FB.find(FB.OGKNormaButton)
     mouseTap(MP.LKM_MOUSE)
-    #Выбор с добавлением
-    mousePosition(130, -260)
-    time.sleep(1)
+    # Выбор с добавлением
+    FB.find(FB.vyborSDobavleniem)
     mouseTap(MP.LKM_MOUSE)
     # подписать
     FB.find(FB.signatureButton)
@@ -218,13 +214,10 @@ def fluraNorma():
     mouseTap(MP.LKM_MOUSE)
     # В протоколе уже есть основной диагноз
     keyboardTap(KP.ENTER)
-    # Дата проведения исследования
-    initialMousePosition()
-    mousePosition(1402, 105)
+    # Сегодняшняя дата проведения исследования
+    FB.find(FB.todayButton)
     mouseTap(MP.LKM_MOUSE)
-    # Сегодня
-    mousePosition(-1100, 210)
-    mouseTap(MP.LKM_MOUSE)
+
     #время проведения исследования
     keyboardTap(KP.TAB)
     keyboardTap(KP.NUM1)
@@ -332,7 +325,6 @@ def fluraNormaShort():
     time.sleep(4)
     #шаблоны
     FB.find(FB.shablonButton)
-    time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # Выбрать
     FB.find(FB.vybratButton)
@@ -376,7 +368,7 @@ def fluraNormaShort():
     keyboardTap(KP.ENTER)
     # Поиск ошибки ОМС ******************************************
     FE.findOMCError()
-    FE.findUIPError()
+    #FE.findDataUIPError()
     #выход
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)

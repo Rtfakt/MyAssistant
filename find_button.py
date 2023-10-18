@@ -1,10 +1,8 @@
 import numpy as np
 import cv2 as cv
 import time
-
 from mouse import initialMousePosition
-from read_screen import get_screenshot
-
+from get_screenshot import get_screenshot
 from udp_client import sock, UDP_IP, UDP_PORT
 
 
@@ -31,11 +29,13 @@ class FindButton:
     vyborSDobavleniem = cv.imread('images/buttons/vyborSdobavleniem.png', 0)
     mainShablonFlura = cv.imread('images/buttons/mainShablonFlura.png', 0)
     vybratButton = cv.imread('images/buttons/vybratButton.png', 0)
-    infoclinicaButton = cv.imread('images/buttons/infoclinicaButton.png', 0)
+    firstInfoclinicaButton = cv.imread('images/buttons/firstInfoclinikaButton.png', 0)
+    secondInfoclinicaButton = cv.imread('images/buttons/infoclinicaButton.png', 0)
     cartotekaButton = cv.imread('images/buttons/cartotekaButton.png', 0)
     closeZ018Button = cv.imread('images/buttons/closeZ01.8Button.png', 0)
     exitFromInfoclinikaButton = cv.imread('images/buttons/exitFromInfoclinikaButton.png', 0)
-
+    OGKNormaButton = cv.imread('images/buttons/OGKNorma.png', 0)
+    todayButton = cv.imread('images/buttons/todayButton.png', 0)
 
     def find(template, debug_mode=False):
         while True:
@@ -341,7 +341,6 @@ class FindButton:
                 break
 
         return points
-
 
     def findResult(template=resultButton, debug_mode=False):
         while True:

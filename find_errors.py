@@ -5,16 +5,17 @@ import time
 from find_button import FindButton as FB
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import initialMousePosition
-from read_screen import get_screenshot
+from get_screenshot import get_screenshot
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
-from find_text import scan_text, writeText, writeOMC
+from filter_text import writeText, writeOMC
 from windows_control import WindowsControl as WC
+
 
 class FindErrors:
     errorOMC = cv.imread('images/errors/errorOMC.png', 0)
-    errorUIP = cv.imread('images/errors/errorUIP.png', 0)
+    errorUIP = cv.imread('images/errors/errorDataUIP.png', 0)
 
-    def findOMCError(template=errorOMC, timeWait=10, debug_mode=False):
+    def findOMCError(template=errorOMC, timeWait=1, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
             screenshot = get_screenshot()
@@ -71,7 +72,7 @@ class FindErrors:
                     FB.find(FB.dataPrikrep)
                     mouseTap(MP.LKM_MOUSE)
                     writeText('14.11.14')
-                    #сохранить
+                    # сохранить
                     keyboardTap(KP.F2)
                     time.sleep(1)
                     keyboardTap(KP.F2)
@@ -115,8 +116,6 @@ class FindErrors:
                     # нет диагноза в приеме
                     keyboardTap(KP.ENTER)
 
-
-
                 break
             else:
                 pass
@@ -129,12 +128,7 @@ class FindErrors:
 
         return points
 
-
-
-
-
-
-    def findDataUIPError(template=errorUIP, timeWait=3, debug_mode=False):
+    def findDataUIPError(template=errorUIP, timeWait=1, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
             screenshot = get_screenshot()
@@ -191,7 +185,7 @@ class FindErrors:
                     FB.find(FB.dataPrikrep)
                     mouseTap(MP.LKM_MOUSE)
                     writeText('14.11.14')
-                    #сохранить
+                    # сохранить
                     keyboardTap(KP.F2)
                     time.sleep(1)
                     keyboardTap(KP.F2)

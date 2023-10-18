@@ -1,41 +1,47 @@
 import sys
 import time
 from PyQt5 import QtWidgets, QtGui
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu
-import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QDialog
 
 
 from find_errors import FindErrors as FE
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP
+from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from find_button import FindButton as FB
 from find_title import FindTitles as FT
 from macros.backbone_macros import pop, shop
 from macros.cranium_macros import craniumNorma
 from macros.lungs_macros import rOGK, rOGKPrint, fluraNorma, fluraNormaShort
-from macros.joints_macros import hipsJoints, kneesJoints
+from macros.get_text_macros import getText
 from macros.macros import antiSleep, startIK, restartIK
 from macros.ppn_macros import ppnNorma
-
-from read_text import readText
-from find_text import scan_text, writeText, writeOMC, OMCdata, first_name_data, last_name_data, middle_name_data, \
-    birth_date_data
+import pyautogui as pag
 from windows_control import WindowsControl as WC
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 
+
+#FB.find(FB.playButton, debug_mode=True)
+getText()
 #antiSleep()
-# writeOMC()
+#writeOMC()
 #startIK()
-#writeText('Пустовалов Андрей васильевич')
-# writeText('1')
+#writeText('копылов павел ан')
+#writeText('1')
 #fluraNorma()
 #fluraNormaShort()
 #rOGKPrint()
-# rOGK()
-# kneesJoints()
+#rOGK()
+#kneesJoints()
 #ppnNorma()
-# pop()
-# craniumNorma()
-# shop()
+#pop()
+#craniumNorma()
+#shop()
+#filter_text()
+#FB.find(FB.infoclinicaButton, debug_mode=True)
+
+
+
+
+
 
 
 
@@ -52,9 +58,10 @@ from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMouseP
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-result = None
+
 
 class Ui_Form(object):
+    argument = None
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -62,15 +69,15 @@ class Ui_Form(object):
         self.DOAHipsLabel = QtWidgets.QGroupBox(Form)
         self.DOAHipsLabel.setGeometry(QtCore.QRect(10, 10, 211, 231))
         self.DOAHipsLabel.setObjectName("DOAHipsLabel")
-        self.pushButton_DOAHips = QtWidgets.QPushButton(self.DOAHipsLabel, clicked= lambda: self.checked())
+        self.pushButton_DOAHips = QtWidgets.QPushButton(self.DOAHipsLabel, clicked= lambda: self.onClicked())
         self.pushButton_DOAHips.setGeometry(QtCore.QRect(0, 190, 211, 40))
         self.pushButton_DOAHips.setStyleSheet("background-color: rgb(206, 206, 206);\n""border-radius: 5px")
         self.pushButton_DOAHips.setObjectName("pushButton_DOAHips")
-
         self.groupBox = QtWidgets.QGroupBox(self.DOAHipsLabel)
         self.groupBox.setGeometry(QtCore.QRect(10, 30, 191, 61))
         self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
+        hboxLayout = QtWidgets.QHBoxLayout()
         self.radioButton_rightLeftHips = QtWidgets.QRadioButton(self.groupBox)
         self.radioButton_rightLeftHips.setGeometry(QtCore.QRect(0, 0, 171, 17))
         self.radioButton_rightLeftHips.setObjectName("radioButton__rightLeftHips")
@@ -109,18 +116,17 @@ class Ui_Form(object):
         self.radioButton_ankiloz.setGeometry(QtCore.QRect(90, 60, 101, 17))
         self.radioButton_ankiloz.setObjectName("radioButton_ankiloz")
 
+        self.groupBox.setLayout(hboxLayout)
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
-    def checked(self):
-        global result
-        if self.radioButton_rightLeftHips.isChecked():
-            result = 1
 
-        if self.radioButton_st1_2.isChecked():
-            print('1-2')
 
-        return result
+
+
+
+
 
 
     def retranslateUi(self, Form):
@@ -140,6 +146,29 @@ class Ui_Form(object):
         self.radioButton_st2_3.setText(_translate("Form", "ст.2-3"))
         self.radioButton_ankiloz.setText(_translate("Form", "Анкилоз?"))
 
+    def onClicked(self):
+        if self.radioButton_rightLeftHips.isChecked() == True:
+            argument ='правого и левого'
+        elif self.radioButton_rightHips.isChecked():
+            print('Right')
+        elif self.radioButton_leftHips.isChecked():
+            print('Left')
+
+        if self.radioButton_st1.isChecked():
+            print('1')
+        elif self.radioButton_st2.isChecked():
+            print('2')
+        elif self.radioButton_st3.isChecked():
+            print('3')
+        elif self.radioButton_st4.isChecked():
+            print('')
+        elif self.radioButton_st1_2.isChecked():
+            print('1-2')
+        elif self.radioButton_st2_3.isChecked():
+            print('2-3')
+        elif self.radioButton_st3_4.isChecked():
+            print('3-4')
+        return self.argument
 
 
 
@@ -151,3 +180,5 @@ if __name__ == "__main__":
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
+
+

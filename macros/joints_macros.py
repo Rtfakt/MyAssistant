@@ -1,16 +1,19 @@
 import time
-
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, mouseDoubleLKMTap, initialMousePosition
+from main import Ui_Form
+
+ui = Ui_Form
 
 
+def tet():
+    print('1')
+    print(ui.argument)
 
 
-
-
-#тазобедренный сустав
+# тазобедренный сустав
 def hipsJoints():
-     # правого и левого
+    # правого и левого
     initialMousePosition()
     mousePosition(1500, 200)
     mouseDoubleLKMTap()
@@ -63,8 +66,7 @@ def hipsJoints():
     time.sleep(1)
 
 
-
- # коленные суставы
+# коленные суставы
 def kneesJoints():
     # Начало
     initialMousePosition()
@@ -142,39 +144,3 @@ def kneesJoints():
     keyboardTap(KP.F2)
     # нет диагноза в приеме
     keyboardTap(KP.ENTER)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

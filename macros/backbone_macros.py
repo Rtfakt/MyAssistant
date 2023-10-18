@@ -72,14 +72,14 @@ def pop(scolioz=False):
     FB.find(FB.shablonButton)
     mouseTap(MP.LKM_MOUSE)
     # Выбрать
-    mousePosition(5, 30)
+    FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     # ПОП остеохондроз
     mousePosition(-605, 220)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
-    mousePosition(130, -220)
+    FB.find(FB.vyborSDobavleniem)
     time.sleep(1)
     mouseTap(MP.LKM_MOUSE)
     # добавление сколиоза

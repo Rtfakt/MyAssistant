@@ -4,7 +4,6 @@ import win32gui
 import win32ui
 
 
-
 def get_screenshot():
     w = 0
     h = 0
@@ -111,8 +110,6 @@ while True:
 
 
 '''
-
-
 
 '''
 cap = cv.VideoCapture(0)

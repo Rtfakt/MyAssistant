@@ -1,5 +1,5 @@
 from mouse import initialMousePosition
-from read_screen import get_screenshot
+from get_screenshot import get_screenshot
 
 import numpy as np
 import cv2 as cv
@@ -12,8 +12,6 @@ class WindowsControl:
     elPodProtocWindow = cv.imread('images/windows/elPodProtocWindow.png', 0)
     OMCWindow = cv.imread('images/windows/OMC.png', 0)
     authWindows = cv.imread('images/windows/authWindow.png', 0)
-
-
 
     def find(template, debug_mode=False):
         while True:

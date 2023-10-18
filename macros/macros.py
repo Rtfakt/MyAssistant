@@ -14,20 +14,37 @@ from windows_control import WindowsControl as WC
 
 
 def test():
-    if result == 1:
+    #if result == 1:
         print('правого и левого')
 
 
 def startIK():
     # смена языка
-    initialMousePosition()
-    mousePosition(1780, 1060)
     mouseTap(MP.LKM_MOUSE)
-    mousePosition(0, -120)
-    mouseDoubleLKMTap()
-    # Начало входа
     initialMousePosition()
-    mousePosition(30, 150)
+    mousePosition(1730, 1040)
+    mouseTap(MP.LKM_MOUSE)
+    mousePosition(0, -80)
+    mouseDoubleLKMTap()
+    # user
+    initialMousePosition()
+    mousePosition(1000, 620)
+    mouseTap(MP.LKM_MOUSE)
+    keyboardLongTap(KP.LeftShift)
+    keyboardTap(KP.NUM1)
+    keyboardTap(KP.NUM3)
+    keyboardTap(KP.NUM4)
+    keyboardTap(KP.R)
+    keyboardTap(KP.E)
+    keyboardTap(KP.G)
+    keyboardTap(KP.Ю)
+    keyboardTap(KP.NUM3)
+    keyboardTap(KP.NUM7)
+    keyboardTap(KP.ENTER)
+    # ярлык инфоклиники
+    FB.find(FB.firstInfoclinicaButton)
+    #initialMousePosition()
+    #mousePosition(30, 150)
     mouseDoubleLKMTap()
     time.sleep(1)
     # подключить
@@ -53,7 +70,7 @@ def startIK():
     keyboardTap(KP.ENTER)
 
     # значок инфоклиники
-    FB.find(FB.infoclinicaButton)
+    FB.find(FB.secondInfoclinicaButton)
     mouseDoubleLKMTap()
     time.sleep(2)
     #поликлиника

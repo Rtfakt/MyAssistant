@@ -4,7 +4,7 @@ import time
 
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import initialMousePosition
-from read_screen import get_screenshot
+from get_screenshot import get_screenshot
 
 from udp_client import sock, UDP_IP, UDP_PORT
 

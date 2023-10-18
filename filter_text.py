@@ -20,30 +20,30 @@ def scan_text(text):
 
 
 # Считываем текст из файла
-with open("example_texts/6.txt", encoding="UTF-8") as f:
-    text = f.read()
+#with open("example_texts/1.txt", encoding="UTF-8") as f:
+#    text = f.read()
 
-s = scan_text(text)
+#s = scan_text(text)
 
-print(s)  # Выводит список из 5 элементов, можно обратиться к каждому элементу:
-print(s[0])
-print(s[1])
-print(s[2])
-print(s[3])
-print(s[4])
-print(s[5])
+#print(s)  # Выводит список из 5 элементов, можно обратиться к каждому элементу:
+#print(s[0])
+#print(s[1])
+#print(s[2])
+#print(s[3])
+#print(s[4])
+#print(s[5])
 
-current_date = s[0]
-last_name_data = s[1]
-first_name_data = s[2]
-middle_name_data = s[3]
-birth_date_data = s[4]
-OMCdata = s[5]
+#current_date = s[0]
+#last_name_data = s[1]
+#first_name_data = s[2]
+#middle_name_data = s[3]
+#birth_date_data = s[4]
+#OMCdata = s[5]
 
-name = "%s %s %s" % (last_name_data, first_name_data, middle_name_data)
+#name = "%s %s %s" % (last_name_data, first_name_data, middle_name_data)
 
 
-def writeTextAuto():
+def writeTextAuto(name):
     for letter in name:
        if letter in dictRusLetters:
           res = dictRusLetters[letter]
@@ -63,7 +63,8 @@ def writeText(name):
           time.sleep(0.1)
 
 
-def writeOMC():
+def writeOMC(OMCdata):
+              time.sleep(0.2)  # важно
               for letter in OMCdata:
                   if letter in dictRusLetters:
                       res = dictRusLetters[letter]
