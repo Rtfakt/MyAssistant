@@ -3,7 +3,7 @@ import cv2 as cv
 import pyautogui as pag
 
 
-class FindOTRT:
+class OpenPrograms:
     # шаблоны кнопок
     OTRT = cv.imread('images/ORTR_images/OCTRTButton.png', 0)
     take_photo = cv.imread('images/ORTR_images/TakePhotoOCRTRT.png', 0)
@@ -12,10 +12,13 @@ class FindOTRT:
     find_textTRT = cv.imread('images/ORTR_images/findText.png', 0)
     closeTRT = cv.imread('images/ORTR_images/CloseTRT.png', 0)
     addTRT = cv.imread('images/ORTR_images/addTRT.png', 0)
+    prymenit = cv.imread('images/ORTR_images/Primenit.png', 0)
+    WindowsCamIcon = cv.imread('images/ORTR_images/WindowsCamIcon.png', 0)
+    blackClose = cv.imread('images/ORTR_images/blackCloseButton.png', 0)
 
 
 
-    def findORTR(template, debug_mode=False):
+    def findButtonInMyComputer(template, debug_mode=False):
         while True:
             screenshot = pag.screenshot()  # получение кадров с камеры
             screenshot = np.array(screenshot)

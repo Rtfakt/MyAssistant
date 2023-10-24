@@ -4,7 +4,7 @@ import pyperclip
 import keyboard
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from filter_text import scan_text, writeOMC
-from find_otrt import FindOTRT
+from open_programs import OpenPrograms as OP
 import pyautogui as pag
 from collections import deque, defaultdict
 
@@ -12,28 +12,32 @@ from collections import deque, defaultdict
 OMCList = deque([])
 
 
-def getText():
+def getTextFromOTRT():
     #разворачиваем программу OCTRT
-    FindOTRT.findORTR(FindOTRT.OTRT)
+    OP.findButtonInMyComputer(OP.OTRT)
     pag.click()
     #нажимаем кнопку сделать фото
-    FindOTRT.findORTR(FindOTRT.take_photo)
+    OP.findButtonInMyComputer(OP.take_photo)
     pag.click()
     #нопка сделать документ
-    FindOTRT.findORTR(FindOTRT.document_photo)
+    OP.findButtonInMyComputer(OP.document_photo)
     pag.click()
     time.sleep(3)
     #принять
-    FindOTRT.findORTR(FindOTRT.OKTRT)
+    OP.findButtonInMyComputer(OP.OKTRT)
     pag.click()
+    #применить
+    OP.findButtonInMyComputer(OP.prymenit)
+    pag.click()
+    time.sleep(1)
     #распознать текст
-    FindOTRT.findORTR(FindOTRT.find_textTRT)
+    OP.findButtonInMyComputer(OP.find_textTRT)
     pag.click()
     #Закрыть
-    FindOTRT.findORTR(FindOTRT.closeTRT)
+    OP.findButtonInMyComputer(OP.closeTRT)
     pag.click()
     #добавить в буфер обмена
-    FindOTRT.findORTR(FindOTRT.addTRT)
+    OP.findButtonInMyComputer(OP.addTRT)
     pag.click()
     #получение данных из буфера обмена
     full_text = pyperclip.paste()
@@ -46,8 +50,7 @@ def getText():
     print(s[4])
     print(s[5])
     #открываем поле поиска
-    keyboardLongTap(KP.LeftShift)
-    keyboardTap(KP.F5)
+
     OMCList.appendleft(s[5])
 
     print(OMCList)

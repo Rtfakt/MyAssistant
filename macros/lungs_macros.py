@@ -217,7 +217,6 @@ def fluraNorma():
     # Сегодняшняя дата проведения исследования
     FB.find(FB.todayButton)
     mouseTap(MP.LKM_MOUSE)
-
     #время проведения исследования
     keyboardTap(KP.TAB)
     keyboardTap(KP.NUM1)
@@ -335,12 +334,8 @@ def fluraNormaShort():
     mouseTap(MP.LKM_MOUSE)
     # В протоколе уже есть основной диагноз
     keyboardTap(KP.ENTER)
-    # Дата проведения исследования
-    initialMousePosition()
-    mousePosition(1402, 105)
-    mouseTap(MP.LKM_MOUSE)
-    # Сегодня
-    mousePosition(-1100, 210)
+    # Сегодняшняя дата проведения исследования
+    FB.find(FB.todayButton)
     mouseTap(MP.LKM_MOUSE)
     #время проведения исследования
     keyboardTap(KP.TAB)
@@ -378,8 +373,8 @@ def fluraNormaShort():
     FB.find(FB.diagnozButton)
     mouseTap(MP.LKM_MOUSE)
     # кнопка z01.8
-    #FB.find(FB.z018Button)
-    #mouseTap(MP.LKM_MOUSE)
+    FB.find(FB.z018Button)
+    mouseTap(MP.LKM_MOUSE)
     # закрыть
     FB.find(FB.closeZ018Button)
     mouseTap(MP.LKM_MOUSE)

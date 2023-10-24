@@ -16,7 +16,6 @@ def get_screenshot():
     windows_rect = win32gui.GetWindowRect(hwnd)
     w = windows_rect[2] - windows_rect[0]
     h = windows_rect[3] - windows_rect[1]
-
     border_pixels = 8
     titlebar_pixels = 30
     w = w - (border_pixels * 2)
@@ -32,11 +31,9 @@ def get_screenshot():
     dataBitMap.CreateCompatibleBitmap(dcObj, w, h)
     cDC.SelectObject(dataBitMap)
     cDC.BitBlt((0, 0), (w, h), dcObj, (cropped_x, cropped_y), win32con.SRCCOPY)
-
     signedIntsArray = dataBitMap.GetBitmapBits(True)
     img = np.fromstring(signedIntsArray, dtype='uint8')
     img.shape = (h, w, 4)
-
     dcObj.DeleteDC()
     cDC.DeleteDC()
     win32gui.ReleaseDC(hwnd, wDC)

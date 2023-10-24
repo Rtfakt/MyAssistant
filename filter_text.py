@@ -1,8 +1,5 @@
 import re
 import time
-
-
-
 from dict_rus_letters import dictRusLetters
 from keyboard import KeyboardPackagesUdp
 from udp_client import sock, UDP_IP, UDP_PORT
@@ -65,6 +62,8 @@ def writeText(name):
 
 def writeOMC(OMCdata):
               time.sleep(0.2)  # важно
+              keyboardLongTap(KP.LeftShift)
+              keyboardTap(KP.F5)
               for letter in OMCdata:
                   if letter in dictRusLetters:
                       res = dictRusLetters[letter]

@@ -1,45 +1,65 @@
 import sys
 import time
+from collections import deque
+
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QDialog
 
-
+from filter_text import writeText, writeOMC
 from find_errors import FindErrors as FE
+from get_text import getText
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from find_button import FindButton as FB
 from find_title import FindTitles as FT
 from macros.backbone_macros import pop, shop
 from macros.cranium_macros import craniumNorma
 from macros.lungs_macros import rOGK, rOGKPrint, fluraNorma, fluraNormaShort
-from macros.get_text_macros import getText
+from macros.get_text_macros_from_otrt import getTextFromOTRT
 from macros.macros import antiSleep, startIK, restartIK
 from macros.ppn_macros import ppnNorma
 import pyautogui as pag
 from windows_control import WindowsControl as WC
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 
+FIOList = deque([])
+my_iter = iter(FIOList)
 
-#FB.find(FB.playButton, debug_mode=True)
-getText()
-#antiSleep()
-#writeOMC()
+
+def autoFluraNorma():
+    while True:
+        try:
+            FIO = next(my_iter)
+            print(FIO)
+            writeText(FIO)
+            time.sleep(2)
+            fluraNormaShort()
+        except StopIteration:
+            break
+
+
+# FB.find(FB.playButton, debug_mode=True)
+#autoFluraNorma()
+# antiSleep()
+#getTextFromOTRT()
+# writeOMC()
 #startIK()
-#writeText('копылов павел ан')
-#writeText('1')
-#fluraNorma()
+# writeText('турченков андрей владимирович')
+# time.sleep(2)
+# writeText('1')
+# fluraNorma()
 #fluraNormaShort()
-#rOGKPrint()
+# rOGKPrint()
+# kneesJoints()
+# ppnNorma()
+# pop()
+# craniumNorma()
+# shop()
+# filter_text()
+# FB.find(FB.infoclinicaButton, debug_mode=True)
+getText()
+time.sleep(3)
+fluraNorma()
 #rOGK()
-#kneesJoints()
-#ppnNorma()
-#pop()
-#craniumNorma()
-#shop()
-#filter_text()
-#FB.find(FB.infoclinicaButton, debug_mode=True)
-
-
-
 
 
 
@@ -59,7 +79,6 @@ getText()
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
 class Ui_Form(object):
     argument = None
 
@@ -69,7 +88,7 @@ class Ui_Form(object):
         self.DOAHipsLabel = QtWidgets.QGroupBox(Form)
         self.DOAHipsLabel.setGeometry(QtCore.QRect(10, 10, 211, 231))
         self.DOAHipsLabel.setObjectName("DOAHipsLabel")
-        self.pushButton_DOAHips = QtWidgets.QPushButton(self.DOAHipsLabel, clicked= lambda: self.onClicked())
+        self.pushButton_DOAHips = QtWidgets.QPushButton(self.DOAHipsLabel, clicked=lambda: self.onClicked())
         self.pushButton_DOAHips.setGeometry(QtCore.QRect(0, 190, 211, 40))
         self.pushButton_DOAHips.setStyleSheet("background-color: rgb(206, 206, 206);\n""border-radius: 5px")
         self.pushButton_DOAHips.setObjectName("pushButton_DOAHips")
@@ -121,14 +140,6 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
-
-
-
-
-
-
-
-
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
@@ -148,7 +159,7 @@ class Ui_Form(object):
 
     def onClicked(self):
         if self.radioButton_rightLeftHips.isChecked() == True:
-            argument ='правого и левого'
+            argument = 'правого и левого'
         elif self.radioButton_rightHips.isChecked():
             print('Right')
         elif self.radioButton_leftHips.isChecked():
@@ -171,14 +182,12 @@ class Ui_Form(object):
         return self.argument
 
 
-
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
-
-

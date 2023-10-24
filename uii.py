@@ -16,7 +16,7 @@ from macros.joints_macros import hipsJoints, kneesJoints
 from macros.macros import antiSleep, startIK, restartIK
 from macros.ppn_macros import ppnNorma
 
-from find_otrt import readText
+from open_programs import readText
 from filter_text import scan_text, writeText, writeOMC, OMCdata, first_name_data, last_name_data, middle_name_data, birth_date_data
 from windows_control import WindowsControl as WC
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
