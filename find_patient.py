@@ -34,9 +34,8 @@ def findPatient():
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Распознаем текст
     OCRResult = pytesseract.image_to_string(image_without_lines, lang="rus", config='--psm 1')
     splitOCRResult = OCRResult.splitlines()
-    patient_list = splitOCRResult
-    print(patient_list)
-    #str = 'Иванов Иван Романович 05.10.2010'
+    print(splitOCRResult)
+    #str = 'Иванов Иван Иванович 05.10.2010'
     #index = patient_list.index(str)
     #print(index)
     #filtered = filter(lambda element: element == str, patient_list)
