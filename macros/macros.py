@@ -21,8 +21,7 @@ def test():
 def startIK():
     # смена языка
     mouseTap(MP.LKM_MOUSE)
-    initialMousePosition()
-    mousePosition(1730, 1040)
+    FB.find(FB.pycButton)
     mouseTap(MP.LKM_MOUSE)
     mousePosition(0, -80)
     mouseDoubleLKMTap()
@@ -65,10 +64,9 @@ def startIK():
     keyboardTap(KP.A)
     keyboardTap(KP.V)
     keyboardTap(KP.NUM5)
-    keyboardTap(KP.NUM8)
+    keyboardTap(KP.NUM6)
     # Подтвердить
     keyboardTap(KP.ENTER)
-
     # значок инфоклиники
     FB.find(FB.secondInfoclinicaButton)
     mouseDoubleLKMTap()

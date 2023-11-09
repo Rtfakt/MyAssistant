@@ -36,6 +36,7 @@ class FindButton:
     exitFromInfoclinikaButton = cv.imread('images/buttons/exitFromInfoclinikaButton.png', 0)
     OGKNormaButton = cv.imread('images/buttons/OGKNorma.png', 0)
     todayButton = cv.imread('images/buttons/todayButton.png', 0)
+    pycButton = cv.imread('images/buttons/pycButton.png', 0)
 
     def find(template, debug_mode=False):
         while True:

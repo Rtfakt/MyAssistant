@@ -34,7 +34,7 @@ def scan_text(text):
 #last_name_data = s[1]
 #first_name_data = s[2]
 #middle_name_data = s[3]
-#birth_date_data = s[4]
+#birthdate_data = s[4]
 #OMCdata = s[5]
 
 #name = "%s %s %s" % (last_name_data, first_name_data, middle_name_data)

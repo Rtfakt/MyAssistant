@@ -1,16 +1,18 @@
 import sys
 import time
 from collections import deque
-
+import multiprocessing
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QDialog
 
 from filter_text import writeText, writeOMC
 from find_errors import FindErrors as FE
+from find_patient import findPatient
 from get_text import getText
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from find_button import FindButton as FB
 from find_title import FindTitles as FT
+from macros.auto_macros import autoFluraNorma
 from macros.backbone_macros import pop, shop
 from macros.cranium_macros import craniumNorma
 from macros.lungs_macros import rOGK, rOGKPrint, fluraNorma, fluraNormaShort
@@ -21,11 +23,14 @@ import pyautogui as pag
 from windows_control import WindowsControl as WC
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 
-FIOList = deque([])
+FIOList = deque([
+
+
+])
 my_iter = iter(FIOList)
 
 
-def autoFluraNorma():
+def autoFluraNormaShort():
     while True:
         try:
             FIO = next(my_iter)
@@ -33,13 +38,14 @@ def autoFluraNorma():
             writeText(FIO)
             time.sleep(2)
             fluraNormaShort()
+            time.sleep(3)
         except StopIteration:
             break
 
 
 # FB.find(FB.playButton, debug_mode=True)
 #autoFluraNorma()
-# antiSleep()
+
 #getTextFromOTRT()
 # writeOMC()
 #startIK()
@@ -56,16 +62,18 @@ def autoFluraNorma():
 # shop()
 # filter_text()
 # FB.find(FB.infoclinicaButton, debug_mode=True)
-getText()
-time.sleep(3)
-fluraNorma()
+#autoFluraNorma()
+
+#autoFluraNormaShort()
+
+#getText()
+#time.sleep(3)
+#fluraNorma()
 #rOGK()
+#antiSleep()
 
-
-
-
-
-
+findPatient()
+#antiSleep()
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'main.ui'
