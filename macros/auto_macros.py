@@ -3,9 +3,10 @@ import pytesseract
 import cv2 as cv
 import os
 from collections import deque
-from filter_text import scan_text, writeOMC
+from filter_text import filter_text, writeOMC
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from macros.lungs_macros import fluraNorma
+from omc_control import getScreenTemplate, waitChanges
 from open_programs import OpenPrograms as OP
 import pyautogui as pag
 import asyncio
@@ -35,7 +36,7 @@ def autoFluraNorma():
                 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Распознаем текст
                 OCRresult = pytesseract.image_to_string(image, lang="rus")
                 # print(OCRresult)  # Получаем полный текст
-                s = scan_text(OCRresult)  # Фильтруем полный текст и получаем только необходимые данные
+                s = filter_text(OCRresult)  # Фильтруем полный текст и получаем только необходимые данные
                 # print(s[1])
                 # print(s[2])
                 # print(s[3])
@@ -46,11 +47,13 @@ def autoFluraNorma():
                 # cv.waitKey()
                 # keyboardTap(KP.ENTER)
                 f.close()
+                print("%s %s %s" % (s[1], s[2], s[3]))
 
                 for element in list(OMCList):
                     OMC = OMCList.pop()
-                    writeOMC(OMC)
-                    keyboardTap(KP.ENTER)  # Пишем полученные данные на другом компе
-                    time.sleep(3)
+                    getScreenTemplate()
+                    writeOMC(OMC) # Пишем полученные данные на другом компе
+                    keyboardTap(KP.ENTER)
+                    waitChanges()
                     fluraNorma()
                     os.remove(filePath)

@@ -7,7 +7,7 @@ from imutils import contours
 # firstPosition(78, 280)
 # secondPosition(300, 930)
 def findPatient():
-    screenshot = cv.imread('example_images/screenFail.png', 0)
+    screenshot = cv.imread('example_images/screenFail.png')
     crop_img = screenshot[280:930, 78:350]
 
     blurry = cv.bilateralFilter(crop_img, 20, 30, 30)
@@ -35,11 +35,10 @@ def findPatient():
     OCRResult = pytesseract.image_to_string(image_without_lines, lang="rus", config='--psm 1')
     splitOCRResult = OCRResult.splitlines()
     print(splitOCRResult)
-    #str = 'Иванов Иван Иванович 05.10.2010'
+    str = 'Иванов Иван Иванович 05.10.2010'
     #index = patient_list.index(str)
     #print(index)
-    #filtered = filter(lambda element: element == str, patient_list)
-    #print(patient_list)
+
 
     cv.imshow('result', image_without_lines)
 

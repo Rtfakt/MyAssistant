@@ -9,11 +9,29 @@ from find_title import FindTitles as FT
 
 
 def shop():
+    # Поиск кнопки Рентгено
+    FB.findRentgenoButton()
+    keyboardTap(MP.LKM_MOUSE)
+    # зеленая кнопка play
+    FB.find(FB.playButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Дата
+    keyboardTap(KP.ENTER)
+    time.sleep(3)
+    # Подтвердить случай?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # ?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # Продолжить без создания случая
+    FB.findWithTime(FB.prodBezSozSlu)
+    mouseTap(MP.LKM_MOUSE)
     # История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография позвоночника
-    mousePosition(0, 210)
+    FB.find(FB.backboneShablon)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -21,9 +39,8 @@ def shop():
     # Выбрать
     mousePosition(5, 30)
     mouseTap(MP.LKM_MOUSE)
-    # ПОП остеохондроз
-    mousePosition(-605, 260)
-    time.sleep(1)
+    # ШОП остеохондроз
+    FB.find(FB.shopShablon)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
     mousePosition(130, -260)
@@ -62,11 +79,29 @@ def shop():
 
 
 def pop(scolioz=False):
+    # Поиск кнопки Рентгено
+    FB.findRentgenoButton()
+    keyboardTap(MP.LKM_MOUSE)
+    # зеленая кнопка play
+    FB.find(FB.playButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Дата
+    keyboardTap(KP.ENTER)
+    time.sleep(3)
+    # Подтвердить случай?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # ?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # Продолжить без создания случая
+    FB.findWithTime(FB.prodBezSozSlu)
+    mouseTap(MP.LKM_MOUSE)
     # История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография позвоночника
-    mousePosition(0, 210)
+    FB.find(FB.backboneShablon)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -75,8 +110,7 @@ def pop(scolioz=False):
     FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     # ПОП остеохондроз
-    mousePosition(-605, 220)
-    time.sleep(1)
+    FB.find(FB.popShablon)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
     FB.find(FB.vyborSDobavleniem)

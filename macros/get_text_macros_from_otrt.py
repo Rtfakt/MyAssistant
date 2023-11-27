@@ -3,7 +3,7 @@ import pyperclip
 
 import keyboard
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
-from filter_text import scan_text, writeOMC
+from filter_text import filter_text, writeOMC
 from open_programs import OpenPrograms as OP
 import pyautogui as pag
 from collections import deque, defaultdict
@@ -42,7 +42,7 @@ def getTextFromOTRT():
     #получение данных из буфера обмена
     full_text = pyperclip.paste()
     text = full_text
-    s = scan_text(text)
+    s = filter(text)
     print(s[0])
     print(s[1])
     print(s[2])

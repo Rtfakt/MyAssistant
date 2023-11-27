@@ -6,7 +6,7 @@ from udp_client import sock, UDP_IP, UDP_PORT
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP, keyboardLongTap
 
 
-def scan_text(text):
+def filter_text(text):
     scan = []
     # Использование регулярных выражений для поиска:
     scan.append(re.findall(r'[0-9]{2}\.[0-9]{2}\.[0-9]{4}', text)[1])
@@ -50,7 +50,8 @@ def writeTextAuto(name):
           time.sleep(0.1)
 
 
-def writeText(name):
+def writeFIO(name):
+
     for letter in name:
        if letter in dictRusLetters:
           res = dictRusLetters[letter]

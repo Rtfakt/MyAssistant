@@ -5,7 +5,7 @@ import pytesseract
 import cv2 as cv
 import os
 from collections import deque
-from filter_text import scan_text, writeOMC
+from filter_text import filter_text, writeOMC
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from open_programs import OpenPrograms as OP
 import pyautogui as pag
@@ -43,7 +43,7 @@ def getText():
                 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"#Распознаем текст
                 OCRresult = pytesseract.image_to_string(image, lang="rus")
                 #print(OCRresult)# Получаем полный текст
-                s = scan_text(OCRresult)# Фильтруем полный текст и получаем только необходимые данные
+                s = filter_text(OCRresult)# Фильтруем полный текст и получаем только необходимые данные
                 print(s[1])
                 print(s[2])
                 print(s[3])
