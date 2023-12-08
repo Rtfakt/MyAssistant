@@ -72,3 +72,18 @@ def writeOMC(OMCdata):
                       sock.sendto(res.encode(), (UDP_IP, UDP_PORT))
                       sock.sendto(KP.All_KEYS_KEYBOARD_UP.encode(), (UDP_IP, UDP_PORT))
                       time.sleep(0.1)
+
+
+def writeText():
+    keyboardLongTap(KP.LeftShift)
+    keyboardTap(KP.C)
+    keyboardTap(KP.R)
+    keyboardTap(KP.B)
+    keyboardTap(KP.S)
+    keyboardTap(KP.K)
+    keyboardTap(KP.A)
+    keyboardTap(KP.V)
+    keyboardTap(KP.NUM5)
+    keyboardTap(KP.NUM6)
+    # Подтвердить
+    keyboardTap(KP.ENTER)

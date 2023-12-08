@@ -102,6 +102,26 @@ def antiSleep():
      time.sleep(300)
 
 
+def endIK():
+    # выход из инфоклиники
+    FB.find(FB.exitFromInfoclinikaButton)
+    mouseTap(MP.LKM_MOUSE)
+    # завершение работы
+    mousePosition(0, 20)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(2)
+    # Пуск
+    initialMousePosition()
+    mousePosition(10, 1050)
+    mouseTap(MP.LKM_MOUSE)
+    # Значек пользователя
+    mousePosition(10, -130)
+    time.sleep(1)
+    mouseTap(MP.LKM_MOUSE)
+    # выход
+    mousePosition(0, -50)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(3)
 
 
 def restartIK():
@@ -211,6 +231,7 @@ def restartIK():
      mousePosition(100, 200)
      mouseTap(MP.LKM_MOUSE)
      time.sleep(4)
+
 
 
 

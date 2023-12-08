@@ -148,7 +148,6 @@ def rOGKPrint():
 def fluraNorma():
     #Поиск кнопки Рентгено
     FB.findRentgenoButton()
-    time.sleep(0.5)  # важно
     keyboardTap(MP.LKM_MOUSE)
     #зеленая кнопка play
     FB.find(FB.playButton)

@@ -48,7 +48,10 @@ class FindButton:
     shopShablon = cv.imread('images/buttons/shopShablon.png', 0)
     gopShablon = cv.imread('images/buttons/gopShablon.png', 0)
     popShablon = cv.imread('images/buttons/popShablon.png', 0)
-
+    ppnShablon = cv.imread('images/buttons/ppnShablon.png', 0)
+    sinusitLeftShablon = cv.imread('images/buttons/sinusitLeftShablon.png', 0)
+    sinusitRightShablon = cv.imread('images/buttons/sinusitRightShablon.png', 0)
+    ppnNormaShablon = cv.imread('images/buttons/ppnNormaShablon.png', 0)
 
 
 
@@ -280,6 +283,7 @@ class FindButton:
                         print('точка х %s' % str(center_x))
                         print('точка y %s' % str(center_y))
                         initialMousePosition()
+                        time.sleep(0.1)
                         sock.sendto(
                             '34564000{:05d}{:05d}'.format(center_x if center_x >= 0 else 65536 + center_x,
                                                           center_y if center_y >= 0 else 65536 + center_y).encode(),
