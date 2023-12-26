@@ -63,8 +63,8 @@ def startIK():
     keyboardTap(KP.K)
     keyboardTap(KP.A)
     keyboardTap(KP.V)
+    keyboardTap(KP.NUM4)
     keyboardTap(KP.NUM5)
-    keyboardTap(KP.NUM6)
     # Подтвердить
     keyboardTap(KP.ENTER)
     # значок инфоклиники

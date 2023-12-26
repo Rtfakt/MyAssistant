@@ -5,12 +5,12 @@ from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMouseP
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
 from find_errors import FindErrors as FE
+from find_refferal import FindRefferal as FR
 
 # (без печати)РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
 def rOGK():
     # Поиск кнопки Рентгено
-    FB.findRentgenoButton()
-    keyboardTap(MP.LKM_MOUSE)
+    FR.findRefferalButton()
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -30,8 +30,7 @@ def rOGK():
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография органов грудной клетки
-    mousePosition(0, 190)
-    time.sleep(1)
+    FB.find(FB.mainShablonOGK)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -75,8 +74,7 @@ def rOGK():
 
 def rOGKPrint():
     # Поиск кнопки Рентгено
-    FB.findRentgenoButton()
-    keyboardTap(MP.LKM_MOUSE)
+    FR.findRefferalButton()
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -97,7 +95,7 @@ def rOGKPrint():
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     #Рентгенография органов грудной клетки
-    mousePosition(0, 190)
+    FB.find(FB.mainShablonOGK)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -147,8 +145,7 @@ def rOGKPrint():
 
 def fluraNorma():
     #Поиск кнопки Рентгено
-    FB.findRentgenoButton()
-    keyboardTap(MP.LKM_MOUSE)
+    FR.findRefferalButton()
     #зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -163,7 +160,6 @@ def fluraNorma():
     keyboardTap(KP.ENTER)
     #Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
-    mouseTap(MP.LKM_MOUSE)
     #диагноз
     FB.find(FB.diagnozButton)
     time.sleep(0.2)
@@ -299,7 +295,7 @@ def fluraNorma():
 
 def fluraNormaShort():
     # Поиск кнопки Рентгено
-    FB.findRentgenoButton()
+    FR.findRefferalButton()
     time.sleep(1)  # важно
     keyboardTap(MP.LKM_MOUSE)
     # зеленая кнопка play

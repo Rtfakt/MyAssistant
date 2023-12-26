@@ -4,13 +4,12 @@ from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
-
+from find_refferal import FindRefferal as FR
 
 
 def ppnNorma():
     # Поиск кнопки Рентгено
-    FB.findRentgenoButton()
-    keyboardTap(MP.LKM_MOUSE)
+    FR.findRefferalButton()
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -78,8 +77,7 @@ def ppnNorma():
 
 def ppnSinusitRight():
     # Поиск кнопки Рентгено
-    FB.findRentgenoButton()
-    keyboardTap(MP.LKM_MOUSE)
+    FR.findRefferalButton()
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -147,8 +145,7 @@ def ppnSinusitRight():
 
 def ppnSinusitLeft():
     # Поиск кнопки Рентгено
-    FB.findRentgenoButton()
-    keyboardTap(MP.LKM_MOUSE)
+    FR.findRefferalButton()
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)

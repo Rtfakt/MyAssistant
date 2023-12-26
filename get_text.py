@@ -15,7 +15,7 @@ fileList = deque([])
 
 
 def getText():
-
+    global last_name_data
     OP.findButtonInMyComputer(OP.WindowsCamIcon)
     pag.click()
     #нопка сделать документ
@@ -44,11 +44,16 @@ def getText():
                 OCRresult = pytesseract.image_to_string(image, lang="rus")
                 #print(OCRresult)# Получаем полный текст
                 s = filter_text(OCRresult)# Фильтруем полный текст и получаем только необходимые данные
-                print(s[1])
-                print(s[2])
-                print(s[3])
-                print(s[4])
-                print(s[5])
+                last_name_data = s[1]
+                first_name_data = s[2]
+                middle_name_data = s[3]
+                birthdate_data = s[4]
+                OMCdata = s[5]
+                print(last_name_data)
+                print(first_name_data)
+                print(middle_name_data)
+                print(birthdate_data)
+                print(OMCdata)
                 # cv.imshow("Test", image)
                 # cv.waitKey()
                 writeOMC(s[5]) # Пишем полученные данные на другом компе

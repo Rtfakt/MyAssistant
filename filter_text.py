@@ -74,7 +74,7 @@ def writeOMC(OMCdata):
                       time.sleep(0.1)
 
 
-def writeText():
+def writePass():
     keyboardLongTap(KP.LeftShift)
     keyboardTap(KP.C)
     keyboardTap(KP.R)
@@ -83,7 +83,7 @@ def writeText():
     keyboardTap(KP.K)
     keyboardTap(KP.A)
     keyboardTap(KP.V)
+    keyboardTap(KP.NUM4)
     keyboardTap(KP.NUM5)
-    keyboardTap(KP.NUM6)
     # Подтвердить
     keyboardTap(KP.ENTER)

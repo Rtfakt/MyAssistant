@@ -1,9 +1,9 @@
 import time
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, mouseDoubleLKMTap, initialMousePosition
-from main import Ui_Form
 
-ui = Ui_Form
+
+
 
 
 def tet():
