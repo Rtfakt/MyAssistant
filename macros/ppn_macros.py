@@ -9,7 +9,7 @@ from find_refferal import FindRefferal as FR
 
 def ppnNorma():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton()
+    FR.findRefferalButton(templateBlue=FR.PPNBlueButton, template=FR.PPNButton)
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -77,7 +77,7 @@ def ppnNorma():
 
 def ppnSinusitRight():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton()
+    FR.findRefferalButton(templateBlue=FR.PPNBlueButton, template=FR.PPNButton)
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -145,7 +145,7 @@ def ppnSinusitRight():
 
 def ppnSinusitLeft():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton()
+    FR.findRefferalButton(templateBlue=FR.PPNBlueButton, template=FR.PPNButton)
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)

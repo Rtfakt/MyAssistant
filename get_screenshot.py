@@ -45,7 +45,7 @@ def get_screenshot():
 
 
 '''
-template = cv.imread('images/rentgenoButton.png', 0)
+template = cv.imread('images/rentgenoRefferalButton.png', 0)
 
 while True:
     screenshot = get_screenshot()
@@ -113,7 +113,7 @@ cap = cv.VideoCapture(0)
 cap.set(4, 1080)  # Id высоты 4
 cap.set(3, 1900)  # Id ширины 3
 
-template = cv.imread('images/rentgenoButton.png', 0)
+template = cv.imread('images/rentgenoRefferalButton.png', 0)
 
 
 while (True):

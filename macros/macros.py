@@ -23,7 +23,8 @@ def startIK():
     mouseTap(MP.LKM_MOUSE)
     FB.find(FB.pycButton)
     mouseTap(MP.LKM_MOUSE)
-    mousePosition(0, -80)
+    # переключаем язык на английский
+    FB.find(FB.engLanguage)
     mouseDoubleLKMTap()
     # user
     initialMousePosition()
@@ -90,6 +91,10 @@ def startIK():
     #картотека
     FB.find(FB.cartotekaButton)
     mouseTap(MP.LKM_MOUSE)
+    #№ амбулаторной карты
+    FB.find(FB.NAmbulatKart)
+    time.sleep(1)
+    FB.find(FB.NAmbulatKart)
 
 
 
@@ -107,21 +112,28 @@ def endIK():
     FB.find(FB.exitFromInfoclinikaButton)
     mouseTap(MP.LKM_MOUSE)
     # завершение работы
-    mousePosition(0, 20)
+    FB.find(FB.endWork)
     mouseTap(MP.LKM_MOUSE)
-    time.sleep(2)
+    #ожидание закрытия программы
+    FB.find(FB.secondInfoclinicaButton)
+    mouseTap(MP.LKM_MOUSE)
     # Пуск
-    initialMousePosition()
-    mousePosition(10, 1050)
+    FB.find(FB.startButton)
     mouseTap(MP.LKM_MOUSE)
     # Значек пользователя
-    mousePosition(10, -130)
-    time.sleep(1)
+    FB.find(FB.userButton)
     mouseTap(MP.LKM_MOUSE)
     # выход
-    mousePosition(0, -50)
+    FB.find(FB.windowsExit)
     mouseTap(MP.LKM_MOUSE)
-    time.sleep(3)
+    # ожидание появления рабочего стола
+    FB.find(FB.firstInfoclinicaButton)
+    # Пуск
+    FB.find(FB.startButton)
+    mouseTap(MP.LKM_MOUSE)
+    #кнопка выключения
+    FB.find(FB.offButton)
+    mouseTap(MP.LKM_MOUSE)
 
 
 def restartIK():

@@ -53,6 +53,13 @@ class FindButton:
     mainShablonOGK = cv.imread('images/buttons/mainShablonOGK.png', 0)
     shopGopShablon = cv.imread('images/buttons/shopGopShablon.png', 0)
     okButton = cv.imread('images/buttons/OKButton.png', 0)
+    endWork = cv.imread('images/buttons/zavershenieRaboty.png', 0)
+    startButton = cv.imread('images/buttons/startButton.png', 0)
+    userButton = cv.imread('images/buttons/userButton.png', 0)
+    windowsExit = cv.imread('images/buttons/windowsExit.png', 0)
+    engLanguage = cv.imread('images/buttons/ENGLanguage.png', 0)
+    offButton = cv.imread('images/buttons/offButton.png', 0)
+    NAmbulatKart = cv.imread('images/buttons/NAmbulatKart.png', 0)
 
 
 
@@ -104,6 +111,7 @@ class FindButton:
                                                       center_y if center_y >= 0 else 65536 + center_y).encode(),
                         (UDP_IP, UDP_PORT))
                     time.sleep(0.1)
+
 
                     print(points)
                 break
@@ -165,6 +173,7 @@ class FindButton:
                                                       center_y if center_y >= 0 else 65536 + center_y).encode(),
                         (UDP_IP, UDP_PORT))
                     time.sleep(0.1)
+
 
                     print(points)
                 break
@@ -293,6 +302,7 @@ class FindButton:
                                                       center_y if center_y >= 0 else 65536 + center_y).encode(),
                         (UDP_IP, UDP_PORT))
                     time.sleep(0.1)
+                    mouseTap(MP.LKM_MOUSE)
 
                     print(points)
 
@@ -356,6 +366,7 @@ class FindButton:
                                                       center_y if center_y >= 0 else 65536 + center_y).encode(),
                         (UDP_IP, UDP_PORT))
                     time.sleep(0.1)
+                    mouseTap(MP.LKM_MOUSE)
 
                     print(points)
                 break

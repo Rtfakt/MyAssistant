@@ -6,22 +6,26 @@ from udp_client import sock, UDP_IP, UDP_PORT
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 
 class FindRefferal():
-    rentgenoButton = cv.imread('images/refferal_buttons/rentgenoButton.png', 0)
-    rentgenoButtonBlue = cv.imread('images/refferal_buttons/rentgenoButtonBlue.png', 0)
+    rentgenoButton = cv.imread('images/refferal_buttons/rentgenoRefferalButton.png', 0)
+    rentgenoBlueButton = cv.imread('images/refferal_buttons/rentgenoRefferalBlueButton.png', 0)
+    fluraButton = cv.imread('images/refferal_buttons/fluraRefferalButton.png', 0)
+    fluraBlueButton = cv.imread('images/refferal_buttons/fluraRefferalBlueButton.png', 0)
+    OGKButton = cv.imread('images/refferal_buttons/OGKRefferalButton.png', 0)
+    OGKBlueButton = cv.imread('images/refferal_buttons/OGKBlueRefferalButton.png', 0)
+    PPNButton = cv.imread('images/refferal_buttons/PPNRefferalButton.png', 0)
+    PPNBlueButton = cv.imread('images/refferal_buttons/PPNRefferalBlueButton.png', 0)
 
 
-
-    def findRefferalButton(template=rentgenoButtonBlue, debug_mode=False, template2=rentgenoButton):
-
-        stop = time.time() + 2
+    def findRefferalButton(templateBlue, template, debug_mode=False):
+        stop = time.time() + 3
         while time.time() < stop:
             screenshot = get_screenshot()  # получение кадров с камеры
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
-            result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
+            result = cv.matchTemplate(screenshot, templateBlue, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
 
-            button_h = template.shape[0]
-            button_w = template.shape[1]
+            button_h = templateBlue.shape[0]
+            button_w = templateBlue.shape[1]
 
             # print('левая верхняя точка %s' % str(max_loc))
             # print('пороговое значение %s' % str(max_val))
@@ -72,7 +76,7 @@ class FindRefferal():
             else:
                 screenshot = get_screenshot()  # получение кадров с камеры
                 screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
-                result = cv.matchTemplate(screenshot, template2, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
+                result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
                 min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
 
                 button_h = template.shape[0]

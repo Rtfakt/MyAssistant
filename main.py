@@ -17,6 +17,7 @@ from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMouseP
 from keyboard import keyboardLongTap
 from windows_control import WindowsControl as WC
 from find_errors import FindErrors as FE
+from find_refferal import FindRefferal as FR
 
 FIOList = deque([
 
@@ -48,6 +49,9 @@ def autoFluraNormaShort():
 
 
 
+#FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
+#FB.find(FB.playButton)
+#mouseTap(MP.LKM_MOUSE)
 # FB.find(FB.playButton, debug_mode=True)
 # autoFluraNorma()
 # ppnSinusitRight()
@@ -763,7 +767,9 @@ class Ui_MainWindow(object):
         self.start_IK_Butt.setText(_translate("MainWindow", "запустить инфоклинику"))
         self.start_IK_Butt.triggered.connect(lambda: self.clickStartIK())
         self.restart_IK_butt.setText(_translate("MainWindow", "перезапустить инфоклинику"))
+        self.restart_IK_butt.triggered.connect(lambda: self.clickRestartIK())
         self.end_IK.setText(_translate("MainWindow", "закрыть инфоклинику"))
+        self.end_IK.triggered.connect(lambda: self.clickEndIK())
         self.action.setText(_translate("MainWindow", "включить камеру"))
 
 
@@ -783,6 +789,12 @@ class Ui_MainWindow(object):
         
     def clickStartIK(self):
         startIK()
+
+    def clickRestartIK(self):
+        restartIK()
+
+    def clickEndIK(self):
+        endIK()
 
 
 

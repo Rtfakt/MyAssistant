@@ -10,7 +10,7 @@ from find_refferal import FindRefferal as FR
 # (без печати)РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
 def rOGK():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton()
+    FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -74,7 +74,7 @@ def rOGK():
 
 def rOGKPrint():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton()
+    FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -145,7 +145,7 @@ def rOGKPrint():
 
 def fluraNorma():
     #Поиск кнопки Рентгено
-    FR.findRefferalButton()
+    FR.findRefferalButton(templateBlue=FR.fluraBlueButton, template=FR.fluraButton)
     #зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
@@ -295,9 +295,7 @@ def fluraNorma():
 
 def fluraNormaShort():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton()
-    time.sleep(1)  # важно
-    keyboardTap(MP.LKM_MOUSE)
+    FR.findRefferalButton(templateBlue=FR.fluraBlueButton, template=FR.fluraButton)
     # зеленая кнопка play
     FB.find(FB.playButton)
     mouseTap(MP.LKM_MOUSE)
