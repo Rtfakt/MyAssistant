@@ -60,6 +60,12 @@ class FindButton:
     engLanguage = cv.imread('images/buttons/ENGLanguage.png', 0)
     offButton = cv.imread('images/buttons/offButton.png', 0)
     NAmbulatKart = cv.imread('images/buttons/NAmbulatKart.png', 0)
+    lechenieEnd = cv.imread('images/buttons/lechenieEnd.png', 0)
+    osmotr = cv.imread('images/buttons/osmotr.png', 0)
+    threePointsAndCloseButton = cv.imread('images/buttons/threePointsAndCloseButton.png', 0)
+    noButton = cv.imread('images/buttons/NOButton.png', 0)
+    doubleShablon = cv.imread('images/buttons/rentgenologycheskoeIssledovanieMainShablon.png', 0)
+
 
 
 

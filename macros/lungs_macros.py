@@ -11,21 +11,17 @@ from find_refferal import FindRefferal as FR
 def rOGK():
     # Поиск кнопки Рентгено
     FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
-    # зеленая кнопка play
-    FB.find(FB.playButton)
-    mouseTap(MP.LKM_MOUSE)
     # Дата
-    keyboardTap(KP.ENTER)
-    time.sleep(3)
+    FB.find(FB.okButton)
+    mouseTap(MP.LKM_MOUSE)
     # Подтвердить случай?
-    keyboardTap(KP.RightArrow)
-    keyboardTap(KP.ENTER)
+    FB.find(FB.noButton)
+    mouseTap(MP.LKM_MOUSE)
     # ?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
     # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
-    mouseTap(MP.LKM_MOUSE)
     # История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
@@ -75,9 +71,6 @@ def rOGK():
 def rOGKPrint():
     # Поиск кнопки Рентгено
     FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
-    # зеленая кнопка play
-    FB.find(FB.playButton)
-    mouseTap(MP.LKM_MOUSE)
     # Дата
     keyboardTap(KP.ENTER)
     time.sleep(3)
@@ -89,7 +82,6 @@ def rOGKPrint():
     keyboardTap(KP.ENTER)
     # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
-    mouseTap(MP.LKM_MOUSE)
     #История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
@@ -146,15 +138,12 @@ def rOGKPrint():
 def fluraNorma():
     #Поиск кнопки Рентгено
     FR.findRefferalButton(templateBlue=FR.fluraBlueButton, template=FR.fluraButton)
-    #зеленая кнопка play
-    FB.find(FB.playButton)
+    # Дата
+    FB.find(FB.okButton)
     mouseTap(MP.LKM_MOUSE)
-    #Дата
-    keyboardTap(KP.ENTER)
-    time.sleep(3)
-    #Подтвердить случай?
-    keyboardTap(KP.RightArrow)
-    keyboardTap(KP.ENTER)
+    # Подтвердить случай?
+    FB.find(FB.noButton)
+    mouseTap(MP.LKM_MOUSE)
     # ?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
@@ -255,15 +244,14 @@ def fluraNorma():
     time.sleep(1)
     # результат
     FB.findResult()
-    mouseTap(MP.LKM_MOUSE)
     # лечение завершено
-    mousePosition(0, 35)
+    FB.find(FB.lechenieEnd)
     mouseTap(MP.LKM_MOUSE)
     # Исход заболевания
-    mousePosition(0, -10)
+    mousePosition(135, -18)
     mouseTap(MP.LKM_MOUSE)
     # осмотр
-    mousePosition(-20, 130)
+    FB.find(FB.osmotr)
     mouseTap(MP.LKM_MOUSE)
     # Закрыть с текущим диагнозом
     mousePosition(0, -90)
@@ -296,12 +284,8 @@ def fluraNorma():
 def fluraNormaShort():
     # Поиск кнопки Рентгено
     FR.findRefferalButton(templateBlue=FR.fluraBlueButton, template=FR.fluraButton)
-    # зеленая кнопка play
-    FB.find(FB.playButton)
-    mouseTap(MP.LKM_MOUSE)
     # Дата
     keyboardTap(KP.ENTER)
-    time.sleep(3)
     # Подтвердить случай?
     keyboardTap(KP.ENTER)
     # ?
@@ -309,7 +293,6 @@ def fluraNormaShort():
     keyboardTap(KP.ENTER)
     # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
-    mouseTap(MP.LKM_MOUSE)
     # История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
@@ -376,15 +359,14 @@ def fluraNormaShort():
     time.sleep(1)
     # результат
     FB.findResult()
-    mouseTap(MP.LKM_MOUSE)
     # лечение завершено
-    mousePosition(0, 35)
+    FB.find(FB.lechenieEnd)
     mouseTap(MP.LKM_MOUSE)
     # Исход заболевания
-    mousePosition(0, -10)
+    mousePosition(135, -18)
     mouseTap(MP.LKM_MOUSE)
     # осмотр
-    mousePosition(-20, 130)
+    FB.find(FB.osmotr)
     mouseTap(MP.LKM_MOUSE)
     # Закрыть с текущим диагнозом
     mousePosition(0, -90)
@@ -411,6 +393,93 @@ def fluraNormaShort():
     time.sleep(1)
     FB.findWithTime(FB.prodSohrPriButton)
     mouseTap(MP.LKM_MOUSE)
+
+
+def fluraNormaCT():
+    # Поиск кнопки Рентгено
+    FR.findRefferalButton(templateBlue=FR.fluraBlueButton, template=FR.fluraButton)
+    # Дата
+    keyboardTap(KP.ENTER)
+    time.sleep(3)
+    # Подтвердить случай?
+    keyboardTap(KP.ENTER)
+    # ?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # Продолжить без создания случая
+    FB.findWithTime(FB.prodBezSozSlu)
+    # История болезни
+    FB.findF8()
+    mouseTap(MP.LKM_MOUSE)
+    # Флюорографическое исследование органов грудной клетки
+    FB.find(FB.mainShablonFlura)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(4)
+    # шаблоны
+    FB.find(FB.shablonButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Выбрать
+    FB.find(FB.vybratButton)
+    mouseTap(MP.LKM_MOUSE)
+    # убрать диагноз
+    FB.find(FB.threePointsAndCloseButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Выбор с добавлением
+    FB.find(FB.vyborSDobavleniem)
+    mouseTap(MP.LKM_MOUSE)
+    # В протоколе уже есть основной диагноз
+    time.sleep(1)
+    keyboardTap(KP.ENTER)
+    # Сегодняшняя дата проведения исследования
+    FB.find(FB.todayButton)
+    mouseTap(MP.LKM_MOUSE)
+    # время проведения исследования
+    keyboardTap(KP.TAB)
+    keyboardTap(KP.NUM1)
+    # смена языка
+    initialMousePosition()
+    mousePosition(1780, 1060)
+    mouseTap(MP.LKM_MOUSE)
+    mousePosition(0, -120)
+    mouseDoubleLKMTap()
+    # Диагноз МКБ
+    initialMousePosition()
+    mousePosition(300, 160)
+    mouseTap(MP.LKM_MOUSE)
+    keyboardTap(KP.Z)
+    keyboardTap(KP.NUM0)
+    keyboardTap(KP.NUM1)
+    keyboardTap(KP.Ю)
+    keyboardTap(KP.NUM8)
+    # подписать
+    FB.find(FB.signatureButton)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    # Подписать ENTER
+    keyboardTap(KP.ENTER)
+    # Поиск ошибки ОМС ******************************************
+    FE.findOMCError()
+    # FE.findDataUIPError()
+    # выход
+    WC.find(WC.elPodProtocWindow)
+    WC.wait(WC.elPodProtocWindow)
+    FB.find(FB.exitButton)
+    mouseTap(MP.LKM_MOUSE)
+    # сохранить F2
+    keyboardTap(KP.F2)
+    # сохранить изменения?
+    keyboardTap(KP.ENTER)
+    # выбрать
+    keyboardTap(KP.F2)
+    # выбрать
+    keyboardTap(KP.F2)
+    # нет диагноза в приеме
+    keyboardTap(KP.ENTER)
+    #Продолжить сохранение приема
+    time.sleep(1)
+    FB.findWithTime(FB.prodSohrPriButton)
+    mouseTap(MP.LKM_MOUSE)
+
 
 
 

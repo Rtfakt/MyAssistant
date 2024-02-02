@@ -12,9 +12,6 @@ from find_refferal import FindRefferal as FR
 def shop():
     # Поиск кнопки Рентгено
     FR.findRefferalButton()
-    # зеленая кнопка play
-    FB.find(FB.playButton)
-    mouseTap(MP.LKM_MOUSE)
     # Дата
     keyboardTap(KP.ENTER)
     time.sleep(3)
@@ -80,9 +77,6 @@ def shop():
 def pop(scolioz=False):
     # Поиск кнопки Рентгено
     FR.findRefferalButton()
-    # зеленая кнопка play
-    FB.find(FB.playButton)
-    mouseTap(MP.LKM_MOUSE)
     # Дата
     keyboardTap(KP.ENTER)
     time.sleep(3)
@@ -201,9 +195,6 @@ def pop(scolioz=False):
 def shopGop():
     # Поиск кнопки Рентгено
     FR.findRefferalButton()
-    # зеленая кнопка play
-    FB.find(FB.playButton)
-    mouseTap(MP.LKM_MOUSE)
     # Дата
     keyboardTap(KP.ENTER)
     time.sleep(3)

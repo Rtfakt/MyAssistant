@@ -4,11 +4,25 @@ from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
+from find_refferal import FindRefferal as FR
 
 
 
 
 def craniumNorma():
+    # Поиск кнопки Рентгено
+    FR.findRefferalButton(templateBlue=FR.rentgenoBlueButton, template=FR.rentgenoButton)
+    # Дата
+    keyboardTap(KP.ENTER)
+    time.sleep(3)
+    # Подтвердить случай?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # ?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # Продолжить без создания случая
+    FB.findWithTime(FB.prodBezSozSlu)
     # История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)

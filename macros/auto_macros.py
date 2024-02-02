@@ -54,7 +54,8 @@ def autoFluraNorma():
                     getScreenTemplate()
                     writeOMC(OMC) # Пишем полученные данные на другом компе
                     keyboardTap(KP.ENTER)
-                    waitChanges()
+                    #waitChanges()
+                    time.sleep(3)
                     fluraNorma()
                     os.remove(filePath)
 

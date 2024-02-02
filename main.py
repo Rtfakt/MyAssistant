@@ -5,11 +5,14 @@ from get_text import getText
 from keyboard import keyboardTap
 from macros.auto_macros import autoFluraNorma, autoOGKNorma
 from macros.backbone_macros import shop, pop, shopGop
+from macros.cranium_macros import craniumNorma
 from macros.create_refferal_macros import create_referal
 from filter_text import writeFIO, writePass
-from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint
-from macros.macros import antiSleep, startIK, endIK, restartIK
+from macros.double_macros import craniumLungsMacros
+from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT
+
 from find_button import FindButton as FB
+from macros.macros import startIK, restartIK, endIK
 from macros.ppn_macros import ppnSinusitRight, ppnNorma, ppnSinusitLeft
 from omc_control import getScreenTemplate, waitChanges, findChanges
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
@@ -20,6 +23,10 @@ from find_errors import FindErrors as FE
 from find_refferal import FindRefferal as FR
 
 FIOList = deque([
+
+
+
+
 
 ])
 my_iter = iter(FIOList)
@@ -39,7 +46,7 @@ def autoFluraNormaShort():
             getScreenTemplate()
             writeFIO(FIO)  # Пишем полученные данные на другом компе
             waitChanges()
-            time.sleep(1)
+            time.sleep(3)
             create_referal()
             fluraNormaShort()
             time.sleep(3)
@@ -47,12 +54,8 @@ def autoFluraNormaShort():
             break
 
 
-
-
 #FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
-#FB.find(FB.playButton)
-#mouseTap(MP.LKM_MOUSE)
-# FB.find(FB.playButton, debug_mode=True)
+craniumLungsMacros()
 # autoFluraNorma()
 # ppnSinusitRight()
 #startIK()
@@ -67,7 +70,7 @@ def autoFluraNormaShort():
 #shop()
 #autoFluraNorma()
 #endIK()
-
+#restartIK()
 #autoOGKNorma()
 
 #autoFluraNormaShort()
@@ -692,6 +695,7 @@ class Ui_MainWindow(object):
         self.pushButton_fluraNormaAvto.clicked.connect(lambda: autoFluraNorma())
         self.OGKButtonCT.setText(_translate("MainWindow", "ОГК норма (СТ)"))
         self.pushButton_fluraNormaCT.setText(_translate("MainWindow", "Флюорография норма(СТ)"))
+        self.pushButton_fluraNormaCT.clicked.connect(lambda : fluraNormaCT())
         self.pushButton_pneumonia_right.setText(_translate("MainWindow", "Правосторонняя пневмония"))
         self.pushButton_pneumonia_left.setText(_translate("MainWindow", "Левосторонняя пневмония"))
         self.pushButton_pneumonia_right_left.setText(_translate("MainWindow", "Двусторонняя пневмония"))
@@ -712,6 +716,7 @@ class Ui_MainWindow(object):
         self.pushButton_GopPopOX.setText(_translate("MainWindow", "ГОП и ПОП Остеохондроз"))
         self.main.setTabText(self.main.indexOf(self.backbone_tab), _translate("MainWindow", "Позвоночник"))
         self.pushButton_craniumNorma.setText(_translate("MainWindow", "Череп норма"))
+        self.pushButton_craniumNorma.clicked.connect(lambda: craniumNorma())
         self.pushButton_ppnNorma.setText(_translate("MainWindow", "ППН норма"))
         self.pushButton_ppnNorma.clicked.connect(lambda: ppnNorma())
         self.pushButton_ppnSinusitRight.setText(_translate("MainWindow", "синусит справа"))
@@ -773,16 +778,6 @@ class Ui_MainWindow(object):
         self.action.setText(_translate("MainWindow", "включить камеру"))
 
 
-    def setData(self):
-        data = 1
-        print(data)
-        time.sleep(2)
-        data = 2
-        print(data)
-        time.sleep(2)
-        data = 3
-        print(data)
-        time.sleep(2)
 
     def get_write_data(self):
         writeFIO(self.lineEdit.text())
