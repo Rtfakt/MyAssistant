@@ -142,13 +142,14 @@ def fluraNorma():
     FB.find(FB.okButton)
     mouseTap(MP.LKM_MOUSE)
     # Подтвердить случай?
-    FB.find(FB.noButton)
-    mouseTap(MP.LKM_MOUSE)
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
     # ?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
     #Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
+    #mouseTap(MP.LKM_MOUSE)
     #диагноз
     FB.find(FB.diagnozButton)
     time.sleep(0.2)
@@ -399,10 +400,10 @@ def fluraNormaCT():
     # Поиск кнопки Рентгено
     FR.findRefferalButton(templateBlue=FR.fluraBlueButton, template=FR.fluraButton)
     # Дата
-    keyboardTap(KP.ENTER)
-    time.sleep(3)
+    FB.find(FB.okButton)
+    mouseTap(MP.LKM_MOUSE)
     # Подтвердить случай?
-    keyboardTap(KP.ENTER)
+    mouseTap(MP.LKM_MOUSE)
     # ?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)

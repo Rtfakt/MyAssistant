@@ -43,23 +43,28 @@ def getText():
                 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"#Распознаем текст
                 OCRresult = pytesseract.image_to_string(image, lang="rus")
                 #print(OCRresult)# Получаем полный текст
-                s = filter_text(OCRresult)# Фильтруем полный текст и получаем только необходимые данные
-                last_name_data = s[1]
-                first_name_data = s[2]
-                middle_name_data = s[3]
-                birthdate_data = s[4]
-                OMCdata = s[5]
-                print(last_name_data)
-                print(first_name_data)
-                print(middle_name_data)
-                print(birthdate_data)
-                print(OMCdata)
-                # cv.imshow("Test", image)
-                # cv.waitKey()
-                writeOMC(s[5]) # Пишем полученные данные на другом компе
-                keyboardTap(KP.ENTER)
-                f.close()
-                os.remove(filePath)
+                try:
+                    s = filter_text(OCRresult)  # Фильтруем полный текст и получаем только необходимые данные
+                    last_name_data = s[1]
+                    first_name_data = s[2]
+                    middle_name_data = s[3]
+                    birthdate_data = s[4]
+                    OMCdata = s[5]
+                    print(last_name_data)
+                    print(first_name_data)
+                    print(middle_name_data)
+                    print(birthdate_data)
+                    print(OMCdata)
+                    # cv.imshow("Test", image)
+                    # cv.waitKey()
+                    writeOMC(s[5])  # Пишем полученные данные на другом компе
+                    keyboardTap(KP.ENTER)
+                except:
+                    print('Не удалось распознать текст')
+                finally:
+                    f.close()
+                    os.remove(filePath)
+
 
 
 

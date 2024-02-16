@@ -24,6 +24,17 @@ from find_refferal import FindRefferal as FR
 
 FIOList = deque([
 
+'Тарзиева сафия нуф',
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,8 +65,28 @@ def autoFluraNormaShort():
             break
 
 
+def autoFluraCT():
+    while True:
+        try:
+            FIO = next(my_iter)
+            print(FIO)
+
+            initialMousePosition()
+            mousePosition(100, 190)
+            mouseTap(MP.LKM_MOUSE)
+            keyboardLongTap(KP.LeftControl)
+            keyboardTap(KP.A)
+            writeFIO(FIO)  # Пишем полученные данные на другом компе
+            time.sleep(3)
+            fluraNormaCT()
+            time.sleep(3)
+        except StopIteration:
+            break
+
+
 #FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
-craniumLungsMacros()
+#autoFluraCT()
+# mousePosition(100,100)
 # autoFluraNorma()
 # ppnSinusitRight()
 #startIK()
@@ -726,7 +757,7 @@ class Ui_MainWindow(object):
         self.pushButton_ppnSinusitRightLeft.setText(_translate("MainWindow", "синусит справа и слева"))
         self.main.setTabText(self.main.indexOf(self.cranium_ppn_tab), _translate("MainWindow", "Череп, Пазухи"))
         self.pushButton_cranium_lungs.setText(_translate("MainWindow", "Череп легкие"))
-        self.pushButton_cranium_lungs.clicked.connect(lambda: self.setData())
+        self.pushButton_cranium_lungs.clicked.connect(lambda: craniumLungsMacros())
         self.pushButton_lungs_belly.setText(_translate("MainWindow", "легкие брюшная"))
         self.pushButton_ppnLungs.setText(_translate("MainWindow", "ППН легкие норма"))
         self.pushButton_pop_hips.setText(_translate("MainWindow", "ПОП Т/б сустав"))

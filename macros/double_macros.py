@@ -35,6 +35,41 @@ def craniumLungsMacros():
     FB.find(FB.vybratButton)
     mouseTap(MP.LKM_MOUSE)
     # Череп легкие
+    FB.find(FB.craniumOGKShablon)
+    mouseTap(MP.LKM_MOUSE)
+    # Выбор с добавлением
+    FB.find(FB.vyborSDobavleniem)
+    mouseTap(MP.LKM_MOUSE)
+    # подписать
+    FB.find(FB.signatureButton)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    # печать
+    keyboardTap(KP.F5)
+    # OK
+    keyboardTap(KP.ENTER)
+    # подписать ENTER
+    keyboardTap(KP.ENTER)
+    time.sleep(1)
+    # выход
+    WC.find(WC.elPodProtocWindow)
+    WC.wait(WC.elPodProtocWindow)
+    FB.find(FB.exitButton)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    # cчитать прием диспансерным?
+    keyboardTap(KP.RightArrow)
+    keyboardTap(KP.ENTER)
+    # сохранить F2
+    keyboardTap(KP.F2)
+    # сохранить изменения?
+    keyboardTap(KP.ENTER)
+    # выбрать
+    keyboardTap(KP.F2)
+    # выбрать
+    keyboardTap(KP.F2)
+    # нет диагноза в приеме
+    keyboardTap(KP.ENTER)
 
 
 

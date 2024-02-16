@@ -65,6 +65,10 @@ class FindButton:
     threePointsAndCloseButton = cv.imread('images/buttons/threePointsAndCloseButton.png', 0)
     noButton = cv.imread('images/buttons/NOButton.png', 0)
     doubleShablon = cv.imread('images/buttons/rentgenologycheskoeIssledovanieMainShablon.png', 0)
+    craniumOGKShablon = cv.imread('images/buttons/CraniumOgkShablon.png', 0)
+    ObpShablon = cv.imread('images/buttons/ObpShablon.png', 0)
+    OgkObpKidneysShablon = cv.imread('images/buttons/OgkObpKidneysShablon.png', 0)
+
 
 
 
