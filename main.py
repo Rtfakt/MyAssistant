@@ -24,18 +24,6 @@ from find_refferal import FindRefferal as FR
 
 FIOList = deque([
 
-'Тарзиева сафия нуф',
-
-
-
-
-
-
-
-
-
-
-
 
 
 
