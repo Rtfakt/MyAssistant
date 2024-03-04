@@ -16,7 +16,8 @@ from macros.macros import startIK, restartIK, endIK
 from macros.ppn_macros import ppnSinusitRight, ppnNorma, ppnSinusitLeft
 from omc_control import getScreenTemplate, waitChanges, findChanges
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap, \
+    mouseScrollDown
 from keyboard import keyboardLongTap
 from windows_control import WindowsControl as WC
 from find_errors import FindErrors as FE
@@ -98,45 +99,7 @@ def autoFluraCT():
 #pop()
 #findPatient()
 
-# кнопка добавить
-FB.find(FB.plusAddButton)
-mouseTap(MP.LKM_MOUSE)
-# область
-FB.find(FB.oblast)
-mouseDoubleLKMTap()
-# Кнопка развернуть
-FB.find(FB.downButton)
-mouseTap(MP.LKM_MOUSE)
-# Грудь
-FB.find(FB.grudButton)
-mouseTap(MP.LKM_MOUSE)
-# Метод
-FB.find(FB.metod)
-mouseDoubleLKMTap()
-# Кнопка развернуть
-FB.find(FB.downButton)
-mouseTap(MP.LKM_MOUSE)
-# Рентген
-FB.find(FB.rentgen)
-mouseTap(MP.LKM_MOUSE)
-# исследования
-FB.find(FB.issledovanie)
-mouseDoubleLKMTap()
-# Кнопка развернуть
-FB.find(FB.downButton)
-mouseTap(MP.LKM_MOUSE)
-keyboardTap(KP.DownArrow)
-keyboardTap(KP.ENTER)
-#usluga
-FB.find(FB.usluga)
-mouseDoubleLKMTap()
-# Длинная кнопка развернуть
-FB.find(FB.downLongButton)
-mouseTap(MP.LKM_MOUSE)
-# услуга с кодом
-keyboardTap(KP.DownArrow)
-keyboardTap(KP.DownArrow)
-keyboardTap(KP.ENTER)
+
 
 
 

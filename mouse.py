@@ -8,7 +8,6 @@ from udp_client import sock, UDP_IP, UDP_PORT
 
 class MousePackagesUdp():
     ALL_KEYS_MOUSE_UP = "345640000000000000"
-
     LKM_MOUSE = "345640010000000000"
     PKM_MOUSE = "345640020000000000"
     SKM_MOUSE = "345640040000000000"
@@ -45,3 +44,9 @@ def mouseTap(MESSAGE):  # метод нажимает и отпускает кн
 def mousePosition(x, y):
     sock.sendto('34564000{:05d}{:05d}'.format(x if x>=0 else 65536+x, y if y>=0 else 65536+y).encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.1)
+
+def mouseScrollDown():  # метод нажимает и отпускает кнопку мыши
+        sock.sendto(MousePackagesUdp.SCROLL_DOWN_MOUSE.encode(), (UDP_IP, UDP_PORT))
+        time.sleep(0.1)
+        sock.sendto(MousePackagesUdp.ALL_KEYS_MOUSE_UP.encode(), (UDP_IP, UDP_PORT))
+        time.sleep(0.1)
