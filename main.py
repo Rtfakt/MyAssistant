@@ -9,7 +9,7 @@ from macros.cranium_macros import craniumNorma
 from macros.create_refferal_macros import create_referal
 from filter_text import writeFIO, writePass
 from macros.double_macros import craniumLungsMacros
-from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT
+from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT, OGKNormaCT
 
 from find_button import FindButton as FB
 from macros.macros import startIK, restartIK, endIK
@@ -23,10 +23,6 @@ from find_errors import FindErrors as FE
 from find_refferal import FindRefferal as FR
 
 FIOList = deque([
-
-
-
-
 ])
 my_iter = iter(FIOList)
 
@@ -36,11 +32,9 @@ def autoFluraNormaShort():
         try:
             FIO = next(my_iter)
             print(FIO)
-
-            initialMousePosition()
-            mousePosition(100, 190)
+            FB.findSearchMainButton() #находим поле поиска
             mouseTap(MP.LKM_MOUSE)
-            keyboardLongTap(KP.LeftControl)
+            keyboardLongTap(KP.LeftControl) #выделение текста
             keyboardTap(KP.A)
             getScreenTemplate()
             writeFIO(FIO)  # Пишем полученные данные на другом компе
@@ -58,12 +52,11 @@ def autoFluraCT():
         try:
             FIO = next(my_iter)
             print(FIO)
-
-            initialMousePosition()
-            mousePosition(100, 190)
+            FB.findSearchMainButton() #находим поле поиска
             mouseTap(MP.LKM_MOUSE)
             keyboardLongTap(KP.LeftControl)
             keyboardTap(KP.A)
+            time.sleep(0.5)
             writeFIO(FIO)  # Пишем полученные данные на другом компе
             time.sleep(3)
             fluraNormaCT()
@@ -71,7 +64,10 @@ def autoFluraCT():
         except StopIteration:
             break
 
-
+#FB.find(FB.oblast)
+#mouseDoubleLKMTap()
+#FB.find(FB.downButton)
+#mouseTap(MP.LKM_MOUSE)
 #FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
 #autoFluraCT()
 # mousePosition(100,100)
@@ -101,6 +97,51 @@ def autoFluraCT():
 #antiSleep()
 #pop()
 #findPatient()
+
+# кнопка добавить
+FB.find(FB.plusAddButton)
+mouseTap(MP.LKM_MOUSE)
+# область
+FB.find(FB.oblast)
+mouseDoubleLKMTap()
+# Кнопка развернуть
+FB.find(FB.downButton)
+mouseTap(MP.LKM_MOUSE)
+# Грудь
+FB.find(FB.grudButton)
+mouseTap(MP.LKM_MOUSE)
+# Метод
+FB.find(FB.metod)
+mouseDoubleLKMTap()
+# Кнопка развернуть
+FB.find(FB.downButton)
+mouseTap(MP.LKM_MOUSE)
+# Рентген
+FB.find(FB.rentgen)
+mouseTap(MP.LKM_MOUSE)
+# исследования
+FB.find(FB.issledovanie)
+mouseDoubleLKMTap()
+# Кнопка развернуть
+FB.find(FB.downButton)
+mouseTap(MP.LKM_MOUSE)
+keyboardTap(KP.DownArrow)
+keyboardTap(KP.ENTER)
+#usluga
+FB.find(FB.usluga)
+mouseDoubleLKMTap()
+# Длинная кнопка развернуть
+FB.find(FB.downLongButton)
+mouseTap(MP.LKM_MOUSE)
+# услуга с кодом
+keyboardTap(KP.DownArrow)
+keyboardTap(KP.DownArrow)
+keyboardTap(KP.ENTER)
+
+
+
+
+
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -713,6 +754,7 @@ class Ui_MainWindow(object):
         self.pushButton_fluraNormaAvto.setText(_translate("MainWindow", "Флюоро (авто)"))
         self.pushButton_fluraNormaAvto.clicked.connect(lambda: autoFluraNorma())
         self.OGKButtonCT.setText(_translate("MainWindow", "ОГК норма (СТ)"))
+        self.OGKButtonCT.clicked.connect(lambda: OGKNormaCT())
         self.pushButton_fluraNormaCT.setText(_translate("MainWindow", "Флюорография норма(СТ)"))
         self.pushButton_fluraNormaCT.clicked.connect(lambda : fluraNormaCT())
         self.pushButton_pneumonia_right.setText(_translate("MainWindow", "Правосторонняя пневмония"))

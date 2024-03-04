@@ -11,7 +11,6 @@ def get_screenshot():
     cropped_y = 0
 
     hwnd = win32gui.FindWindow(None, 'monitor')
-
     # Обрезаем черные полосы по краям
     windows_rect = win32gui.GetWindowRect(hwnd)
     w = windows_rect[2] - windows_rect[0]
