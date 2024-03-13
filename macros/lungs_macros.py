@@ -1,6 +1,7 @@
 import time
 
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
+from macros.macros import antiSleep
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
@@ -131,6 +132,7 @@ def rOGKPrint():
     keyboardTap(KP.F2)
     # нет диагноза в приеме
     keyboardTap(KP.ENTER)
+    #antiSleep()
 
 
 

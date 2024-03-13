@@ -82,6 +82,7 @@ class FindButton:
     urografiaShablon = cv.imread('images/buttons/UrografiaShablon.png', 0)
     usluga = cv.imread('images/buttons/Usluga.png', 0)
     zhivot = cv.imread('images/buttons/Zhivot.png', 0)
+    OgkObpShablon  = cv.imread('images/buttons/ogkObpNormaShablon.png', 0)
 
 
 

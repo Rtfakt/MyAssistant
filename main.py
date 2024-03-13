@@ -8,11 +8,11 @@ from macros.backbone_macros import shop, pop, shopGop
 from macros.cranium_macros import craniumNorma
 from macros.create_refferal_macros import create_referal
 from filter_text import writeFIO, writePass
-from macros.double_macros import craniumLungsMacros
+from macros.double_macros import craniumLungsMacros, OgkObpNorma
 from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT, OGKNormaCT
 
 from find_button import FindButton as FB
-from macros.macros import startIK, restartIK, endIK
+from macros.macros import startIK, restartIK, endIK, antiSleep
 from macros.ppn_macros import ppnSinusitRight, ppnNorma, ppnSinusitLeft
 from omc_control import getScreenTemplate, waitChanges, findChanges
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
@@ -24,6 +24,8 @@ from find_errors import FindErrors as FE
 from find_refferal import FindRefferal as FR
 
 FIOList = deque([
+'степнев юрий александрович',
+'зимовейский дмитрий алексеевич',
 ])
 my_iter = iter(FIOList)
 
@@ -65,6 +67,27 @@ def autoFluraCT():
         except StopIteration:
             break
 
+
+def autoOGKCT():
+    while True:
+        try:
+            FIO = next(my_iter)
+            print(FIO)
+            FB.findSearchMainButton()  # находим поле поиска
+            mouseTap(MP.LKM_MOUSE)
+            keyboardLongTap(KP.LeftControl)
+            keyboardTap(KP.A)
+            time.sleep(0.5)
+            writeFIO(FIO)  # Пишем полученные данные на другом компе
+            time.sleep(3)
+            OGKNormaCT()
+            time.sleep(3)
+        except StopIteration:
+            break
+
+
+#autoOGKCT()
+#autoFluraCT()
 #FB.find(FB.oblast)
 #mouseDoubleLKMTap()
 #FB.find(FB.downButton)
@@ -98,7 +121,6 @@ def autoFluraCT():
 #antiSleep()
 #pop()
 #findPatient()
-
 
 
 
@@ -752,6 +774,7 @@ class Ui_MainWindow(object):
         self.pushButton_cranium_lungs.setText(_translate("MainWindow", "Череп легкие"))
         self.pushButton_cranium_lungs.clicked.connect(lambda: craniumLungsMacros())
         self.pushButton_lungs_belly.setText(_translate("MainWindow", "легкие брюшная"))
+        self.pushButton_lungs_belly.clicked.connect(lambda: OgkObpNorma())
         self.pushButton_ppnLungs.setText(_translate("MainWindow", "ППН легкие норма"))
         self.pushButton_pop_hips.setText(_translate("MainWindow", "ПОП Т/б сустав"))
         self.main.setTabText(self.main.indexOf(self.double_shablon_tab), _translate("MainWindow", "Двойные шаблоны"))

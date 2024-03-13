@@ -83,7 +83,7 @@ def writePass():
     keyboardTap(KP.K)
     keyboardTap(KP.A)
     keyboardTap(KP.V)
+    keyboardTap(KP.NUM2)
     keyboardTap(KP.NUM3)
-    keyboardTap(KP.NUM4)
     # Подтвердить
     keyboardTap(KP.ENTER)
