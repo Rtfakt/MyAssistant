@@ -5,10 +5,12 @@ import pytesseract
 import cv2 as cv
 import os
 from collections import deque
-from filter_text import filter_text, writeOMC
+from filter_text import filter_text
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from open_programs import OpenPrograms as OP
 import pyautogui as pag
+
+from write_text import writeOMC
 
 path_directory = r"C:\Users\konor\Pictures\Camera Roll"
 fileList = deque([])

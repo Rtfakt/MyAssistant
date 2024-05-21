@@ -1,5 +1,6 @@
 import time
 
+from write_text import writePass
 from find_title import FindTitles as FT
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP, keyboardLongTap
 
@@ -25,11 +26,12 @@ def antiSleep():
 def startIK():
     # смена языка
     mouseTap(MP.LKM_MOUSE)
-    FB.find(FB.pycButton)
-    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
     # переключаем язык на английский
-    FB.find(FB.engLanguage)
-    mouseDoubleLKMTap()
+    keyboardLongTap(KP.LeftShift)
+    keyboardTap(KP.LeftAlt)
+    #FB.find(FB.engLanguage)
+    #mouseDoubleLKMTap()
     # user
     initialMousePosition()
     mousePosition(1000, 620)
@@ -55,21 +57,18 @@ def startIK():
     keyboardTap(KP.ENTER)
     # находим иконку авторизации
     FT.findUserNameWithTime()
-    # time.sleep(10)
-    # поле имени
-
     # место работы
-    # keyboardTap(KP.TAB)
-    keyboardLongTap(KP.LeftShift)
-    keyboardTap(KP.C)
-    keyboardTap(KP.R)
-    keyboardTap(KP.B)
-    keyboardTap(KP.S)
-    keyboardTap(KP.K)
-    keyboardTap(KP.A)
-    keyboardTap(KP.V)
-    keyboardTap(KP.NUM2)
-    keyboardTap(KP.NUM3)
+    writePass()
+    #keyboardLongTap(KP.LeftShift)
+    #keyboardTap(KP.C)
+    #keyboardTap(KP.R)
+    #keyboardTap(KP.B)
+    #keyboardTap(KP.S)
+    #keyboardTap(KP.K)
+    #keyboardTap(KP.A)
+    #keyboardTap(KP.V)
+    #keyboardTap(KP.NUM1)
+    #keyboardTap(KP.NUM2)
     # Подтвердить
     keyboardTap(KP.ENTER)
     # значок инфоклиники

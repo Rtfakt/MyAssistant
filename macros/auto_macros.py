@@ -3,13 +3,15 @@ import pytesseract
 import cv2 as cv
 import os
 from collections import deque
-from filter_text import filter_text, writeOMC
+from filter_text import filter_text
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from macros.lungs_macros import fluraNorma, rOGK
 from omc_control import getScreenTemplate, waitChanges
 from open_programs import OpenPrograms as OP
 import pyautogui as pag
 import asyncio
+from find_button import FindButton as FB
+from write_text import writeOMC
 
 path_directory = r"C:\Users\konor\Pictures\Camera Roll"
 filesList = deque([])
@@ -52,6 +54,7 @@ def autoFluraNorma():
                 for element in list(OMCList):
                     OMC = OMCList.pop()
                     getScreenTemplate()
+                    FB.find(FB.serachOMCTextField) # ищем поле ввода номера ОМС
                     writeOMC(OMC) # Пишем полученные данные на другом компе
                     keyboardTap(KP.ENTER)
                     #waitChanges()
@@ -96,6 +99,7 @@ def autoOGKNorma():
                 for element in list(OMCList):
                     OMC = OMCList.pop()
                     getScreenTemplate()
+                    FB.find(FB.serachOMCTextField) # ищем поле ввода номера ОМС
                     writeOMC(OMC) # Пишем полученные данные на другом компе
                     keyboardTap(KP.ENTER)
                     waitChanges()

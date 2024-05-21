@@ -7,7 +7,7 @@ from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import initialMousePosition
 from get_screenshot import get_screenshot
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
-from filter_text import writeFIO, writeOMC
+from write_text import writeFIO, writeOMC
 from windows_control import WindowsControl as WC
 
 

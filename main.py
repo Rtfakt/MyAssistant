@@ -1,61 +1,54 @@
 import time
 from collections import deque
-
 from get_text import getText
-from keyboard import keyboardTap
 from macros.auto_macros import autoFluraNorma, autoOGKNorma
 from macros.backbone_macros import shop, pop, shopGop
 from macros.cranium_macros import craniumNorma
 from macros.create_refferal_macros import create_referal
-from filter_text import writeFIO, writePass
+from write_text import writeFIO, writePass, writeKey
 from macros.double_macros import craniumLungsMacros, OgkObpNorma
 from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT, OGKNormaCT
-
 from find_button import FindButton as FB
-from macros.macros import startIK, restartIK, endIK, antiSleep
+from macros.macros import startIK, restartIK, endIK
 from macros.ppn_macros import ppnSinusitRight, ppnNorma, ppnSinusitLeft
-from omc_control import getScreenTemplate, waitChanges, findChanges
+from omc_control import getScreenTemplate, waitChanges
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap, \
-    mouseScrollDown
+from mouse import mouseTap, MousePackagesUdp as MP, initialMousePosition, mousePosition
 from keyboard import keyboardLongTap
-from windows_control import WindowsControl as WC
-from find_errors import FindErrors as FE
-from find_refferal import FindRefferal as FR
 
 FIOList = deque([
-'степнев юрий александрович',
-'зимовейский дмитрий алексеевич',
+
+
 ])
 my_iter = iter(FIOList)
 
 
-def autoFluraNormaShort():
+def autoFluraNormaRefferal():# Автоматическая флюорография с созданием направления
     while True:
         try:
             FIO = next(my_iter)
             print(FIO)
-            FB.findSearchMainButton() #находим поле поиска
+            FB.findSearchMainButton()  # находим поле поиска
             mouseTap(MP.LKM_MOUSE)
-            keyboardLongTap(KP.LeftControl) #выделение текста
+            keyboardLongTap(KP.LeftControl)  # выделение текста
             keyboardTap(KP.A)
             getScreenTemplate()
             writeFIO(FIO)  # Пишем полученные данные на другом компе
             waitChanges()
             time.sleep(3)
-            create_referal()
+            create_referal()  # cоздаем направление
             fluraNormaShort()
             time.sleep(3)
         except StopIteration:
             break
 
 
-def autoFluraCT():
+def autoFluraCT(): # Автоматическая флюорография для пациентов с стационара
     while True:
         try:
             FIO = next(my_iter)
             print(FIO)
-            FB.findSearchMainButton() #находим поле поиска
+            FB.findSearchMainButton()  # находим поле поиска
             mouseTap(MP.LKM_MOUSE)
             keyboardLongTap(KP.LeftControl)
             keyboardTap(KP.A)
@@ -86,18 +79,33 @@ def autoOGKCT():
             break
 
 
-#autoOGKCT()
+def autoFluraFromList(): # Автоматическая полная флюорография, получаемую из списка
+    while True:
+        try:
+            FIO = next(my_iter)
+            print(FIO)
+            FB.findSearchMainButton()  # находим поле поиска
+            mouseTap(MP.LKM_MOUSE)
+            keyboardLongTap(KP.LeftControl)
+            keyboardTap(KP.A)
+            time.sleep(0.5)
+            writeFIO(FIO)  # Пишем полученные данные на другом компе
+            time.sleep(3)
+            fluraNorma()
+            time.sleep(3)
+        except StopIteration:
+            break
+
+
+# autoFluraFromList()
+# fluraNormaShort()
+# autoFluraNormaRefferal()
+# autoOGKCT()
 #autoFluraCT()
-#FB.find(FB.oblast)
-#mouseDoubleLKMTap()
-#FB.find(FB.downButton)
-#mouseTap(MP.LKM_MOUSE)
-#FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
-#autoFluraCT()
-# mousePosition(100,100)
+# create_referal()
 # autoFluraNorma()
 # ppnSinusitRight()
-#startIK()
+# startIK()
 # writeText('турченков андрей владимирович')
 # fluraNorma()
 # fluraNormaShort()
@@ -106,27 +114,20 @@ def autoOGKCT():
 # ppnNorma()
 # pop()
 # craniumNorma()
-#shop()
-#autoFluraNorma()
-#endIK()
-#restartIK()
-#autoOGKNorma()
-
-#autoFluraNormaShort()
-#writePass()
-#getText()
-#time.sleep(3)
-#fluraNorma()
-#rOGK()
-#antiSleep()
-#pop()
-#findPatient()
-
-
-
-
-
-
+# shop()
+# autoFluraNorma()
+# endIK()
+# restartIK()
+# autoOGKNorma()
+# autoFluraNormaShort()
+# writePass()
+# getText()
+# time.sleep(3)
+# fluraNorma()
+# rOGK()
+# antiSleep()
+# pop()
+# findPatient()
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -665,9 +666,8 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(14)
         self.pushButton_antiSleep.setFont(font)
-        self.pushButton_antiSleep.setStyleSheet("background-color: rgb(153, 0, 0);")
+        self.pushButton_antiSleep.setStyleSheet("background-color: rgb(206, 206, 206);")
         self.pushButton_antiSleep.setObjectName("pushButton_antiSleep")
-
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(220, 100, 441, 31))
         self.lineEdit.setObjectName("lineEdit")
@@ -714,13 +714,10 @@ class Ui_MainWindow(object):
         self.main.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Мой асисстент"))
         self.family.setText(_translate("MainWindow", "Фамилия"))
-
 
         self.name.setText(_translate("MainWindow", "имя"))
         self.middle_name.setText(_translate("MainWindow", "Отчество"))
@@ -741,7 +738,7 @@ class Ui_MainWindow(object):
         self.OGKButtonCT.setText(_translate("MainWindow", "ОГК норма (СТ)"))
         self.OGKButtonCT.clicked.connect(lambda: OGKNormaCT())
         self.pushButton_fluraNormaCT.setText(_translate("MainWindow", "Флюорография норма(СТ)"))
-        self.pushButton_fluraNormaCT.clicked.connect(lambda : fluraNormaCT())
+        self.pushButton_fluraNormaCT.clicked.connect(lambda: fluraNormaCT())
         self.pushButton_pneumonia_right.setText(_translate("MainWindow", "Правосторонняя пневмония"))
         self.pushButton_pneumonia_left.setText(_translate("MainWindow", "Левосторонняя пневмония"))
         self.pushButton_pneumonia_right_left.setText(_translate("MainWindow", "Двусторонняя пневмония"))
@@ -750,7 +747,7 @@ class Ui_MainWindow(object):
         self.pushButton_plevrit_left.setText(_translate("MainWindow", "Левосторонний плеврит"))
         self.pushButton_plevrit_right.setText(_translate("MainWindow", "Правосторонний плеврит"))
         self.pushButton_fluraShortAuto.setText(_translate("MainWindow", "Флюоро короткая(авто)"))
-        self.pushButton_fluraShortAuto.clicked.connect(lambda: autoFluraNormaShort())
+        self.pushButton_fluraShortAuto.clicked.connect(lambda: autoFluraNormaRefferal())
         self.main.setTabText(self.main.indexOf(self.OGK_tab), _translate("MainWindow", "ОГК"))
         self.pushButton_shopOX.setText(_translate("MainWindow", "ШОП остеохондроз"))
         self.pushButton_shopOX.clicked.connect(lambda: shop())
@@ -811,7 +808,8 @@ class Ui_MainWindow(object):
         self.pushButton_WritePass.clicked.connect(lambda: writePass())
         self.pushButton_getText.setText(_translate("MainWindow", "Получить данные пациента"))
         self.pushButton_getText.clicked.connect(lambda: getText())
-        self.pushButton_antiSleep.setText(_translate("MainWindow", "STOP"))
+        self.pushButton_antiSleep.setText(_translate("MainWindow", "key"))
+        self.pushButton_antiSleep.clicked.connect(lambda: writeKey())
         self.label.setText(_translate("MainWindow", "Ручной ввод пациента"))
         self.pushButton_ok.setText(_translate("MainWindow", "ok"))
         self.pushButton_ok.clicked.connect(lambda: self.get_write_data())
@@ -824,11 +822,9 @@ class Ui_MainWindow(object):
         self.end_IK.triggered.connect(lambda: self.clickEndIK())
         self.action.setText(_translate("MainWindow", "включить камеру"))
 
-
-
     def get_write_data(self):
         writeFIO(self.lineEdit.text())
-        
+
     def clickStartIK(self):
         startIK()
 
@@ -839,14 +835,12 @@ class Ui_MainWindow(object):
         endIK()
 
 
-
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
-

@@ -49,7 +49,7 @@ def create_referal():
     FB.find(FB.kodUslugi)
     mouseDoubleLKMTap()
     #поиск добавленной услуги
-    FB.find(FB.usluga)
+    #FB.find(FB.usluga)
     # сохранить
     keyboardTap(KP.F2)
     # сохранить

@@ -150,7 +150,7 @@ def fluraNorma():
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
     #Продолжить без создания случая
-    FB.findWithTime(FB.prodBezSozSlu)
+    FB.findWithTime(FB.prodBezSozSlu, timeWait=3)
     #mouseTap(MP.LKM_MOUSE)
     #диагноз
     FB.find(FB.diagnozButton)
@@ -279,7 +279,7 @@ def fluraNorma():
     #Продолжить сохранение приема
     time.sleep(1)
     FB.findWithTime(FB.prodSohrPriButton)
-    mouseTap(MP.LKM_MOUSE)
+
 
 
 
@@ -391,11 +391,10 @@ def fluraNormaShort():
     # выбрать
     keyboardTap(KP.F2)
     # нет диагноза в приеме
-    keyboardTap(KP.ENTER)
+    #keyboardTap(KP.ENTER)
     #Продолжить сохранение приема
-    time.sleep(1)
-    FB.findWithTime(FB.prodSohrPriButton)
-    mouseTap(MP.LKM_MOUSE)
+    #time.sleep(1)
+    #FB.findWithTime(FB.prodSohrPriButton)
 
 
 def fluraNormaCT():
@@ -481,7 +480,7 @@ def fluraNormaCT():
     #Продолжить сохранение приема
     time.sleep(1)
     FB.findWithTime(FB.prodSohrPriButton)
-    mouseTap(MP.LKM_MOUSE)
+
 
 
 

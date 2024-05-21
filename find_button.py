@@ -65,7 +65,7 @@ class FindButton:
     threePointsAndCloseButton = cv.imread('images/buttons/threePointsAndCloseButton.png', 0)
     noButton = cv.imread('images/buttons/NOButton.png', 0)
     doubleShablon = cv.imread('images/buttons/rentgenologycheskoeIssledovanieMainShablon.png', 0)
-    craniumOGKShablon = cv.imread('images/buttons/CraniumOgkShablon.png', 0)
+    craniumOGKShablon = cv.imread('images/buttons/craniumOGKNormaShablon.png', 0)
     ObpShablon = cv.imread('images/buttons/ObpShablon.png', 0)
     OgkObpKidneysShablon = cv.imread('images/buttons/OgkObpKidneysShablon.png', 0)
     downButton = cv.imread('images/buttons/DownButton.png', 0)
@@ -83,6 +83,9 @@ class FindButton:
     usluga = cv.imread('images/buttons/Usluga.png', 0)
     zhivot = cv.imread('images/buttons/Zhivot.png', 0)
     OgkObpShablon  = cv.imread('images/buttons/ogkObpNormaShablon.png', 0)
+    serachOMCTextField = cv.imread('images/buttons/searchOMC.png', 0)
+    vybratF2Button = cv.imread('images/buttons/vybratF2Button.png', 0)
+
 
 
 
