@@ -267,18 +267,21 @@ def fluraNorma():
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     # сохранить F2
+    FB.find(FB.saveF2Button)
     keyboardTap(KP.F2)
     # сохранить изменения?
     keyboardTap(KP.ENTER)
     # выбрать
+    FB.find(FB.vybratF2Button)
     keyboardTap(KP.F2)
     # выбрать
+    FB.find(FB.vybratF2Button)
     keyboardTap(KP.F2)
     # нет диагноза в приеме
     keyboardTap(KP.ENTER)
     #Продолжить сохранение приема
-    time.sleep(1)
-    FB.findWithTime(FB.prodSohrPriButton)
+    #time.sleep(2)
+    #FB.findWithTime(FB.prodSohrPriButton)
 
 
 
@@ -383,18 +386,23 @@ def fluraNormaShort():
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     # сохранить F2
-    keyboardTap(KP.F2)
+    FB.find(FB.saveF2Button)
+    mouseTap(MP.LKM_MOUSE)
     # сохранить изменения?
-    keyboardTap(KP.ENTER)
+    #keyboardTap(KP.ENTER)
     # выбрать
+    FB.find(FB.vybratF2Button)
     keyboardTap(KP.F2)
     # выбрать
-    keyboardTap(KP.F2)
+    #FB.find(FB.vybratF2Button)
+    #keyboardTap(KP.F2)
     # нет диагноза в приеме
     #keyboardTap(KP.ENTER)
     #Продолжить сохранение приема
-    #time.sleep(1)
-    #FB.findWithTime(FB.prodSohrPriButton)
+    time.sleep(2)
+    FB.findWithTime(FB.prodSohrPriButton)
+    #Продолжить сохранение приема
+
 
 
 def fluraNormaCT():
@@ -467,18 +475,20 @@ def fluraNormaCT():
     WC.wait(WC.elPodProtocWindow)
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
-    # сохранить F2
-    keyboardTap(KP.F2)
+    FB.find(FB.saveF2Button)
+    mouseTap(MP.LKM_MOUSE)
     # сохранить изменения?
-    keyboardTap(KP.ENTER)
+    # keyboardTap(KP.ENTER)
     # выбрать
+    FB.find(FB.vybratF2Button)
     keyboardTap(KP.F2)
     # выбрать
-    keyboardTap(KP.F2)
+    #FB.find(FB.vybratF2Button)
+    #keyboardTap(KP.F2)
     # нет диагноза в приеме
-    keyboardTap(KP.ENTER)
-    #Продолжить сохранение приема
-    time.sleep(1)
+    # keyboardTap(KP.ENTER)
+    # Продолжить сохранение приема
+    time.sleep(2)
     FB.findWithTime(FB.prodSohrPriButton)
 
 
@@ -549,15 +559,15 @@ def OGKNormaCT():
     keyboardTap(KP.DownArrow)
     keyboardTap(KP.ENTER)
     # usluga
-    FB.find(FB.usluga)
-    mouseDoubleLKMTap()
+    #FB.find(FB.usluga)
+    #mouseDoubleLKMTap()
     # Длинная кнопка развернуть
-    FB.find(FB.downLongButton)
-    mouseTap(MP.LKM_MOUSE)
+    #FB.find(FB.downLongButton)
+    #mouseTap(MP.LKM_MOUSE)
     # услуга с кодом
-    keyboardTap(KP.DownArrow)
-    keyboardTap(KP.DownArrow)
-    keyboardTap(KP.ENTER)
+    #keyboardTap(KP.DownArrow)
+    #keyboardTap(KP.DownArrow)
+    #keyboardTap(KP.ENTER)
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)

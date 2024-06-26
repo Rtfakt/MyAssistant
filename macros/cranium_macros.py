@@ -11,7 +11,7 @@ from find_refferal import FindRefferal as FR
 
 def craniumNorma():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton(templateBlue=FR.rentgenoBlueButton, template=FR.rentgenoButton)
+    FR.findRefferalButton(templateBlue=FR.CraniumBlueButton, template=FR.CraniumButton)
     # Дата
     keyboardTap(KP.ENTER)
     time.sleep(3)
@@ -26,8 +26,8 @@ def craniumNorma():
     # История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
-    # Рентгенография черепа
-    mousePosition(0, 260)
+    # Рентгенографическое исследование(униф.)
+    FB.find(FB.rentgenUnifMainShablon)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -36,13 +36,45 @@ def craniumNorma():
     mousePosition(5, 30)
     mouseTap(MP.LKM_MOUSE)
     # череп норма
-    mousePosition(-605, 160)
-    time.sleep(1)
+    FB.find(FB.craniumNorma)
     mouseTap(MP.LKM_MOUSE)
     # Выбор с добавлением
-    mousePosition(130, -160)
-    time.sleep(1)
+    FB.find(FB.vyborSDobavleniem)
     mouseTap(MP.LKM_MOUSE)
+    # подписать
+    FB.find(FB.signatureButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Доп. блок
+    # кнопка добавить
+    FB.find(FB.plusAddButton)
+    mouseTap(MP.LKM_MOUSE)
+    # область
+    FB.find(FB.oblast)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Голова шея
+    keyboardTap(KP.DownArrow)
+    keyboardTap(KP.DownArrow)
+    keyboardTap(KP.ENTER)
+    # Метод
+    FB.find(FB.metodLong)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downLongButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Рентген
+    FB.find(FB.rentgen)
+    mouseTap(MP.LKM_MOUSE)
+    # исследования
+    FB.find(FB.issledovanieLong)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downLongButton)
+    mouseTap(MP.LKM_MOUSE)
+    keyboardTap(KP.DownArrow)
+    keyboardTap(KP.ENTER)
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)

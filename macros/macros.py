@@ -21,8 +21,6 @@ def antiSleep():
 
 
 
-
-
 def startIK():
     # смена языка
     mouseTap(MP.LKM_MOUSE)
@@ -49,8 +47,11 @@ def startIK():
     keyboardTap(KP.ENTER)
     # ярлык инфоклиники
     FB.find(FB.firstInfoclinicaButton)
-    # initialMousePosition()
-    # mousePosition(30, 150)
+    time.sleep(1)
+    # переключаем язык на английский
+    #keyboardLongTap(KP.LeftShift)
+    #keyboardTap(KP.LeftAlt)
+    time.sleep(1)
     mouseDoubleLKMTap()
     time.sleep(1)
     # подключить
@@ -59,18 +60,8 @@ def startIK():
     FT.findUserNameWithTime()
     # место работы
     writePass()
-    #keyboardLongTap(KP.LeftShift)
-    #keyboardTap(KP.C)
-    #keyboardTap(KP.R)
-    #keyboardTap(KP.B)
-    #keyboardTap(KP.S)
-    #keyboardTap(KP.K)
-    #keyboardTap(KP.A)
-    #keyboardTap(KP.V)
-    #keyboardTap(KP.NUM1)
-    #keyboardTap(KP.NUM2)
     # Подтвердить
-    keyboardTap(KP.ENTER)
+    #keyboardTap(KP.ENTER)
     # значок инфоклиники
     FB.find(FB.secondInfoclinicaButton)
     mouseDoubleLKMTap()
@@ -135,20 +126,6 @@ def endIK():
 
 
 def restartIK():
-    # выход из инфоклиники1
-    FB.find(FB.exitFromInfoclinikaButton)
-    mouseTap(MP.LKM_MOUSE)
-    # ожидание появления окна
-    FB.find(FB.cartotekaButton)
-    # выход из инфоклиники2
-    FB.find(FB.exitFromInfoclinikaButton)
-    mouseTap(MP.LKM_MOUSE)
-    # завершение работы
-    FB.find(FB.endWork)
-    mouseTap(MP.LKM_MOUSE)
-    # ожидание закрытия программы
-    FB.find(FB.secondInfoclinicaButton)
-    mouseTap(MP.LKM_MOUSE)
     # Пуск
     FB.find(FB.startButton)
     mouseTap(MP.LKM_MOUSE)
@@ -158,33 +135,63 @@ def restartIK():
     # выход
     FB.find(FB.windowsExit)
     mouseTap(MP.LKM_MOUSE)
+    # все равно выйти
+    FB.find(FB.vseRavnoVyitiButton)
+    mouseTap(MP.LKM_MOUSE)
     # ярлык инфоклиники
     FB.find(FB.firstInfoclinicaButton)
-    # initialMousePosition()
-    # mousePosition(30, 150)
+    # переключаем язык на английский
+    initialMousePosition()
+    mousePosition(1780, 1050)
+    mouseTap(MP.LKM_MOUSE)
+    mousePosition(0, -100)
+    mouseTap(MP.LKM_MOUSE)
+    FB.find(FB.firstInfoclinicaButton)
     mouseDoubleLKMTap()
     time.sleep(1)
     # подключить
     keyboardTap(KP.ENTER)
     # находим иконку авторизации
     FT.findUserNameWithTime()
-    # time.sleep(10)
-    # поле имени
-
     # место работы
-    # keyboardTap(KP.TAB)
-    keyboardLongTap(KP.LeftShift)
-    keyboardTap(KP.C)
-    keyboardTap(KP.R)
-    keyboardTap(KP.B)
-    keyboardTap(KP.S)
-    keyboardTap(KP.K)
-    keyboardTap(KP.A)
-    keyboardTap(KP.V)
-    keyboardTap(KP.NUM3)
-    keyboardTap(KP.NUM4)
+    writePass()
+    # keyboardLongTap(KP.LeftShift)
+    # keyboardTap(KP.C)
+    # keyboardTap(KP.R)
+    # keyboardTap(KP.B)
+    # keyboardTap(KP.S)
+    # keyboardTap(KP.K)
+    # keyboardTap(KP.A)
+    # keyboardTap(KP.V)
+    # keyboardTap(KP.NUM1)
+    # keyboardTap(KP.NUM2)
     # Подтвердить
+    # keyboardTap(KP.ENTER)
+    # ярлык инфоклиники
+    FB.find(FB.firstInfoclinicaButton)
+    # переключаем язык на английский
+    #keyboardLongTap(KP.LeftShift)
+    #keyboardTap(KP.LeftAlt)
+    mouseDoubleLKMTap()
+    time.sleep(1)
+    # подключить
     keyboardTap(KP.ENTER)
+    # находим иконку авторизации
+    FT.findUserNameWithTime()
+    # место работы
+    writePass()
+    # keyboardLongTap(KP.LeftShift)
+    # keyboardTap(KP.C)
+    # keyboardTap(KP.R)
+    # keyboardTap(KP.B)
+    # keyboardTap(KP.S)
+    # keyboardTap(KP.K)
+    # keyboardTap(KP.A)
+    # keyboardTap(KP.V)
+    # keyboardTap(KP.NUM1)
+    # keyboardTap(KP.NUM2)
+    # Подтвердить
+    # keyboardTap(KP.ENTER)
     # значок инфоклиники
     FB.find(FB.secondInfoclinicaButton)
     mouseDoubleLKMTap()
@@ -212,3 +219,15 @@ def restartIK():
     FB.find(FB.NAmbulatKart)
     time.sleep(1)
     FB.find(FB.NAmbulatKart)
+
+
+def keyMacros():
+    initialMousePosition()
+    mousePosition(1820, 1040)
+    mouseTap(MP.LKM_MOUSE)
+    mousePosition(0, -60)
+    mouseTap(MP.LKM_MOUSE)
+    initialMousePosition()
+    mousePosition(1000, 620)
+    mouseTap(MP.LKM_MOUSE)
+    writePass()

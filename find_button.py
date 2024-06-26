@@ -85,6 +85,11 @@ class FindButton:
     OgkObpShablon  = cv.imread('images/buttons/ogkObpNormaShablon.png', 0)
     serachOMCTextField = cv.imread('images/buttons/searchOMC.png', 0)
     vybratF2Button = cv.imread('images/buttons/vybratF2Button.png', 0)
+    saveF2Button = cv.imread('images/buttons/sohranitF2Button.png', 0)
+    issledovanieLong = cv.imread('images/buttons/issledovanieLong.png', 0)
+    metodLong = cv.imread('images/buttons/MetodLong.png', 0)
+    craniumNorma = cv.imread('images/buttons/craniumNorma.png', 0)
+    vseRavnoVyitiButton = cv.imread('images/buttons/vseravnoVyitiButton.png', 0)
 
 
 

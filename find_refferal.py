@@ -19,7 +19,10 @@ class FindRefferal():
     OBPBlueButton = cv.imread('images/refferal_buttons/OBPRefferalBlueButton.png', 0)
     UrografiaButton = cv.imread('images/refferal_buttons/UrografiaRefferalButton.png', 0)
     UrografiaBlueButton = cv.imread('images/refferal_buttons/UrografiaRefferalBlueButton.png', 0)
-
+    CraniumBlueButton = cv.imread('images/refferal_buttons/CraniumBlueRefferalButton.png', 0)
+    CraniumButton = cv.imread('images/refferal_buttons/CraniumRefferalButton.png', 0)
+    rentgenPochekBlueButton = cv.imread('images/refferal_buttons/rentgenPochekBlueRefferalButton.png', 0)
+    rentgenPochekButton = cv.imread('images/refferal_buttons/rentgenPochekRefferalButton.png', 0)
     def findRefferalButton(templateBlue, template, debug_mode=False):
         stop = time.time() + 2
         while time.time() < stop:

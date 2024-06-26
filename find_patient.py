@@ -1,4 +1,4 @@
-import cv2 as cv
+import cv2
 import numpy as np
 import pytesseract
 from imutils import contours
@@ -6,6 +6,30 @@ from imutils import contours
 
 # firstPosition(78, 280)
 # secondPosition(300, 930)
+def findPatient():
+    image = cv2.imread('example_images/screenFail.png')
+    mask = np.zeros(image.shape, dtype=np.uint8)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+
+    cnts = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cnts = cnts[0] if len(cnts) == 2 else cnts[1]
+    (cnts, _) = contours.sort_contours(cnts, method="left-to-right")
+    ROI_number = 0
+    for c in cnts:
+        area = cv2.contourArea(c)
+        if area < 800 and area > 200:
+            x, y, w, h = cv2.boundingRect(c)
+            ROI = 255 - thresh[y:y + h, x:x + w]
+            cv2.drawContours(mask, [c], -1, (255, 255, 255), -1)
+            cv2.imwrite('ROI_{}.png'.format(ROI_number), ROI)
+            ROI_number += 1
+
+    cv2.imshow('mask', mask)
+    cv2.imshow('thresh', thresh)
+    cv2.waitKey()
+
+'''
 def findPatient():
     screenshot = cv.imread('example_images/screenFail.png')
     crop_img = screenshot[280:930, 78:350]
@@ -35,7 +59,7 @@ def findPatient():
     OCRResult = pytesseract.image_to_string(image_without_lines, lang="rus", config='--psm 1')
     splitOCRResult = OCRResult.splitlines()
     print(splitOCRResult)
-    str = 'Иванов Иван Иванович 05.10.2010'
+    str = '05.10.2010'
     #index = patient_list.index(str)
     #print(index)
 
@@ -45,7 +69,6 @@ def findPatient():
     cv.waitKey()
 
 
-'''
 def findPatient():
     screenshot = cv.imread('example_images/screenFail.png', 0)
     crop_img = screenshot[278:930, 278:350]

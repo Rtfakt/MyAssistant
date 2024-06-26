@@ -1,22 +1,28 @@
 import time
 from collections import deque
+
+from find_patient import findPatient
 from get_text import getText
 from macros.auto_macros import autoFluraNorma, autoOGKNorma
 from macros.backbone_macros import shop, pop, shopGop
 from macros.cranium_macros import craniumNorma
 from macros.create_refferal_macros import create_referal
+from macros.obp_macros import OBPNorma, urografiaNorma
 from write_text import writeFIO, writePass, writeKey
 from macros.double_macros import craniumLungsMacros, OgkObpNorma
 from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT, OGKNormaCT
 from find_button import FindButton as FB
-from macros.macros import startIK, restartIK, endIK
+from macros.macros import startIK, restartIK, endIK, keyMacros
 from macros.ppn_macros import ppnSinusitRight, ppnNorma, ppnSinusitLeft
 from omc_control import getScreenTemplate, waitChanges
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from mouse import mouseTap, MousePackagesUdp as MP, initialMousePosition, mousePosition
+from mouse import mouseTap, MousePackagesUdp as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap
 from keyboard import keyboardLongTap
+from find_title import FindTitles as FT
+
 
 FIOList = deque([
+
 
 
 ])
@@ -60,7 +66,7 @@ def autoFluraCT(): # Автоматическая флюорография дл�
         except StopIteration:
             break
 
-
+1
 def autoOGKCT():
     while True:
         try:
@@ -96,12 +102,22 @@ def autoFluraFromList(): # Автоматическая полная флюор�
         except StopIteration:
             break
 
+#craniumNorma()
+#FB.findSearchMainButton()
+#OGKNormaCT()
+#fluraNormaCT()
+#FB.findSearchMainButton()
+#OBPNorma()
+#FB.findSearchMainButton()
+#urografiaNorma()
+
+
 
 # autoFluraFromList()
 # fluraNormaShort()
 # autoFluraNormaRefferal()
 # autoOGKCT()
-#autoFluraCT()
+# autoFluraCT()
 # create_referal()
 # autoFluraNorma()
 # ppnSinusitRight()
@@ -113,7 +129,6 @@ def autoFluraFromList(): # Автоматическая полная флюор�
 # kneesJoints()
 # ppnNorma()
 # pop()
-# craniumNorma()
 # shop()
 # autoFluraNorma()
 # endIK()
@@ -805,7 +820,7 @@ class Ui_MainWindow(object):
         self.main.setTabText(self.main.indexOf(self.tab), _translate("MainWindow", "Живот"))
         self.OMC_number.setText(_translate("MainWindow", "Номер полиса"))
         self.pushButton_WritePass.setText(_translate("MainWindow", "ввести пароль"))
-        self.pushButton_WritePass.clicked.connect(lambda: writePass())
+        self.pushButton_WritePass.clicked.connect(lambda: keyMacros())
         self.pushButton_getText.setText(_translate("MainWindow", "Получить данные пациента"))
         self.pushButton_getText.clicked.connect(lambda: getText())
         self.pushButton_antiSleep.setText(_translate("MainWindow", "key"))

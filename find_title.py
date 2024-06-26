@@ -130,6 +130,7 @@ class FindTitles:
                     keyboardTap(KP.R)
                     keyboardTap(KP.E)
                     keyboardTap(KP.V)
+                    time.sleep(1)
                     keyboardTap(KP.TAB)
 
                     print(points)

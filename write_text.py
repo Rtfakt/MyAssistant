@@ -49,7 +49,6 @@ def writePass():
     keyboardTap(KP.A)
     keyboardTap(KP.V)
     keyboardTap(KP.NUM1)
-    keyboardTap(KP.NUM2)
     # Подтвердить
     keyboardTap(KP.ENTER)
 
