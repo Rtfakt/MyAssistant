@@ -90,6 +90,12 @@ class FindButton:
     metodLong = cv.imread('images/buttons/MetodLong.png', 0)
     craniumNorma = cv.imread('images/buttons/craniumNorma.png', 0)
     vseRavnoVyitiButton = cv.imread('images/buttons/vseravnoVyitiButton.png', 0)
+    dateOfBirth = cv.imread('images/buttons/dateOfBirth.png', 0)
+    familiaButton = cv.imread('images/buttons/familiaButton.png', 0)
+    birthField = cv.imread('images/buttons/birthField.png', 0)
+    familyField = cv.imread('images/buttons/familiaButton.png', 0)
+    prodolgitButton = cv.imread('images/buttons/prodolgitButton.png', 0)
+
 
 
 

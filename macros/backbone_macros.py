@@ -11,7 +11,7 @@ from find_refferal import FindRefferal as FR
 
 def shop():
     # Поиск кнопки Рентгено
-    FR.findRefferalButton()
+    FR.findRefferalButton(templateBlue=FR.shopBlueButton, template=FR.shopButton)
     # Дата
     keyboardTap(KP.ENTER)
     time.sleep(3)
@@ -28,7 +28,7 @@ def shop():
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография позвоночника
-    FB.find(FB.backboneShablon)
+    FB.find(FB.rentgenUnifMainShablon)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -42,6 +42,35 @@ def shop():
     # Выбор с добавлением
     FB.find(FB.vyborSDobavleniem)
     mouseTap(MP.LKM_MOUSE)
+    # подписать
+    FB.find(FB.signatureButton)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    #Доп. блок
+    # кнопка добавить
+    FB.find(FB.plusAddButton)
+    mouseTap(MP.LKM_MOUSE)
+    # область
+    FB.find(FB.oblast)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Грудь
+    FB.find(FB.grudButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Метод
+    FB.find(FB.metod)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Рентген
+    FB.find(FB.rentgen)
+    mouseTap(MP.LKM_MOUSE)
+    # исследования
+    FB.find(FB.issledovanie)
+    mouseDoubleLKMTap()
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)

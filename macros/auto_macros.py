@@ -5,7 +5,7 @@ import os
 from collections import deque
 from filter_text import filter_text
 from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
-from macros.lungs_macros import fluraNorma, rOGK
+from macros.lungs_macros import fluraNorma, rOGK, OGKNormaCT
 from omc_control import getScreenTemplate, waitChanges
 from open_programs import OpenPrograms as OP
 import pyautogui as pag
@@ -103,5 +103,5 @@ def autoOGKNorma():
                     writeOMC(OMC) # Пишем полученные данные на другом компе
                     keyboardTap(KP.ENTER)
                     waitChanges()
-                    rOGK()
+                    OGKNormaCT()
                     os.remove(filePath)

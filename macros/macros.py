@@ -9,15 +9,7 @@ from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
 
 
-def antiSleep():
-    try:
-        while True:
-            initialMousePosition()
-            mousePosition(400, 0)
-            mouseTap(MP.LKM_MOUSE)
-            time.sleep(300)
-    except KeyboardInterrupt:
-        print('antiSleep отключена')
+
 
 
 
@@ -47,16 +39,19 @@ def startIK():
     keyboardTap(KP.ENTER)
     # ярлык инфоклиники
     FB.find(FB.firstInfoclinicaButton)
-    time.sleep(1)
     # переключаем язык на английский
-    #keyboardLongTap(KP.LeftShift)
-    #keyboardTap(KP.LeftAlt)
-    time.sleep(1)
+    initialMousePosition()
+    mousePosition(1780, 1050)
+    mouseTap(MP.LKM_MOUSE)
+    mousePosition(0, -100)
+    mouseTap(MP.LKM_MOUSE)
+    FB.find(FB.firstInfoclinicaButton)
     mouseDoubleLKMTap()
     time.sleep(1)
     # подключить
     keyboardTap(KP.ENTER)
     # находим иконку авторизации
+    time.sleep(5)
     FT.findUserNameWithTime()
     # место работы
     writePass()
@@ -79,7 +74,7 @@ def startIK():
     keyboardTap(KP.NUM5)
     keyboardTap(KP.NUM6)
     keyboardTap(KP.ENTER)
-    time.sleep(1)
+    time.sleep(4)
     # продолжить F2
     keyboardTap(KP.F2)
     # картотека
@@ -169,9 +164,6 @@ def restartIK():
     # keyboardTap(KP.ENTER)
     # ярлык инфоклиники
     FB.find(FB.firstInfoclinicaButton)
-    # переключаем язык на английский
-    #keyboardLongTap(KP.LeftShift)
-    #keyboardTap(KP.LeftAlt)
     mouseDoubleLKMTap()
     time.sleep(1)
     # подключить
@@ -180,16 +172,6 @@ def restartIK():
     FT.findUserNameWithTime()
     # место работы
     writePass()
-    # keyboardLongTap(KP.LeftShift)
-    # keyboardTap(KP.C)
-    # keyboardTap(KP.R)
-    # keyboardTap(KP.B)
-    # keyboardTap(KP.S)
-    # keyboardTap(KP.K)
-    # keyboardTap(KP.A)
-    # keyboardTap(KP.V)
-    # keyboardTap(KP.NUM1)
-    # keyboardTap(KP.NUM2)
     # Подтвердить
     # keyboardTap(KP.ENTER)
     # значок инфоклиники

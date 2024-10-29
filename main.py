@@ -1,14 +1,14 @@
 import time
 from collections import deque
-
-from find_patient import findPatient
+from find_patient import find_patient
 from get_text import getText
 from macros.auto_macros import autoFluraNorma, autoOGKNorma
 from macros.backbone_macros import shop, pop, shopGop
 from macros.cranium_macros import craniumNorma
 from macros.create_refferal_macros import create_referal
+from macros.double_separeted_macros import ogkObpSeparatedCT, fluraObpSeparatedCT, craniumOgkSeparatedCT
 from macros.obp_macros import OBPNorma, urografiaNorma
-from write_text import writeFIO, writePass, writeKey
+from write_text import writeText, writePass, writeKey
 from macros.double_macros import craniumLungsMacros, OgkObpNorma
 from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT, OGKNormaCT
 from find_button import FindButton as FB
@@ -19,17 +19,19 @@ from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap
 from keyboard import keyboardLongTap
 from find_title import FindTitles as FT
-
+from openpyxl import load_workbook
+import arrow
 
 FIOList = deque([
-
-
 
 ])
 my_iter = iter(FIOList)
 
+i = 0
+PatientDict = {}
 
-def autoFluraNormaRefferal():# Автоматическая флюорография с созданием направления
+
+def autoFluraNormaRefferal():  # Автоматическая флюорография с созданием направления
     while True:
         try:
             FIO = next(my_iter)
@@ -39,7 +41,7 @@ def autoFluraNormaRefferal():# Автоматическая флюорограф
             keyboardLongTap(KP.LeftControl)  # выделение текста
             keyboardTap(KP.A)
             getScreenTemplate()
-            writeFIO(FIO)  # Пишем полученные данные на другом компе
+            writeText(FIO)  # Пишем полученные данные на другом компе
             waitChanges()
             time.sleep(3)
             create_referal()  # cоздаем направление
@@ -49,7 +51,7 @@ def autoFluraNormaRefferal():# Автоматическая флюорограф
             break
 
 
-def autoFluraCT(): # Автоматическая флюорография для пациентов с стационара
+def auto_fluro_ct():  # Автоматическая флюорография для пациентов с стационара
     while True:
         try:
             FIO = next(my_iter)
@@ -59,14 +61,14 @@ def autoFluraCT(): # Автоматическая флюорография дл�
             keyboardLongTap(KP.LeftControl)
             keyboardTap(KP.A)
             time.sleep(0.5)
-            writeFIO(FIO)  # Пишем полученные данные на другом компе
+            writeText(FIO)  # Пишем полученные данные на другом компе
             time.sleep(3)
             fluraNormaCT()
             time.sleep(3)
         except StopIteration:
             break
 
-1
+
 def autoOGKCT():
     while True:
         try:
@@ -77,7 +79,7 @@ def autoOGKCT():
             keyboardLongTap(KP.LeftControl)
             keyboardTap(KP.A)
             time.sleep(0.5)
-            writeFIO(FIO)  # Пишем полученные данные на другом компе
+            writeText(FIO)  # Пишем полученные данные на другом компе
             time.sleep(3)
             OGKNormaCT()
             time.sleep(3)
@@ -85,47 +87,40 @@ def autoOGKCT():
             break
 
 
-def autoFluraFromList(): # Автоматическая полная флюорография, получаемую из списка
-    while True:
-        try:
-            FIO = next(my_iter)
-            print(FIO)
-            FB.findSearchMainButton()  # находим поле поиска
-            mouseTap(MP.LKM_MOUSE)
-            keyboardLongTap(KP.LeftControl)
-            keyboardTap(KP.A)
-            time.sleep(0.5)
-            writeFIO(FIO)  # Пишем полученные данные на другом компе
-            time.sleep(3)
-            fluraNorma()
-            time.sleep(3)
-        except StopIteration:
-            break
-
-#craniumNorma()
-#FB.findSearchMainButton()
-#OGKNormaCT()
-#fluraNormaCT()
-#FB.findSearchMainButton()
-#OBPNorma()
-#FB.findSearchMainButton()
-#urografiaNorma()
+def autoFluraFromDict():  # Автоматическая полная флюорография, получаемую из списка
+    fioList = list(PatientDict.keys())
+    dateList = list(PatientDict.values())
+    while i < len(fioList):
+        keyboardTap(KP.F10)
+        fio = fioList.pop(0)
+        print(fio)
+        FB.find(FB.familyField)
+        writeText(fio)
+        birth = dateList.pop(0)
+        FB.find(FB.birthField)
+        mouseTap(MP.LKM_MOUSE)
+        writeText(birth)
+        print(birth)
+        FB.find(FB.prodolgitButton)
+        mouseTap(MP.LKM_MOUSE)
+        fluraNorma()
+        time.sleep(3)
 
 
-
+#autoOGKCT()
+# auto_fluro_ct()
+# autoFluraFromDict()
+# OBPNorma()
+# findPatientWithBirth()
+# fluraObpSeparetedCT()
+# craniumOgkSeparatedCT()
+# ogkObpSeparatedCT()
 # autoFluraFromList()
 # fluraNormaShort()
 # autoFluraNormaRefferal()
-# autoOGKCT()
+# urografiaNorma()
 # autoFluraCT()
-# create_referal()
-# autoFluraNorma()
 # ppnSinusitRight()
-# startIK()
-# writeText('турченков андрей владимирович')
-# fluraNorma()
-# fluraNormaShort()
-# rOGKPrint()
 # kneesJoints()
 # ppnNorma()
 # pop()
@@ -733,7 +728,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Мой асисстент"))
         self.family.setText(_translate("MainWindow", "Фамилия"))
-
         self.name.setText(_translate("MainWindow", "имя"))
         self.middle_name.setText(_translate("MainWindow", "Отчество"))
         self.birth_date.setText(_translate("MainWindow", "Дата рождения"))
@@ -830,23 +824,23 @@ class Ui_MainWindow(object):
         self.pushButton_ok.clicked.connect(lambda: self.get_write_data())
         self.menu.setTitle(_translate("MainWindow", "инфоклиника"))
         self.start_IK_Butt.setText(_translate("MainWindow", "запустить инфоклинику"))
-        self.start_IK_Butt.triggered.connect(lambda: self.clickStartIK())
+        self.start_IK_Butt.triggered.connect(lambda: self.click_start_ik())
         self.restart_IK_butt.setText(_translate("MainWindow", "перезапустить инфоклинику"))
-        self.restart_IK_butt.triggered.connect(lambda: self.clickRestartIK())
+        self.restart_IK_butt.triggered.connect(lambda: self.click_restart_ik())
         self.end_IK.setText(_translate("MainWindow", "закрыть инфоклинику"))
-        self.end_IK.triggered.connect(lambda: self.clickEndIK())
+        self.end_IK.triggered.connect(lambda: self.click_end_ik())
         self.action.setText(_translate("MainWindow", "включить камеру"))
 
     def get_write_data(self):
-        writeFIO(self.lineEdit.text())
+        writeText(self.lineEdit.text())
 
-    def clickStartIK(self):
+    def click_start_ik(self):
         startIK()
 
-    def clickRestartIK(self):
+    def click_restart_ik(self):
         restartIK()
 
-    def clickEndIK(self):
+    def click_end_ik(self):
         endIK()
 
 

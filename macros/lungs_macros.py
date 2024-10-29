@@ -1,12 +1,11 @@
 import time
-
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from macros.macros import antiSleep
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
 from find_errors import FindErrors as FE
 from find_refferal import FindRefferal as FR
+
 
 # (без печати)РЕНТГЕНОГРАФИЯ ОРГАНОВ ГРУДНОЙ КЛЕТКИ
 def rOGK():
@@ -27,7 +26,7 @@ def rOGK():
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография органов грудной клетки
-    FB.find(FB.mainShablonOGK)
+    FB.find(FB.rentgenUnifMainShablon)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
     FB.find(FB.shablonButton)
@@ -45,7 +44,7 @@ def rOGK():
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
-    #подписать ENTER
+    # подписать ENTER
     keyboardTap(KP.ENTER)
     time.sleep(1)
     # выход
@@ -54,10 +53,10 @@ def rOGK():
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
-    #cчитать прием диспансерным?
+    # cчитать прием диспансерным?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
-    #сохранить F2
+    # сохранить F2
     keyboardTap(KP.F2)
     # сохранить изменения?
     keyboardTap(KP.ENTER)
@@ -83,11 +82,11 @@ def rOGKPrint():
     keyboardTap(KP.ENTER)
     # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
-    #История болезни
+    # История болезни
     FB.findF8()
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
-    #Рентгенография органов грудной клетки
+    # Рентгенография органов грудной клетки
     FB.find(FB.mainShablonOGK)
     mouseTap(MP.LKM_MOUSE)
     # шаблоны
@@ -106,11 +105,11 @@ def rOGKPrint():
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
-    #печать
+    # печать
     keyboardTap(KP.F5)
-    #OK
+    # OK
     keyboardTap(KP.ENTER)
-    #подписать ENTER
+    # подписать ENTER
     keyboardTap(KP.ENTER)
     time.sleep(1)
     # выход
@@ -119,10 +118,10 @@ def rOGKPrint():
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
-    #cчитать прием диспансерным?
+    # cчитать прием диспансерным?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
-    #сохранить F2
+    # сохранить F2
     keyboardTap(KP.F2)
     # сохранить изменения?
     keyboardTap(KP.ENTER)
@@ -132,13 +131,11 @@ def rOGKPrint():
     keyboardTap(KP.F2)
     # нет диагноза в приеме
     keyboardTap(KP.ENTER)
-    #antiSleep()
-
-
+    # antiSleep()
 
 
 def fluraNorma():
-    #Поиск кнопки Рентгено
+    # Поиск кнопки Рентгено
     FR.findRefferalButton(templateBlue=FR.fluraBlueButton, template=FR.fluraButton)
     # Дата
     FB.find(FB.okButton)
@@ -149,37 +146,37 @@ def fluraNorma():
     # ?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
-    #Продолжить без создания случая
+    # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu, timeWait=3)
-    #mouseTap(MP.LKM_MOUSE)
-    #диагноз
+    # mouseTap(MP.LKM_MOUSE)
+    # диагноз
     FB.find(FB.diagnozButton)
     time.sleep(0.2)
     mouseTap(MP.LKM_MOUSE)
-    #новый
+    # новый
     FB.find(FB.noviyButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
-    #Поиск по коду
+    # Поиск по коду
     keyboardTap(KP.Z)
     keyboardTap(KP.NUM0)
     keyboardTap(KP.NUM1)
     keyboardTap(KP.Ю)
     keyboardTap(KP.NUM8)
-    #стрелка влево
+    # стрелка влево
     keyboardTap(KP.ENTER)
     #
-    #Добавлять диагноз?
+    # Добавлять диагноз?
     keyboardTap(KP.ENTER)
     ##
-    #диагноз уже добавлен
+    # диагноз уже добавлен
     keyboardTap(KP.ENTER)
     keyboardTap(KP.ENTER)
     keyboardTap(KP.ENTER)
-    #сохранить
+    # сохранить
     keyboardTap(KP.F2)
     time.sleep(1)
-    #считать прием диспансерным?
+    # считать прием диспансерным?
     keyboardTap(KP.RightArrow)
     keyboardTap(KP.ENTER)
     # История болезни
@@ -205,39 +202,24 @@ def fluraNorma():
     # Сегодняшняя дата проведения исследования
     FB.find(FB.todayButton)
     mouseTap(MP.LKM_MOUSE)
-    #время проведения исследования
+    # время проведения исследования
     keyboardTap(KP.TAB)
     keyboardTap(KP.NUM1)
-    # смена языка
-    initialMousePosition()
-    mousePosition(1780, 1060)
-    mouseTap(MP.LKM_MOUSE)
-    mousePosition(0, -120)
-    mouseDoubleLKMTap()
-    #Диагноз МКБ
-    initialMousePosition()
-    mousePosition(300, 160)
-    mouseTap(MP.LKM_MOUSE)
-    keyboardTap(KP.Z)
-    keyboardTap(KP.NUM0)
-    keyboardTap(KP.NUM1)
-    keyboardTap(KP.Ю)
-    keyboardTap(KP.NUM8)
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     # Подписать ENTER
     keyboardTap(KP.ENTER)
-    #Поиск ошибки ОМС ******************************************
+    # Поиск ошибки ОМС ******************************************
     FE.findOMCError()
-    #FE.findUIPError()
-    #выход
+    # FE.findUIPError()
+    # выход
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
-    time.sleep(2)#важно
+    time.sleep(2)  # важно
     # кнопка z01.8
     FB.find(FB.z018Button)
     mouseTap(MP.LKM_MOUSE)
@@ -279,12 +261,9 @@ def fluraNorma():
     keyboardTap(KP.F2)
     # нет диагноза в приеме
     keyboardTap(KP.ENTER)
-    #Продолжить сохранение приема
-    #time.sleep(2)
-    #FB.findWithTime(FB.prodSohrPriButton)
-
-
-
+    # Продолжить сохранение приема
+    time.sleep(2)
+    FB.findWithTime(FB.prodSohrPriButton)
 
 
 def fluraNormaShort():
@@ -306,7 +285,7 @@ def fluraNormaShort():
     FB.find(FB.mainShablonFlura)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(4)
-    #шаблоны
+    # шаблоны
     FB.find(FB.shablonButton)
     mouseTap(MP.LKM_MOUSE)
     # Выбрать
@@ -321,39 +300,39 @@ def fluraNormaShort():
     # Сегодняшняя дата проведения исследования
     FB.find(FB.todayButton)
     mouseTap(MP.LKM_MOUSE)
-    #время проведения исследования
+    # время проведения исследования
     keyboardTap(KP.TAB)
     keyboardTap(KP.NUM1)
     # смена языка
-    initialMousePosition()
-    mousePosition(1780, 1060)
-    mouseTap(MP.LKM_MOUSE)
-    mousePosition(0, -120)
-    mouseDoubleLKMTap()
-    #Диагноз МКБ
-    initialMousePosition()
-    mousePosition(300, 160)
-    mouseTap(MP.LKM_MOUSE)
-    keyboardTap(KP.Z)
-    keyboardTap(KP.NUM0)
-    keyboardTap(KP.NUM1)
-    keyboardTap(KP.Ю)
-    keyboardTap(KP.NUM8)
+    # initialMousePosition()
+    # mousePosition(1780, 1060)
+    # mouseTap(MP.LKM_MOUSE)
+    # mousePosition(0, -120)
+    # mouseDoubleLKMTap()
+    # Диагноз МКБ
+    # initialMousePosition()
+    # mousePosition(300, 160)
+    # mouseTap(MP.LKM_MOUSE)
+    # keyboardTap(KP.Z)
+    # keyboardTap(KP.NUM0)
+    # keyboardTap(KP.NUM1)
+    # keyboardTap(KP.Ю)
+    # keyboardTap(KP.NUM8)
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
-    #Подписать ENTER
+    # Подписать ENTER
     keyboardTap(KP.ENTER)
     # Поиск ошибки ОМС ******************************************
     FE.findOMCError()
-    #FE.findDataUIPError()
-    #выход
+    # FE.findDataUIPError()
+    # выход
     WC.find(WC.elPodProtocWindow)
     WC.wait(WC.elPodProtocWindow)
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
-    #диагноз
+    # диагноз
     FB.find(FB.diagnozButton)
     mouseTap(MP.LKM_MOUSE)
     # кнопка z01.8
@@ -389,20 +368,19 @@ def fluraNormaShort():
     FB.find(FB.saveF2Button)
     mouseTap(MP.LKM_MOUSE)
     # сохранить изменения?
-    #keyboardTap(KP.ENTER)
+    # keyboardTap(KP.ENTER)
     # выбрать
     FB.find(FB.vybratF2Button)
     keyboardTap(KP.F2)
     # выбрать
-    #FB.find(FB.vybratF2Button)
-    #keyboardTap(KP.F2)
+    # FB.find(FB.vybratF2Button)
+    # keyboardTap(KP.F2)
     # нет диагноза в приеме
-    #keyboardTap(KP.ENTER)
-    #Продолжить сохранение приема
+    # keyboardTap(KP.ENTER)
+    # Продолжить сохранение приема
     time.sleep(2)
     FB.findWithTime(FB.prodSohrPriButton)
-    #Продолжить сохранение приема
-
+    # Продолжить сохранение приема
 
 
 def fluraNormaCT():
@@ -447,20 +425,20 @@ def fluraNormaCT():
     keyboardTap(KP.TAB)
     keyboardTap(KP.NUM1)
     # смена языка
-    initialMousePosition()
-    mousePosition(1780, 1060)
-    mouseTap(MP.LKM_MOUSE)
-    mousePosition(0, -120)
-    mouseDoubleLKMTap()
+    #initialMousePosition()
+    #mousePosition(1780, 1060)
+    #mouseTap(MP.LKM_MOUSE)
+    #mousePosition(0, -120)
+    #mouseDoubleLKMTap()
     # Диагноз МКБ
-    initialMousePosition()
-    mousePosition(300, 160)
-    mouseTap(MP.LKM_MOUSE)
-    keyboardTap(KP.Z)
-    keyboardTap(KP.NUM0)
-    keyboardTap(KP.NUM1)
-    keyboardTap(KP.Ю)
-    keyboardTap(KP.NUM8)
+    #initialMousePosition()
+    #mousePosition(300, 160)
+    #mouseTap(MP.LKM_MOUSE)
+    #keyboardTap(KP.Z)
+    #keyboardTap(KP.NUM0)
+    #keyboardTap(KP.NUM1)
+    #keyboardTap(KP.Ю)
+    #keyboardTap(KP.NUM8)
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
@@ -475,6 +453,10 @@ def fluraNormaCT():
     WC.wait(WC.elPodProtocWindow)
     FB.find(FB.exitButton)
     mouseTap(MP.LKM_MOUSE)
+    #считать прием диспансерным?
+    keyboardTap(KP.LeftArrow)
+    keyboardTap(KP.ENTER)
+    #сохранить
     FB.find(FB.saveF2Button)
     mouseTap(MP.LKM_MOUSE)
     # сохранить изменения?
@@ -483,8 +465,8 @@ def fluraNormaCT():
     FB.find(FB.vybratF2Button)
     keyboardTap(KP.F2)
     # выбрать
-    #FB.find(FB.vybratF2Button)
-    #keyboardTap(KP.F2)
+    FB.find(FB.vybratF2Button)
+    keyboardTap(KP.F2)
     # нет диагноза в приеме
     # keyboardTap(KP.ENTER)
     # Продолжить сохранение приема
@@ -492,9 +474,7 @@ def fluraNormaCT():
     FB.findWithTime(FB.prodSohrPriButton)
 
 
-
-
-def OGKNormaCT():
+def OGKNormaCT(print=False):
     # Поиск кнопки Рентгено
     FR.findRefferalButton(templateBlue=FR.OGKBlueButton, template=FR.OGKButton)
     # Дата
@@ -528,7 +508,7 @@ def OGKNormaCT():
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
-    #Доп. блок
+    # Доп. блок
     # кнопка добавить
     FB.find(FB.plusAddButton)
     mouseTap(MP.LKM_MOUSE)
@@ -559,54 +539,44 @@ def OGKNormaCT():
     keyboardTap(KP.DownArrow)
     keyboardTap(KP.ENTER)
     # usluga
-    #FB.find(FB.usluga)
-    #mouseDoubleLKMTap()
+    # FB.find(FB.usluga)
+    # mouseDoubleLKMTap()
     # Длинная кнопка развернуть
-    #FB.find(FB.downLongButton)
-    #mouseTap(MP.LKM_MOUSE)
+    # FB.find(FB.downLongButton)
+    # mouseTap(MP.LKM_MOUSE)
     # услуга с кодом
-    #keyboardTap(KP.DownArrow)
-    #keyboardTap(KP.DownArrow)
-    #keyboardTap(KP.ENTER)
+    # keyboardTap(KP.DownArrow)
+    # keyboardTap(KP.DownArrow)
+    # keyboardTap(KP.ENTER)
     # подписать
     FB.find(FB.signatureButton)
     mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     # печать
-    keyboardTap(KP.F5)
-    # OK
-    keyboardTap(KP.ENTER)
-    # подписать ENTER
-    keyboardTap(KP.ENTER)
-    time.sleep(1)
-    # выход
-    WC.find(WC.elPodProtocWindow)
-    WC.wait(WC.elPodProtocWindow)
-    FB.find(FB.exitButton)
-    mouseTap(MP.LKM_MOUSE)
-    time.sleep(1)
-    # cчитать прием диспансерным?
-    keyboardTap(KP.RightArrow)
-    keyboardTap(KP.ENTER)
-    # сохранить F2
-    keyboardTap(KP.F2)
-    # сохранить изменения?
-    keyboardTap(KP.ENTER)
-    # выбрать
-    keyboardTap(KP.F2)
-    # выбрать
-    keyboardTap(KP.F2)
-    # нет диагноза в приеме
-    keyboardTap(KP.ENTER)
-
-
-
-
-
-
-
-
-
-
-
-
+    if print == True:
+        keyboardTap(KP.F5)
+        # OK
+        keyboardTap(KP.ENTER)
+    else:
+        # подписать ENTER
+        keyboardTap(KP.ENTER)
+        time.sleep(1)
+        # выход
+        WC.find(WC.elPodProtocWindow)
+        WC.wait(WC.elPodProtocWindow)
+        FB.find(FB.exitButton)
+        mouseTap(MP.LKM_MOUSE)
+        time.sleep(1)
+        # cчитать прием диспансерным?
+        keyboardTap(KP.RightArrow)
+        keyboardTap(KP.ENTER)
+        # сохранить F2
+        keyboardTap(KP.F2)
+        # сохранить изменения?
+        keyboardTap(KP.ENTER)
+        # выбрать
+        keyboardTap(KP.F2)
+        # выбрать
+        keyboardTap(KP.F2)
+        # нет диагноза в приеме
+        keyboardTap(KP.ENTER)
