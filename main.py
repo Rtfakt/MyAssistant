@@ -24,6 +24,8 @@ import arrow
 
 FIOList = deque([
 
+
+
 ])
 my_iter = iter(FIOList)
 
@@ -107,18 +109,19 @@ def autoFluraFromDict():  # Автоматическая полная флюор
         time.sleep(3)
 
 
+
 #autoOGKCT()
-# auto_fluro_ct()
+#auto_fluro_ct()
 # autoFluraFromDict()
-# OBPNorma()
+#OBPNorma()
 # findPatientWithBirth()
 # fluraObpSeparetedCT()
-# craniumOgkSeparatedCT()
-# ogkObpSeparatedCT()
+#craniumOgkSeparatedCT()
+#ogkObpSeparatedCT()
 # autoFluraFromList()
 # fluraNormaShort()
 # autoFluraNormaRefferal()
-# urografiaNorma()
+#urografiaNorma()
 # autoFluraCT()
 # ppnSinusitRight()
 # kneesJoints()

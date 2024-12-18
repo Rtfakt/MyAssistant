@@ -74,9 +74,9 @@ def startIK():
     keyboardTap(KP.NUM5)
     keyboardTap(KP.NUM6)
     keyboardTap(KP.ENTER)
-    time.sleep(4)
     # продолжить F2
-    keyboardTap(KP.F2)
+    FB.find(FB.prodolgitF2Button)
+    mouseTap(MP.LKM_MOUSE)
     # картотека
     FB.find(FB.cartotekaButton)
     mouseTap(MP.LKM_MOUSE)

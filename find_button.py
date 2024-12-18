@@ -95,6 +95,7 @@ class FindButton:
     birthField = cv.imread('images/buttons/birthField.png', 0)
     familyField = cv.imread('images/buttons/familiaButton.png', 0)
     prodolgitButton = cv.imread('images/buttons/prodolgitButton.png', 0)
+    prodolgitF2Button = cv.imread('images/buttons/prodolgitF2Button.png', 0)
 
 
 
