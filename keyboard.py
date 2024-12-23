@@ -99,7 +99,7 @@ class KeyboardPackagesUdp:
 
 def keyboardLongTap(MESSAGE):
     sock.sendto(MESSAGE.encode(), (UDP_IP, UDP_PORT))
-    time.sleep(0.1)
+    time.sleep(0.1)#метод
 def keyboardTap(MESSAGE) :#метод нажимает и отпускает кнопку клавиатуры
     sock.sendto(MESSAGE.encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.1)
