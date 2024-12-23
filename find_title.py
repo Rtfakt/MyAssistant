@@ -4,11 +4,10 @@ import time
 
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import initialMousePosition
-from get_screenshot import get_screenshot
-
+from monitor_capture import MonitorCapture
 from udp_client import sock, UDP_IP, UDP_PORT
 
-
+infoclinika_screen = MonitorCapture('monitor')
 
 class FindTitles:
     protocolTitle = cv.imread('images/protocolTitle.png', 0)
@@ -20,7 +19,7 @@ class FindTitles:
 
     def findTitles(template, debug_mode=False):
         while True:
-            screenshot = get_screenshot()
+            screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
@@ -83,7 +82,7 @@ class FindTitles:
     def findUserNameWithTime(template=userName, timeWait=9, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
-            screenshot = get_screenshot()
+            screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
@@ -151,7 +150,7 @@ class FindTitles:
     def findContainerTitle(template=container, timeWait=2, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
-            screenshot = get_screenshot()
+            screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)

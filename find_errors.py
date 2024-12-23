@@ -5,12 +5,12 @@ import time
 from find_button import FindButton as FB
 from keyboard import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import initialMousePosition
-from get_screenshot import get_screenshot
+from monitor_capture import MonitorCapture
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from write_text import writeText, writeOMC
 from windows_control import WindowsControl as WC
 
-
+infoclinika_screen = MonitorCapture('monitor')
 class FindErrors:
     errorOMC = cv.imread('images/errors/errorOMC.png', 0)
     errorUIP = cv.imread('images/errors/errorDataUIP.png', 0)
@@ -18,7 +18,7 @@ class FindErrors:
     def findOMCError(template=errorOMC, timeWait=1, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
-            screenshot = get_screenshot()
+            screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
@@ -131,7 +131,7 @@ class FindErrors:
     def findDataUIPError(template=errorUIP, timeWait=1, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
-            screenshot = get_screenshot()
+            infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)

@@ -1,11 +1,11 @@
 import numpy as np
 import cv2 as cv
 import time
-from get_screenshot import get_screenshot
+from monitor_capture import MonitorCapture
 from udp_client import sock, UDP_IP, UDP_PORT
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 
-
+infoclinika_screen = MonitorCapture('monitor')
 class FindButton:
     # шаблоны кнопок
     playButton = cv.imread('images/buttons/playButton.png', 0)
@@ -82,7 +82,7 @@ class FindButton:
     urografiaShablon = cv.imread('images/buttons/UrografiaShablon.png', 0)
     usluga = cv.imread('images/buttons/Usluga.png', 0)
     zhivot = cv.imread('images/buttons/Zhivot.png', 0)
-    OgkObpShablon  = cv.imread('images/buttons/ogkObpNormaShablon.png', 0)
+    OgkObpShablon = cv.imread('images/buttons/ogkObpNormaShablon.png', 0)
     serachOMCTextField = cv.imread('images/buttons/searchOMC.png', 0)
     vybratF2Button = cv.imread('images/buttons/vybratF2Button.png', 0)
     saveF2Button = cv.imread('images/buttons/sohranitF2Button.png', 0)
@@ -97,17 +97,10 @@ class FindButton:
     prodolgitButton = cv.imread('images/buttons/prodolgitButton.png', 0)
     prodolgitF2Button = cv.imread('images/buttons/prodolgitF2Button.png', 0)
 
-
-
-
-
-
-
-
     def find(template, debug_mode=False):
 
         while True:
-            screenshot = get_screenshot()  # получение кадров с камеры
+            screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             cv.minMaxLoc(screenshot)
@@ -153,7 +146,6 @@ class FindButton:
                         (UDP_IP, UDP_PORT))
                     time.sleep(0.1)
 
-
                     print(points)
                 break
             else:
@@ -169,7 +161,7 @@ class FindButton:
 
     def findF8(template=F8Button, debug_mode=False):
         while True:
-            screenshot = get_screenshot()
+            screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
@@ -215,7 +207,6 @@ class FindButton:
                         (UDP_IP, UDP_PORT))
                     time.sleep(0.1)
 
-
                     print(points)
                 break
             else:
@@ -229,12 +220,10 @@ class FindButton:
 
         return points
 
-
-
     def findWithTime(template, timeWait=1, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
-            screenshot = get_screenshot()
+            screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
@@ -281,7 +270,6 @@ class FindButton:
                     time.sleep(0.1)
                     mouseTap(MP.LKM_MOUSE)
 
-
                     print(points)
 
                 break
@@ -298,7 +286,7 @@ class FindButton:
 
     def findResult(template=resultButton, debug_mode=False):
         while True:
-            screenshot = get_screenshot()
+            screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)
@@ -359,10 +347,10 @@ class FindButton:
 
         return points
 
-    def findPlusButton(template=plusButton, debug_mode = False):
+    def findPlusButton(template=plusButton, debug_mode=False):
 
         while True:
-            screenshot = get_screenshot()  # получение кадров с камеры
+            screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             cv.minMaxLoc(screenshot)
@@ -425,7 +413,7 @@ class FindButton:
     def findSearchMainButton(template=searchMain, debug_mode=False):
 
         while True:
-            screenshot = get_screenshot()  # получение кадров с камеры
+            screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             cv.minMaxLoc(screenshot)

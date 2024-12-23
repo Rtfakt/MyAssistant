@@ -1,5 +1,5 @@
 from mouse import initialMousePosition
-from get_screenshot import get_screenshot
+from monitor_capture import MonitorCapture
 
 import numpy as np
 import cv2 as cv
@@ -7,9 +7,10 @@ import time
 
 from udp_client import sock, UDP_IP, UDP_PORT
 
+infoclinika_screen = MonitorCapture('monitor')
 
 def getScreenTemplate():
-    screenshot = get_screenshot()
+    screenshot = infoclinika_screen.get_screenshot()
     crop_image = screenshot[260:350, 78:930]
     cv.imwrite('example_images/ScreenTemplate.png', crop_image)
 
@@ -18,7 +19,7 @@ templateScreen = cv.imread('example_images/ScreenTemplate.png', 0)
 
 def findChanges(template=templateScreen, debug_mode=False):
     while True:
-        screenshot = get_screenshot()  # получение кадров с камеры
+        screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
         screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
         result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
         cv.minMaxLoc(screenshot)
@@ -81,7 +82,7 @@ def findChanges(template=templateScreen, debug_mode=False):
 
 def waitChanges(template=templateScreen, debug_mode=False):
     while True:
-        screenshot = get_screenshot()  # получение кадров с камеры
+        screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
         screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
         result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
         cv.minMaxLoc(screenshot)

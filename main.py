@@ -21,10 +21,8 @@ from keyboard import keyboardLongTap
 from find_title import FindTitles as FT
 from openpyxl import load_workbook
 import arrow
-
+from monitor_capture import MonitorCapture
 FIOList = deque([
-
-
 
 ])
 my_iter = iter(FIOList)
@@ -110,18 +108,21 @@ def autoFluraFromDict():  # Автоматическая полная флюор
 
 
 
-#autoOGKCT()
-#auto_fluro_ct()
+OGKNormaCT()
+
+
+# autoOGKCT()
+# auto_fluro_ct()
 # autoFluraFromDict()
-#OBPNorma()
+# OBPNorma()
 # findPatientWithBirth()
 # fluraObpSeparetedCT()
-#craniumOgkSeparatedCT()
-#ogkObpSeparatedCT()
+# craniumOgkSeparatedCT()
+# ogkObpSeparatedCT()
 # autoFluraFromList()
 # fluraNormaShort()
 # autoFluraNormaRefferal()
-#urografiaNorma()
+# urografiaNorma()
 # autoFluraCT()
 # ppnSinusitRight()
 # kneesJoints()

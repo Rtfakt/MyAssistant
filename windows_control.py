@@ -1,5 +1,5 @@
 from mouse import initialMousePosition
-from get_screenshot import get_screenshot
+from monitor_capture import MonitorCapture
 
 import numpy as np
 import cv2 as cv
@@ -7,7 +7,7 @@ import time
 
 from udp_client import sock, UDP_IP, UDP_PORT
 
-
+infoclinika_screen = MonitorCapture('monitor')
 class WindowsControl:
     elPodProtocWindow = cv.imread('images/windows/elPodProtocWindow.png', 0)
     OMCWindow = cv.imread('images/windows/OMC.png', 0)
@@ -15,7 +15,7 @@ class WindowsControl:
 
     def find(template, debug_mode=False):
         while True:
-            screenshot = get_screenshot()  # получение кадров с камеры
+            screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             cv.minMaxLoc(screenshot)
@@ -77,7 +77,7 @@ class WindowsControl:
 
     def wait(template, debug_mode=False):
         while True:
-            screenshot = get_screenshot()  # получение кадров с камеры
+            screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
             cv.minMaxLoc(screenshot)
