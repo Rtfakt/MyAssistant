@@ -1,10 +1,10 @@
 import time
 
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP
+from keyboard import keyboardTap, Keyboard as KP
 from macros.cranium_macros import craniumNorma
-from macros.lungs_macros import OGKNormaCT, fluraNormaCT
+from macros.lungs_macros import rOGKNorma, fluraNormaCT
 from macros.obp_macros import OBPNorma, urografiaNorma
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
 from find_errors import FindErrors as FE

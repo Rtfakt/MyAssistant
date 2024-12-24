@@ -1,7 +1,7 @@
 import time
 
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from keyboard import keyboardTap, Keyboard as KP
+from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
 from find_refferal import FindRefferal as FR

@@ -3,7 +3,9 @@ import cv2 as cv
 import time
 from monitor_capture import MonitorCapture
 from udp_client import sock, UDP_IP, UDP_PORT
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from mouse import mouseTap, Mouse as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap
+import operator
+
 
 infoclinika_screen = MonitorCapture('monitor')
 class FindButton:

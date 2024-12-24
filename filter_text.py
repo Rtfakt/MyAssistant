@@ -1,9 +1,9 @@
 import re
 import time
 from dict_rus_letters import dictRusLetters
-from keyboard import KeyboardPackagesUdp
+from keyboard import Keyboard
 from udp_client import sock, UDP_IP, UDP_PORT
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP, keyboardLongTap
+from keyboard import keyboardTap, Keyboard as KP, keyboardLongTap
 
 
 def filter_text(text):

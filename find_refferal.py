@@ -4,7 +4,7 @@ import time
 from find_button import FindButton as FB
 from monitor_capture import MonitorCapture
 from udp_client import sock, UDP_IP, UDP_PORT
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 
 infoclinika_screen = MonitorCapture('monitor')
 class FindRefferal():
@@ -87,7 +87,7 @@ class FindRefferal():
                     mouseTap(MP.LKM_MOUSE)
                 break
             else:
-                screenshot = get_screenshot()  # получение кадров с камеры
+                screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
                 screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
                 result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны
                 min_val, max_val, min_loc, max_loc = cv.minMaxLoc(screenshot)

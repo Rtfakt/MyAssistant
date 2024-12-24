@@ -1,7 +1,7 @@
 from find_button import FindButton as FB
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP
+from keyboard import keyboardTap, Keyboard as KP
 from write_text import writeText
-from mouse import mouseTap, MousePackagesUdp as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap
+from mouse import mouseTap, Mouse as MP, mousePosition, mouseDoubleLKMTap
 
 
 PatientDict = {}

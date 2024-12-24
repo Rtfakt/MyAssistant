@@ -3,10 +3,10 @@ import cv2 as cv
 import time
 
 from find_button import FindButton as FB
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP
+from keyboard import keyboardTap, Keyboard as KP
 from mouse import initialMousePosition
 from monitor_capture import MonitorCapture
-from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
+from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from write_text import writeText, writeOMC
 from windows_control import WindowsControl as WC
 

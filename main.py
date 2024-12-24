@@ -10,18 +10,19 @@ from macros.double_separeted_macros import ogkObpSeparatedCT, fluraObpSeparatedC
 from macros.obp_macros import OBPNorma, urografiaNorma
 from write_text import writeText, writePass, writeKey
 from macros.double_macros import craniumLungsMacros, OgkObpNorma
-from macros.lungs_macros import fluraNormaShort, fluraNorma, rOGK, rOGKPrint, fluraNormaCT, OGKNormaCT
+from macros.lungs_macros import fluraNorma, fluraNormaCT, rOGKNorma
 from find_button import FindButton as FB
 from macros.macros import startIK, restartIK, endIK, keyMacros
 from macros.ppn_macros import ppnSinusitRight, ppnNorma, ppnSinusitLeft
 from omc_control import getScreenTemplate, waitChanges
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP
-from mouse import mouseTap, MousePackagesUdp as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap
+from keyboard import keyboardTap, Keyboard as KP
+from mouse import mouseTap, Mouse as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap
 from keyboard import keyboardLongTap
 from find_title import FindTitles as FT
 from openpyxl import load_workbook
 import arrow
 from monitor_capture import MonitorCapture
+from find_objects import FindObjects
 FIOList = deque([
 
 ])
@@ -45,7 +46,7 @@ def autoFluraNormaRefferal():  # Автоматическая флюорогра
             waitChanges()
             time.sleep(3)
             create_referal()  # cоздаем направление
-            fluraNormaShort()
+            fluraNormaCT()
             time.sleep(3)
         except StopIteration:
             break
@@ -107,9 +108,8 @@ def autoFluraFromDict():  # Автоматическая полная флюор
         time.sleep(3)
 
 
-
-OGKNormaCT()
-
+FindObjects.find(template=FindObjects.F8Button, operator_w=FindObjects.subtraction, w_value=5)
+#FB.findF8()
 
 # autoOGKCT()
 # auto_fluro_ct()
@@ -743,20 +743,20 @@ class Ui_MainWindow(object):
         self.pushButton_TBCExodusRight.setText(_translate("MainWindow", "Исход TBC в плотные очаги справа "))
         self.pushButton_TBCExodusRight_2.setText(_translate("MainWindow", "Исход TBC в плотные очаги слева"))
         self.OGKButton_OGKprint.setText(_translate("MainWindow", "ОГК норма(Печать)"))
-        self.OGKButton_OGKprint.clicked.connect(lambda: rOGKPrint())
+        self.OGKButton_OGKprint.clicked.connect(lambda: rOGKNorma(print=True))
         self.OGKAutoButton.setText(_translate("MainWindow", "ОГК (Авто)"))
         self.OGKAutoButton.clicked.connect(lambda: autoOGKNorma())
         self.pushButton_fluraNormaAvto.setText(_translate("MainWindow", "Флюоро (авто)"))
         self.pushButton_fluraNormaAvto.clicked.connect(lambda: autoFluraNorma())
         self.OGKButtonCT.setText(_translate("MainWindow", "ОГК норма (СТ)"))
-        self.OGKButtonCT.clicked.connect(lambda: OGKNormaCT())
+        self.OGKButtonCT.clicked.connect(lambda: rOGKNorma(print=True, CT=True))
         self.pushButton_fluraNormaCT.setText(_translate("MainWindow", "Флюорография норма(СТ)"))
         self.pushButton_fluraNormaCT.clicked.connect(lambda: fluraNormaCT())
         self.pushButton_pneumonia_right.setText(_translate("MainWindow", "Правосторонняя пневмония"))
         self.pushButton_pneumonia_left.setText(_translate("MainWindow", "Левосторонняя пневмония"))
         self.pushButton_pneumonia_right_left.setText(_translate("MainWindow", "Двусторонняя пневмония"))
         self.pushButton_OGK_norma.setText(_translate("MainWindow", "ОГК норма"))
-        self.pushButton_OGK_norma.clicked.connect(lambda: rOGK())
+        self.pushButton_OGK_norma.clicked.connect(lambda: rOGKNorma())
         self.pushButton_plevrit_left.setText(_translate("MainWindow", "Левосторонний плеврит"))
         self.pushButton_plevrit_right.setText(_translate("MainWindow", "Правосторонний плеврит"))
         self.pushButton_fluraShortAuto.setText(_translate("MainWindow", "Флюоро короткая(авто)"))

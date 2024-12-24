@@ -5,7 +5,7 @@ from udp_client import UDP_IP, sock, UDP_PORT
 
 # Пакеты для UDP клавиатуры
 
-class KeyboardPackagesUdp:
+class Keyboard:
     All_KEYS_KEYBOARD_UP = "345680000000000000"
     A = "345610040000000000"
     B = "345610050000000000"
@@ -103,5 +103,5 @@ def keyboardLongTap(MESSAGE):
 def keyboardTap(MESSAGE) :#метод нажимает и отпускает кнопку клавиатуры
     sock.sendto(MESSAGE.encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.1)
-    sock.sendto(KeyboardPackagesUdp.All_KEYS_KEYBOARD_UP.encode(), (UDP_IP, UDP_PORT))
+    sock.sendto(Keyboard.All_KEYS_KEYBOARD_UP.encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.1)

@@ -12,12 +12,12 @@ infoclinika_screen = MonitorCapture('monitor')
 def getScreenTemplate():
     screenshot = infoclinika_screen.get_screenshot()
     crop_image = screenshot[260:350, 78:930]
-    cv.imwrite('example_images/ScreenTemplate.png', crop_image)
+    #cv.imwrite('example_images/ScreenTemplate.png', crop_image)
 
-templateScreen = cv.imread('example_images/ScreenTemplate.png', 0)
+#templateScreen = cv.imread('example_images/ScreenTemplate.png', 0)
 
 
-def findChanges(template=templateScreen, debug_mode=False):
+def findChanges(template, debug_mode=False):
     while True:
         screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
         screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым
@@ -80,7 +80,7 @@ def findChanges(template=templateScreen, debug_mode=False):
     return points
 
 
-def waitChanges(template=templateScreen, debug_mode=False):
+def waitChanges(template, debug_mode=False):
     while True:
         screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
         screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)  # делаем изображение серым

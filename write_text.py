@@ -1,7 +1,7 @@
 import time
 from dict_rus_letters import dictRusLetters
 from udp_client import sock, UDP_IP, UDP_PORT
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP, keyboardLongTap
+from keyboard import keyboardTap, Keyboard as KP, keyboardLongTap
 
 
 def writeTextAuto(name):
