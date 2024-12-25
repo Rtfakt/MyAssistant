@@ -3,7 +3,7 @@ from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mo
 from keyboard import keyboardTap, keyboardLongTap, Keyboard as KP
 def create_referal():
     #Нажимаем
-    FB.findPlusButton()
+    FB.find(FB.plusButton, operator_w=FB.subtraction, w_value=60)
     mouseTap(MP.LKM_MOUSE)
     # смена языка на русский
     initialMousePosition()

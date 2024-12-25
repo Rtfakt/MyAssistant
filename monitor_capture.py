@@ -14,9 +14,6 @@ class MonitorCapture:
 
     def __init__(self, monitor_name):
         self.hwnd = win32gui.FindWindow(None, monitor_name)
-        if not self.hwnd:
-            raise
-
         # Получаем размер окна
         window_rect = win32gui.GetWindowRect(self.hwnd)
         self.w = window_rect[2] - window_rect[0]
@@ -29,28 +26,27 @@ class MonitorCapture:
         self.cropped_y = titlebar_pixels
         self.offset_x = window_rect[0] + self.cropped_x
         self.offset_y = window_rect[1] + self.cropped_y
-
     def get_screenshot(self):
-        wDC = win32gui.GetWindowDC(self.hwnd)
-        dcObj = win32ui.CreateDCFromHandle(wDC)
-        cDC = dcObj.CreateCompatibleDC()
-        dataBitMap = win32ui.CreateBitmap()
-        dataBitMap.CreateCompatibleBitmap(dcObj, self.w, self.h)
-        cDC.SelectObject(dataBitMap)
-        cDC.BitBlt((0, 0), (self.w, self.h), dcObj, (self.cropped_x, self.cropped_y), win32con.SRCCOPY)
-        signedIntsArray = dataBitMap.GetBitmapBits(True)
-        img = np.fromstring(signedIntsArray, dtype='uint8')
-        img.shape = (self.h, self.w, 4)
-        dcObj.DeleteDC()
-        cDC.DeleteDC()
-        win32gui.ReleaseDC(self.hwnd, wDC)
-        win32gui.DeleteObject(dataBitMap.GetHandle())
+        try:
+            wDC = win32gui.GetWindowDC(self.hwnd)
+            dcObj = win32ui.CreateDCFromHandle(wDC)
+            cDC = dcObj.CreateCompatibleDC()
+            dataBitMap = win32ui.CreateBitmap()
+            dataBitMap.CreateCompatibleBitmap(dcObj, self.w, self.h)
+            cDC.SelectObject(dataBitMap)
+            cDC.BitBlt((0, 0), (self.w, self.h), dcObj, (self.cropped_x, self.cropped_y), win32con.SRCCOPY)
+            signedIntsArray = dataBitMap.GetBitmapBits(True)
+            img = np.fromstring(signedIntsArray, dtype='uint8')
+            img.shape = (self.h, self.w, 4)
+            dcObj.DeleteDC()
+            cDC.DeleteDC()
+            win32gui.ReleaseDC(self.hwnd, wDC)
+            win32gui.DeleteObject(dataBitMap.GetHandle())
 
-        img = img[..., :3]
+            img = img[..., :3]
 
-        img = np.ascontiguousarray(img)
+            img = np.ascontiguousarray(img)
 
-        return img
-
-
-
+            return img
+        except:
+            print('Не удалось найти монитор')

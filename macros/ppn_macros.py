@@ -23,7 +23,7 @@ def ppnNorma():
     FB.findWithTime(FB.prodBezSozSlu)
     mouseTap(MP.LKM_MOUSE)
     # История болезни
-    FB.findF8()
+    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография придаточных пазух носа
     FB.find(FB.ppnShablon)
@@ -88,7 +88,7 @@ def ppnSinusitRight():
     FB.findWithTime(FB.prodBezSozSlu)
     mouseTap(MP.LKM_MOUSE)
     # История болезни
-    FB.findF8()
+    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография придаточных пазух носа
     FB.find(FB.ppnShablon)
@@ -153,7 +153,7 @@ def ppnSinusitLeft():
     FB.findWithTime(FB.prodBezSozSlu)
     mouseTap(MP.LKM_MOUSE)
     # История болезни
-    FB.findF8()
+    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография придаточных пазух носа
     FB.find(FB.ppnShablon)

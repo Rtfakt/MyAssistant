@@ -25,7 +25,7 @@ def shop():
     FB.findWithTime(FB.prodBezSozSlu)
     mouseTap(MP.LKM_MOUSE)
     # История болезни
-    FB.findF8()
+    FindButton.find(template=FindButton.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография позвоночника
     FB.find(FB.rentgenUnifMainShablon)
@@ -119,7 +119,7 @@ def pop(scolioz=False):
     FB.findWithTime(FB.prodBezSozSlu)
     mouseTap(MP.LKM_MOUSE)
     # История болезни
-    FB.findF8()
+    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография позвоночника
     FB.find(FB.backboneShablon)
@@ -237,7 +237,7 @@ def shopGop():
     FB.findWithTime(FB.prodBezSozSlu)
     mouseTap(MP.LKM_MOUSE)
     # История болезни
-    FB.findF8()
+    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенография позвоночника
     FB.find(FB.backboneShablon)

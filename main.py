@@ -108,8 +108,7 @@ def autoFluraFromDict():  # Автоматическая полная флюор
         time.sleep(3)
 
 
-FindObjects.find(template=FindObjects.F8Button, operator_w=FindObjects.subtraction, w_value=5)
-#FB.findF8()
+
 
 # autoOGKCT()
 # auto_fluro_ct()
@@ -120,7 +119,6 @@ FindObjects.find(template=FindObjects.F8Button, operator_w=FindObjects.subtracti
 # craniumOgkSeparatedCT()
 # ogkObpSeparatedCT()
 # autoFluraFromList()
-# fluraNormaShort()
 # autoFluraNormaRefferal()
 # urografiaNorma()
 # autoFluraCT()

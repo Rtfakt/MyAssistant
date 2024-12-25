@@ -24,7 +24,7 @@ def craniumNorma():
     # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
     # История болезни
-    FB.findF8()
+    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенографическое исследование(униф.)
     FB.find(FB.rentgenUnifMainShablon)
