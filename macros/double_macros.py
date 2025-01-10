@@ -5,6 +5,7 @@ from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
 from find_errors import FindErrors as FE
 from find_refferal import FindRefferal as FR
+from find_objects import FindObjects
 
 
 
@@ -22,7 +23,7 @@ def craniumLungsMacros():
     # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
     # История болезни
-    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
+    FB.find(template=FB.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенографическое исследование(униф.)
     FB.find(FB.rentgenUnifMainShablon)
@@ -118,7 +119,7 @@ def OgkObpNorma():
     # Продолжить без создания случая
     FB.findWithTime(FB.prodBezSozSlu)
     # История болезни
-    FindButton.find(template=FindButton2.F8Button, operator_w=FindObjects.subtraction, w_value=5)
+    FB.find(template=FB.F8Button, operator_w=FindObjects.subtraction, w_value=5)
     mouseTap(MP.LKM_MOUSE)
     # Рентгенографическое исследование(униф.)
     FB.find(FB.rentgenUnifMainShablon)

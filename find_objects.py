@@ -88,6 +88,7 @@ class FindObjects:
     def findWithTime(template, timeWait=1, debug_mode=False):
         stop = time.time() + timeWait
         while time.time() < stop:
+            infoclinika_screen = MonitorCapture('monitor')
             screenshot = infoclinika_screen.get_screenshot()
             screenshot = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
             result = cv.matchTemplate(screenshot, template, cv.TM_CCOEFF_NORMED)  # сравниваем шаблоны

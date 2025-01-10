@@ -23,6 +23,7 @@ from openpyxl import load_workbook
 import arrow
 from monitor_capture import MonitorCapture
 from find_objects import FindObjects
+from get_fluoro_data import get_fluoro_data
 FIOList = deque([
 
 ])
@@ -82,7 +83,7 @@ def autoOGKCT():
             time.sleep(0.5)
             writeText(FIO)  # Пишем полученные данные на другом компе
             time.sleep(3)
-            OGKNormaCT()
+            rOGKNorma()
             time.sleep(3)
         except StopIteration:
             break
@@ -110,6 +111,7 @@ def autoFluraFromDict():  # Автоматическая полная флюор
 
 
 
+get_fluoro_data()
 # autoOGKCT()
 # auto_fluro_ct()
 # autoFluraFromDict()
@@ -135,7 +137,7 @@ def autoFluraFromDict():  # Автоматическая полная флюор
 # writePass()
 # getText()
 # time.sleep(3)
-# fluraNorma()
+#fluraNorma()
 # rOGK()
 # antiSleep()
 # pop()

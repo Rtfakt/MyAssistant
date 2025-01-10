@@ -213,3 +213,35 @@ def keyMacros():
     mousePosition(1000, 620)
     mouseTap(MP.LKM_MOUSE)
     writePass()
+
+
+def dop_block():    # Доп. блок
+    # кнопка добавить
+    FB.find(FB.plusAddButton)
+    mouseTap(MP.LKM_MOUSE)
+    # область
+    FB.find(FB.oblast)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Грудь
+    FB.find(FB.grudButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Метод
+    FB.find(FB.metod)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downButton)
+    mouseTap(MP.LKM_MOUSE)
+    # Рентген
+    FB.find(FB.rentgen)
+    mouseTap(MP.LKM_MOUSE)
+    # исследования
+    FB.find(FB.issledovanie)
+    mouseDoubleLKMTap()
+    # Кнопка развернуть
+    FB.find(FB.downButton)
+    mouseTap(MP.LKM_MOUSE)
+    keyboardTap(KP.DownArrow)
+    keyboardTap(KP.ENTER)

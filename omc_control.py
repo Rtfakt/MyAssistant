@@ -12,9 +12,9 @@ infoclinika_screen = MonitorCapture('monitor')
 def getScreenTemplate():
     screenshot = infoclinika_screen.get_screenshot()
     crop_image = screenshot[260:350, 78:930]
-    #cv.imwrite('example_images/ScreenTemplate.png', crop_image)
+    cv.imwrite('example_images/ScreenTemplate.png', crop_image)
 
-#templateScreen = cv.imread('example_images/ScreenTemplate.png', 0)
+templateScreen = cv.imread('example_images/ScreenTemplate.png', 0)
 
 
 def findChanges(template, debug_mode=False):

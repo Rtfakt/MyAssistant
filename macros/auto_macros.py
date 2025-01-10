@@ -102,6 +102,7 @@ def autoOGKNorma():
                     FB.find(FB.serachOMCTextField) # ищем поле ввода номера ОМС
                     writeOMC(OMC) # Пишем полученные данные на другом компе
                     keyboardTap(KP.ENTER)
-                    waitChanges()
-                    OGKNormaCT()
+                    time.sleep(3)
+                    #waitChanges()
+                    rOGKNorma()
                     os.remove(filePath)
