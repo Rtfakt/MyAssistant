@@ -1,6 +1,6 @@
 import time
 
-from keyboard import keyboardTap, Keyboard as KP
+from keyboard_emulator import keyboardTap, Keyboard as KP
 from macros.cranium_macros import craniumNorma
 from macros.lungs_macros import rOGKNorma, fluraNormaCT
 from macros.obp_macros import OBPNorma, urografiaNorma
@@ -12,26 +12,26 @@ from find_refferal import FindRefferal as FR
 
 
 def ogkObpSeparatedCT():
-    OGKNormaCT()
-    FB.findSearchMainButton()
+    rOGKNorma()
+    FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150)#находим поле поиска в инфоклинике
     OBPNorma()
 
 
 def fluraObpSeparatedCT():
     fluraNormaCT()
-    FB.findSearchMainButton()
+    FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150)#находим поле поиска в инфоклинике
     OBPNorma()
 
 
 def ogkObpUrografiaSeparatedCT():
     OGKNormaCT()
-    FB.findSearchMainButton()
+    FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150)#находим поле поиска в инфоклинике
     OBPNorma()
-    FB.findSearchMainButton()
+    FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150)#находим поле поиска в инфоклинике
     urografiaNorma()
 
 
 def craniumOgkSeparatedCT():
     craniumNorma()
-    FB.findSearchMainButton()
+    FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150)#находим поле поиска в инфоклинике
     OGKNormaCT()

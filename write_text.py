@@ -1,7 +1,7 @@
 import time
 from dict_rus_letters import dictRusLetters
 from udp_client import sock, UDP_IP, UDP_PORT
-from keyboard import keyboardTap, Keyboard as KP, keyboardLongTap
+from keyboard_emulator import keyboardTap, Keyboard as KP, keyboardLongTap
 from find_button import FindButton as FB
 from mouse import Mouse as MP, mouseTap
 
@@ -51,7 +51,7 @@ def writePass():
     keyboardTap(KP.K)
     keyboardTap(KP.A)
     keyboardTap(KP.V)
-    keyboardTap(KP.NUM6)
+    keyboardTap(KP.NUM8)
     # Подтвердить
     keyboardTap(KP.ENTER)
 

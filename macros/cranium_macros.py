@@ -1,11 +1,11 @@
 import time
 
-from keyboard import keyboardTap, Keyboard as KP
+from keyboard_emulator import keyboardTap, Keyboard as KP
 from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
 from find_refferal import FindRefferal as FR
-
+from find_objects import FindObjects
 
 
 

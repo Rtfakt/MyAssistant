@@ -2,7 +2,7 @@ import numpy as np
 import cv2 as cv
 import time
 
-from keyboard import keyboardTap, Keyboard as KP
+from keyboard_emulator import keyboardTap, Keyboard as KP
 from mouse import initialMousePosition
 from monitor_capture import MonitorCapture
 from udp_client import sock, UDP_IP, UDP_PORT

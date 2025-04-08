@@ -6,8 +6,7 @@ import cv2 as cv
 import os
 from collections import deque
 from filter_text import filter_text
-from keyboard import keyboardTap, keyboardLongTap, Keyboard as KP
-from open_programs import OpenPrograms as OP
+from keyboard_emulator import keyboardTap, keyboardLongTap, Keyboard as KP
 import pyautogui as pag
 
 from write_text import writeOMC

@@ -1,8 +1,8 @@
 import time
 import pyperclip
 
-import keyboard
-from keyboard import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
+import keyboard_emulator
+from keyboard_emulator import keyboardTap, keyboardLongTap, KeyboardPackagesUdp as KP
 from filter_text import filter_text, writeOMC
 from open_programs import OpenPrograms as OP
 import pyautogui as pag

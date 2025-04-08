@@ -1,6 +1,6 @@
 from find_button import FindButton as FB
 from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
-from keyboard import keyboardTap, keyboardLongTap, Keyboard as KP
+from keyboard_emulator import keyboardTap, keyboardLongTap, Keyboard as KP
 def create_referal():
     #Нажимаем
     FB.find(FB.plusButton, operator_w=FB.subtraction, w_value=60)

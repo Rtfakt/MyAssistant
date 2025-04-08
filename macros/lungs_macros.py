@@ -1,5 +1,5 @@
 import time
-from keyboard import keyboardTap, Keyboard as KP
+from keyboard_emulator import keyboardTap, Keyboard as KP
 from mouse import mouseTap, Mouse as MP, mousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
@@ -270,6 +270,9 @@ def rOGKNorma(print=False, CT=False):
         keyboardTap(KP.F5)
         # OK
         keyboardTap(KP.ENTER)
+        # подписать ENTER
+        keyboardTap(KP.ENTER)
+        time.sleep(1)
     else:
         # подписать ENTER
         keyboardTap(KP.ENTER)

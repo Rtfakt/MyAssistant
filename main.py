@@ -1,4 +1,7 @@
 import time
+import arrow
+import threading
+import keyboard
 from collections import deque
 from find_patient import find_patient
 from get_text import getText
@@ -8,22 +11,27 @@ from macros.cranium_macros import craniumNorma
 from macros.create_refferal_macros import create_referal
 from macros.double_separeted_macros import ogkObpSeparatedCT, fluraObpSeparatedCT, craniumOgkSeparatedCT
 from macros.obp_macros import OBPNorma, urografiaNorma
-from write_text import writeText, writePass, writeKey
+from write_text import writeText, writePass, writeKey, writeTextAuto
 from macros.double_macros import craniumLungsMacros, OgkObpNorma
 from macros.lungs_macros import fluraNorma, fluraNormaCT, rOGKNorma
 from find_button import FindButton as FB
 from macros.macros import startIK, restartIK, endIK, keyMacros
 from macros.ppn_macros import ppnSinusitRight, ppnNorma, ppnSinusitLeft
 from omc_control import getScreenTemplate, waitChanges
-from keyboard import keyboardTap, Keyboard as KP
-from mouse import mouseTap, Mouse as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap
-from keyboard import keyboardLongTap
+from keyboard_emulator import keyboardTap, Keyboard as KP
+from mouse import mouseTap, Mouse as MP, initialMousePosition, mousePosition, mouseDoubleLKMTap, longTapLKMMouse
+from keyboard_emulator import keyboardLongTap
 from find_title import FindTitles as FT
 from openpyxl import load_workbook
-import arrow
 from monitor_capture import MonitorCapture
 from find_objects import FindObjects
-from get_fluoro_data import get_fluoro_data
+from get_fluoro_data import get_fluoro_data, write_fluoro_patient, debug_fluoro_n
+from find_refferal import FindRefferal as FR
+from find_archimed_button import FindArchimedButton as FAB
+from find_digipax_button import FindDigiPaxButton as FDB
+from macros.archimed_macros import archimedNorma
+
+
 FIOList = deque([
 
 ])
@@ -32,13 +40,30 @@ my_iter = iter(FIOList)
 i = 0
 PatientDict = {}
 
+def on_triggered():
+    get_fluoro_data()
+
+def key_watcher():
+    keyboard.add_hotkey('ctrl+shift', on_triggered)
+    keyboard.wait('esc')
+
+thread_ = threading.Thread(target=key_watcher)
+thread_.start()
+
+#initialMousePosition()
+#mousePosition(100, 100)
+#mousePosition(1777, 1060)
+#mouseTap(MP.LKM_MOUSE)
+
+
+
 
 def autoFluraNormaRefferal():  # Автоматическая флюорография с созданием направления
     while True:
         try:
             FIO = next(my_iter)
             print(FIO)
-            FB.findSearchMainButton()  # находим поле поиска
+            FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150)#находим поле поиска в инфоклинике
             mouseTap(MP.LKM_MOUSE)
             keyboardLongTap(KP.LeftControl)  # выделение текста
             keyboardTap(KP.A)
@@ -58,7 +83,7 @@ def auto_fluro_ct():  # Автоматическая флюорография д
         try:
             FIO = next(my_iter)
             print(FIO)
-            FB.findSearchMainButton()  # находим поле поиска
+            FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150)#находим поле поиска в инфоклинике  # находим поле поиска
             mouseTap(MP.LKM_MOUSE)
             keyboardLongTap(KP.LeftControl)
             keyboardTap(KP.A)
@@ -76,7 +101,7 @@ def autoOGKCT():
         try:
             FIO = next(my_iter)
             print(FIO)
-            FB.findSearchMainButton()  # находим поле поиска
+            FB.find(FB.searchMain, operator_w=FindObjects.subtraction, w_value=150) #находим поле поиска в инфоклинике
             mouseTap(MP.LKM_MOUSE)
             keyboardLongTap(KP.LeftControl)
             keyboardTap(KP.A)
@@ -108,18 +133,60 @@ def autoFluraFromDict():  # Автоматическая полная флюор
         fluraNorma()
         time.sleep(3)
 
+def digipaxNorma():
+    FDB.find(FDB.in_work)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.find(FDB.protocol_issledovania)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.find(FDB.legkie_norma)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(1)
+    keyboardTap(KP.PageDown)
+    keyboardTap(KP.PageDown)
+    keyboardTap(KP.PageDown)
+    keyboardTap(KP.PageDown)
+    FDB.find(FDB.podpisat)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.findWithTime(FDB.da, timeWait=3)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.find(FDB.podpisat)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.findWithTime(FDB.da, timeWait=3)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.find(FDB.podpisanoEP)
+    FDB.find(FDB.dobavit_podpis_med_organization)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.find(FDB.podpisat)
+    mouseTap(MP.LKM_MOUSE)
+    FDB.find(FDB.podpisanoEPOrganization)
+    keyboardTap(KP.PageUp)
+    keyboardTap(KP.PageUp)
+    keyboardTap(KP.PageUp)
+    keyboardTap(KP.PageUp)
+    FDB.find(FDB.nazad)
+    mouseTap(MP.LKM_MOUSE)
 
 
 
-get_fluoro_data()
+
+
+# digipaxNorma()
+
+
+#startIK()
+#archimedNorma()
+#FAB.find(FAB.infoclinika_down_button, debug_mode=True)
+#autoFluraNorma()
+#write_fluoro_patient()
+#get_fluoro_data()
 # autoOGKCT()
-# auto_fluro_ct()
+#auto_fluro_ct()
 # autoFluraFromDict()
-# OBPNorma()
+#OBPNorma()
 # findPatientWithBirth()
 # fluraObpSeparetedCT()
-# craniumOgkSeparatedCT()
-# ogkObpSeparatedCT()
+#craniumOgkSeparatedCT()
+#ogkObpSeparatedCT()
 # autoFluraFromList()
 # autoFluraNormaRefferal()
 # urografiaNorma()

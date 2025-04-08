@@ -1,5 +1,5 @@
 import time
-from keyboard import keyboardTap, KeyboardPackagesUdp as KP
+from keyboard_emulator import keyboardTap, KeyboardPackagesUdp as KP
 from mouse import mouseTap, MousePackagesUdp as MP, mousePosition, mouseDoubleLKMTap, initialMousePosition
 
 

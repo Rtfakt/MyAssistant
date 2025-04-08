@@ -12,10 +12,10 @@ import operator
 
 class FindObjects:
     # для точного расположения курсора относительно прямоугольника найденного объекта
-    addition = operator.add
-    subtraction = operator.sub
-    multiplication = operator.mul
-    division = operator.truediv
+    addition = operator.add #сложение
+    subtraction = operator.sub #вычитание
+    multiplication = operator.mul #умножение
+    division = operator.truediv #деление
 
     def __init__(self, addition,subtraction,  multiplication, division):
         self.addition = addition,
@@ -38,7 +38,7 @@ class FindObjects:
             # print('левая верхняя точка %s' % str(max_loc))
             # print('пороговое значение %s' % str(max_val))
 
-            threshold = 0.90
+            threshold = 0.85
             locations = np.where(result >= threshold)
             locations = list(zip(*locations[::-1]))
             # print(locations)
@@ -68,7 +68,7 @@ class FindObjects:
                     initialMousePosition()
                     sock.sendto(
                         '34564000{:05d}{:05d}'.format(center_x if center_x >= 0 else 65536 + center_x,
-                                                      center_y if center_y >= 0 else 65536 + center_y).encode(),
+                                                      center_y if center_y >= 0 else 65536 + center_y).encode(),#
                         (UDP_IP, UDP_PORT))
                     time.sleep(0.1)
 

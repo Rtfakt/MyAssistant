@@ -40,7 +40,7 @@ class FindRefferal():
             # print('левая верхняя точка %s' % str(max_loc))
             # print('пороговое значение %s' % str(max_val))
 
-            threshold = 0.95
+            threshold = 0.85
             locations = np.where(result >= threshold)
             locations = list(zip(*locations[::-1]))
             # print(locations)
@@ -98,7 +98,7 @@ class FindRefferal():
                 # print('левая верхняя точка %s' % str(max_loc))
                 # print('пороговое значение %s' % str(max_val))
 
-                threshold = 0.90
+                threshold = 0.85
                 locations = np.where(result >= threshold)
                 locations = list(zip(*locations[::-1]))
                 # print(locations)

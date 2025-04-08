@@ -1,42 +1,20 @@
 import time
 
-from write_text import writePass
+from write_text import writePass, writeText
 from find_title import FindTitles as FT
-from keyboard import keyboardTap, Keyboard as KP, keyboardLongTap
+from keyboard_emulator import keyboardTap, Keyboard as KP, keyboardLongTap
 
 from mouse import mouseTap, Mouse as MP, mousePosition, initialMousePosition, mouseDoubleLKMTap
 from find_button import FindButton as FB
 from windows_control import WindowsControl as WC
-
+from find_objects import FindObjects as FO
+from find_archimed_button import FindArchimedButton as FAB
 
 
 
 
 
 def startIK():
-    # смена языка
-    mouseTap(MP.LKM_MOUSE)
-    time.sleep(1)
-    # переключаем язык на английский
-    keyboardLongTap(KP.LeftShift)
-    keyboardTap(KP.LeftAlt)
-    #FB.find(FB.engLanguage)
-    #mouseDoubleLKMTap()
-    # user
-    initialMousePosition()
-    mousePosition(1000, 620)
-    mouseTap(MP.LKM_MOUSE)
-    keyboardLongTap(KP.LeftShift)
-    keyboardTap(KP.NUM1)
-    keyboardTap(KP.NUM3)
-    keyboardTap(KP.NUM4)
-    keyboardTap(KP.R)
-    keyboardTap(KP.E)
-    keyboardTap(KP.G)
-    keyboardTap(KP.Ю)
-    keyboardTap(KP.NUM3)
-    keyboardTap(KP.NUM7)
-    keyboardTap(KP.ENTER)
     # ярлык инфоклиники
     FB.find(FB.firstInfoclinicaButton)
     # переключаем язык на английский
@@ -64,6 +42,7 @@ def startIK():
     # поликлиника
     keyboardTap(KP.ENTER)
     WC.find(WC.authWindows)
+    mouseTap(MP.LKM_MOUSE)
     # смена поля ввода
     keyboardTap(KP.TAB)
     # ввод
@@ -80,10 +59,24 @@ def startIK():
     # картотека
     FB.find(FB.cartotekaButton)
     mouseTap(MP.LKM_MOUSE)
+    #для сортировки по карте нужно найти любого человека и отсортировать список
+    FB.find(FB.searchMain, operator_w=FO.subtraction,w_value=150)  # находим поле поиска в инфоклинике  # находим поле поиска
+    mouseTap(MP.LKM_MOUSE)
+    keyboardLongTap(KP.LeftControl)
+    keyboardTap(KP.A)
+    time.sleep(0.5)
+    writeText('Илларионова Елена')
+    time.sleep(2)
     # № амбулаторной карты
     FB.find(FB.NAmbulatKart)
+    mouseTap(MP.LKM_MOUSE)
     time.sleep(1)
     FB.find(FB.NAmbulatKart)
+    mouseTap(MP.LKM_MOUSE)
+    time.sleep(2)
+    # сворачиваем инфоклинику
+    #FB.find(FAB.svernut_infokliniku)
+    #mouseTap(MP.LKM_MOUSE)
 
 
 def endIK():

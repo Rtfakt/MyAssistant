@@ -4,10 +4,9 @@ import cv2 as cv
 import os
 from collections import deque
 from filter_text import filter_text
-from keyboard import keyboardTap, keyboardLongTap, Keyboard as KP
-from macros.lungs_macros import fluraNorma, rOGKNorma
+from keyboard_emulator import keyboardTap, keyboardLongTap, Keyboard as KP
+from macros.lungs_macros import fluraNormaCT, rOGKNorma
 from omc_control import getScreenTemplate, waitChanges
-from open_programs import OpenPrograms as OP
 import pyautogui as pag
 import asyncio
 from find_button import FindButton as FB
@@ -59,7 +58,7 @@ def autoFluraNorma():
                     keyboardTap(KP.ENTER)
                     #waitChanges()
                     time.sleep(3)
-                    fluraNorma()
+                    fluraNormaCT()
                     os.remove(filePath)
 
 

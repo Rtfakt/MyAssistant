@@ -52,3 +52,8 @@ def mouseScrollDown():  # метод нажимает и отпускает кн
     time.sleep(0.1)
     sock.sendto(Mouse.ALL_KEYS_MOUSE_UP.encode(), (UDP_IP, UDP_PORT))
     time.sleep(0.1)
+
+
+def longTapLKMMouse():
+    sock.sendto(Mouse.LKM_MOUSE.encode(), (UDP_IP, UDP_PORT))
+    time.sleep(0.1)
