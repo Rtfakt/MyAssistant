@@ -24,3 +24,6 @@ class FindArchimedButton(FindObjects):
     exit_archimed = cv.imread('images/archimed_buttons/exitArchimed.png', 0)
     infoclinika_full_screen = cv.imread('images/archimed_buttons/infoklinikaFullScreen.png', 0)
     svernut_infokliniku = cv.imread('images/archimed_buttons/svernutInfokliniku.png', 0)
+    number_patient = cv.imread('images/archimed_buttons/numberPatient.png', 0)
+    current_date_time = cv.imread('images/archimed_buttons/currentDateTime.png', 0)
+    birthsday = cv.imread('images/archimed_buttons/birthday.png', 0)

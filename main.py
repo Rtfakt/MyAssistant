@@ -30,6 +30,7 @@ from find_refferal import FindRefferal as FR
 from find_archimed_button import FindArchimedButton as FAB
 from find_digipax_button import FindDigiPaxButton as FDB
 from macros.archimed_macros import archimedNorma
+from get_archimed_data import get_arhimed_data
 
 
 FIOList = deque([
@@ -137,6 +138,7 @@ def digipaxNorma():
     FDB.find(FDB.in_work)
     mouseTap(MP.LKM_MOUSE)
     FDB.find(FDB.protocol_issledovania)
+    FDB.find(FDB.protocol_issledovania)#####
     mouseTap(MP.LKM_MOUSE)
     FDB.find(FDB.legkie_norma)
     mouseTap(MP.LKM_MOUSE)
@@ -170,11 +172,12 @@ def digipaxNorma():
 
 
 
-# digipaxNorma()
+#get_arhimed_data()
 
-
-#startIK()
+digipaxNorma()
 #archimedNorma()
+
+#writeTextAuto('Справа и Слева имеется субхондральный склероз луче-запястных, межпястных, пястно-фаланговых и межфаланговых суставов; неравномерное сужение суставной щели; костные остеофиты суставных поверхностей; краевые узуры и кистовидные просветления. околосуставной остеопороз.')
 #FAB.find(FAB.infoclinika_down_button, debug_mode=True)
 #autoFluraNorma()
 #write_fluoro_patient()

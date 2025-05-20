@@ -4,7 +4,7 @@ from udp_client import sock, UDP_IP, UDP_PORT
 from keyboard_emulator import keyboardTap, Keyboard as KP, keyboardLongTap
 from find_button import FindButton as FB
 from mouse import Mouse as MP, mouseTap
-
+import pytesseract
 def writeTextAuto(name):
     for letter in name:
         if letter in dictRusLetters:
@@ -51,7 +51,7 @@ def writePass():
     keyboardTap(KP.K)
     keyboardTap(KP.A)
     keyboardTap(KP.V)
-    keyboardTap(KP.NUM8)
+    keyboardTap(KP.NUM9)
     # Подтвердить
     keyboardTap(KP.ENTER)
 
@@ -67,3 +67,7 @@ def writeKey():
     keyboardTap(KP.NUM8)
     keyboardTap(KP.ENTER)
 
+def ocr_text(input_image):
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    text_data = pytesseract.image_to_string(input_image, lang="rus")
+    return text_data

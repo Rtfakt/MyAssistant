@@ -15,6 +15,8 @@ from find_archimed_button import FindArchimedButton as FAB
 
 
 def startIK():
+    #ярлык архимеда
+
     # ярлык инфоклиники
     FB.find(FB.firstInfoclinicaButton)
     # переключаем язык на английский

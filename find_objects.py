@@ -24,7 +24,9 @@ class FindObjects:
         self.division = division
 
     def find(template, operator_w=division, operator_h=division, w_value=2, h_value=2, debug_mode=False):
+        '''
 
+        '''
         while True:
             infoclinika_screen = MonitorCapture('monitor')
             screenshot = infoclinika_screen.get_screenshot()  # получение кадров с камеры
@@ -73,6 +75,7 @@ class FindObjects:
                     time.sleep(0.1)
 
                     print(points)
+                    return points
                 break
             else:
                 pass
